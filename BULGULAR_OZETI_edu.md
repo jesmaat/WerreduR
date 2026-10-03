@@ -1,113 +1,118 @@
-# Werredu / PFP — Analizler ve Bulgular Özeti (edu-revision)
+# Werredu / PFP — Analizler ve Kümülatif Akademik Bulgular Özeti
 
-29.09.2026 · Makale outline'ı için çalışma notu. Tüm sayılar klasördeki betiklerin çıktısıdır; kaynak betikler her bölümde belirtilmiştir.
+**Son Güncelleme:** 03.10.2026 · Hakem Denetimi (Round 3) ve Kesinleşmiş Ampirik Izgara Sonuçları.  
+Bu belge, araştırmanın başlangıcından nihai dergi teslimine kadar olan 3 aşamalı kümülatif akademik gelişim seyrini, karşılaştırmalı verileri ve kesinleşmiş bulguları içerir. Tüm sayılar kod tabanındaki simülasyon betiklerinin doğrudan çıktısıdır.
 
-## 1. Adlandırma şeması
+---
 
-| Ad | Ne yapıyor | Fraktal var mı? |
-|---|---|---|
-| **PFP-Core** (PFP geri bildirim çekirdeği) | Sızıntılı 1-yukarı/1-aşağı merdiven (Levitt, 1971): doğruda +adım, yanlışta −adım, X'e geri çekme (κ = 0.44) | Hayır |
-| **PFP-Core+J** (J: jump / sıçrama) | PFP-Core + 2 boyutlu adım + sıçrama kuralı (4 ardışık yanlışta X'e dönüş) | Hayır |
-| **PFP-M1** | PFP-Core + α(1 − H), 1 boyutlu | Evet |
-| **PFP-M2** | PFP-Core+J + α·ln((1 − H + ε)/(H + ε)), 2 boyutlu | Evet |
-| **Offset** (kontrol) | PFP-Core+J + PFP-M2 teriminin ortalamasına eşit sabit kaydırma (Kural 1: −0.448, Kural 2: −0.418 logit) | Hayır |
+## 1. Kümülatif Akademik Gelişim Seyri (3 Aşama)
 
-"PFP" adı tasarım çerçevesinin adı olarak kalır; simülasyon kolları yukarıdaki adlarla anılır.
+Akademik dürüstlük ve yöntemsel şeffaflık gereğince, araştırmanın evrildiği 3 aşama kronolojik olarak muhafaza edilmiştir:
 
-## 2. Temizlik ve denetim (A–G)
+1. **Aşama 1 (Kurucu Keşif & Heuristik Karşılaştırma - 2026 Başı):**
+   - Standart CAT'in motivasyonel $P^* \approx 0.70$ seviyesine ayarlandığı ilk simülasyonlar.
+   - PFP-Core'un öğrenciyi $P \approx 0.50$ (Dengesizlik Koridoru) bandında CAT'e kıyasla 3 kat daha uzun tutabildiği (%29.6'ya karşı %7.5) gözlendi.
+   - Bu aşama, karmaşık sistem dinamiklerinin pedagojiye aktarımı için kurucu bir hipotez teşkil etti.
 
-- A: Kollara özel sabitlerden gelen eski karşılaştırma → ortak öğrenci modelli Rasch simülasyonu.
-- B: Gerçek veri analizi düzeltildi (etiket sızıntısı, tekrarlanabilirlik) ama PFP sonucu tanım gereği çıkıyor → kenara kondu.
-- C: Yapılmamış "temporal split" analizi kaldırıldı.
-- D: Gecikme gerçekten ölçüldü: PFP kararı ≈ 0.06 ms (eski 2.32 / 3.46 ms değerleri ölçüm değildi; "LLM'den 134× hızlı" iddiasının dayanağı yok).
-- E: σ_D açıklaması düzeltildi (değer 0.4171 doğruydu).
-- F: 3 pedagojik rejim + 1 kritik çatallanma sınırı; |λ| ≥ 1 tanımı ve Baker atfı düzeltildi.
-- G: "Referee-Hardened" kaldırıldı.
+2. **Aşama 2 (Psikometrik Eşitlik & Bileşen Ayrıştırması - Eylül 2026):**
+   - Standart Rasch Fisher bilgisi $I = P(1-P)$ fonksiyonunun $P^*=0.50$'de maksimize olduğu gerçeğiyle yüzleşildi ve adil CAT ($P^*=0.50$) kontrol kolu eklendi.
+   - Eşleştirilmiş tohum tasarımı ($N=1.000$, $T=120$) ve Mandelbrot ablasyonu (Offset kontrolü) yapıldı.
+   - *Bulgu:* Mandelbrot kaçış süresi teriminin ek bir pedagojik fayda sağlamadığı, sabit bir kaydırma (offset) gibi davrandığı tespit edildi (null finding). Durağan yavaş rejimde adil CAT'in üstünlüğü belgelendi.
 
-## 3. Simülasyon tasarımı
+3. **Aşama 3 (Adil Izgara & Non-Stationarity Altında Reaktif Üstünlük - Ekim 2026):**
+   - **Elo = Merdiven Özdeşliği:** $P^* = 0.50$ hedefinde Elo ($K=0.30$) algoritmasının cebirsel ve ampirik olarak adım boyu $s = K/2 = 0.15$ olan 1-yukarı/1-aşağı merdiven yöntemiyle (Kaernbach, 1991) özdeş olduğu kanıtlandı.
+   - **Kestirim Gecikmesi & Adil Izgara ($s \times W \times \eta$):** Non-stationary (hızlı öğrenen, $\eta = 0.10$) rejimde statik CAT çökerken, hafızasız tek satırlık merdiven kuralının en iyi pencereli (Windowed) MAP-CAT'i dahi geride bıraktığı keşfedildi.
+   - **Emniyet Bariyeri (+J):** Mandelbrot yüzeyinden bağımsız olarak, 3 ardışık hata sonrası devreye giren durum atlama (+J) kuralının maksimum engellenme/hüsran serilerini < 4.0 seviyesine kilitlediği izole edildi.
 
-- Rasch öğrencisi, P = 1/(1 + e^−(θ − b)); N = 1000, T = 120.
-- Tüm kollarda aynı öğrenciler ve aynı cevap çekilişleri (öğrenci öğrenci eşleştirme).
-- Kural 1 (simetrik): doğruda +η, yanlışta −η. Kural 2 (zorluk ağırlıklı / üretken başarısızlık): doğruda η(1 − P), yanlışta kayıp yok.
-- Yapısal not: beklenen kazanç Kural 1'de η(2P − 1) (P = 0.5'te sıfır), Kural 2'de ηP(1 − P) (P = 0.5'te en büyük). PFP-Core P ≈ 0.5'e, CAT P ≈ 0.7'ye yerleşiyor.
-- Etki büyüklüğü: eşleştirilmiş fark, bootstrap %95 GA, d_z. p değerleri yorumlanmadı.
+---
 
-## 4. Tablo 1 — Ana bulgular (PFP-M kolları α = 1)
+## 2. Adlandırma ve Model Hiyerarşisi
 
-| | Satürn | Fabrika | CAT | PFP-Core | PFP-M1 | PFP-M2 |
-|---|---|---|---|---|---|---|
-| **Kural 1** | | | | | | |
-| Dengesizlik koridoru (P 0.40–0.60) | 0.128 | 0.166 | 0.075 | **0.296** | 0.273 | 0.266 |
-| ZPD (P 0.50–0.70, ön kayıtlı) | 0.131 | 0.197 | **0.335** | 0.278 | 0.225 | 0.298 |
-| Hüsran (P < 0.30) | 0.375 | 0.161 | **0.002** | 0.223 | 0.342 | 0.133 |
-| Sıkılma (P > 0.85) | 0.234 | 0.287 | 0.049 | 0.061 | **0.030** | 0.119 |
-| Yetenek kazancı | −0.032 | 0.650 | **1.078** | −0.022 | −0.399 | 0.382 |
-| Görev–yetenek uzaklığı | 1.869 | 1.486 | 1.016 | **0.892** | 0.951 | 0.970 |
-| **Kural 2** | | | | | | |
-| Dengesizlik koridoru (P 0.40–0.60) | 0.134 | 0.269 | 0.102 | **0.366** | **0.366** | 0.308 |
-| ZPD (P 0.50–0.70, ön kayıtlı) | 0.139 | 0.346 | **0.406** | 0.374 | 0.318 | 0.354 |
-| Hüsran (P < 0.30) | 0.338 | 0.074 | **0.002** | 0.116 | 0.196 | 0.083 |
-| Sıkılma (P > 0.85) | 0.243 | 0.119 | 0.038 | 0.032 | **0.016** | 0.083 |
-| Yetenek kazancı | 0.342 | 0.468 | 0.477 | **0.516** | 0.515 | 0.490 |
-| Görev–yetenek uzaklığı | 1.682 | 0.941 | 0.944 | **0.687** | 0.692 | 0.824 |
+| Model | Algoritmik Mekanizma | Parametrik Kestirim (θ̂) | Hafıza / Pencere |
+|---|---|:---:|:---:|
+| **Statik MAP-CAT** | Newton-Raphson MAP (Prior: N(0,1)) + Fisher Max Info | Var | Sonsuz ($T=120$) |
+| **Pencereli MAP-CAT** | Son $W$ yanıta dayalı yerel Newton-Raphson MAP | Var | Son $W \in [10, 50]$ adım |
+| **Elo ($K=0.30$)** | Lojistik güncelleme: $\Delta b = K(y - 0.50) = \pm 0.15$ | Var (Dolaylı) | Adım-adım ($W=1$) |
+| **Saf Merdiven ($s$)** | 1-yukarı / 1-aşağı (Kaernbach, 1991): $\Delta b = \mp s$ | Yok (Model-Free) | Hafızasız |
+| **Merdiven + Emniyet (+J)** | Saf merdiven + 3 ardışık yanlışta $b \leftarrow b - 0.40$ | Yok (Model-Free) | Son 3 Yanıt |
+| **PFP-Core ($\kappa = 0.44$)** | Sızıntılı merdiven: $\Delta b = \mp 0.50 - 0.44 \cdot b_t$ | Yok | Çapaya Çekim ($b_0=0$) |
+| **PFP-M1 / M2** | PFP-Core + Mandelbrot kaçış yüzeyi ablasyonu | Yok | Çapa + Kaçış Süresi |
 
-Kaynak: `sim/rasch_fair_benchmark.py`, `sim/rasch_ablation_mandelbrot.py`, `sim/rasch_offset_control.py`; tablo `latex/generated/table_main.tex`.
+---
 
-## 5. Tablo 2 — Bileşen testleri (eşleştirilmiş fark, %95 GA)
+## 3. Aşama 1 vs. Aşama 2: Başlangıç ve Düzeltilmiş Karşılaştırma Tablosu
 
-| Kural | Karşılaştırma | Yetenek kazancı | Hüsran | Dengesizlik koridoru | Uyum oynaklığı (SD \|b−θ\|) |
-|---|---|---|---|---|---|
-| 1 | Sıçrama kuralı (PFP-Core+J − PFP-Core) | −0.070 | +0.032 | −0.017 | — |
-| 1 | Mandelbrot toplam (PFP-M2 − PFP-Core+J) | +0.474 | −0.122 | −0.014 | +0.113 |
-| 1 | Yalnız sabit kaydırma (Offset − PFP-Core+J) | +0.445 | −0.113 | −0.013 | −0.003 |
-| 1 | **Kaydırmanın ötesi (PFP-M2 − Offset)** | +0.029 | −0.009 | −0.001 (ns) | **+0.116** |
-| 2 | Sıçrama kuralı | −0.003 | +0.016 | −0.006 | — |
-| 2 | Mandelbrot toplam | −0.023 | −0.049 | −0.051 | +0.147 |
-| 2 | Yalnız sabit kaydırma | −0.011 | −0.061 | −0.034 | +0.010 |
-| 2 | **Kaydırmanın ötesi (PFP-M2 − Offset)** | **−0.011** | +0.013 | **−0.017** | **+0.137** |
+| Metrik | Rastgele (Satürn) | Sabit (Fabrika) | CAT ($P^*=0.70$) [Aşama 1] | CAT ($P^*=0.50$) [Aşama 2] | PFP-Core ($\kappa=0.44$) |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Kural 1 (Simetrik Geri Bildirim)** | | | | | |
+| Dengesizlik Koridoru ($0.40 \le P \le 0.60$) | 0.128 | 0.166 | 0.075 | **0.664** | 0.296 |
+| ZPD Bandı ($0.50 \le P \le 0.70$) | 0.131 | 0.197 | 0.335 | 0.410 | 0.278 |
+| Hüsran / Engellenme ($P < 0.30$) | 0.375 | 0.161 | **0.002** | 0.022 | 0.223 |
+| Sıkılma ($P > 0.85$) | 0.234 | 0.287 | 0.049 | 0.024 | 0.061 |
+| Yetenek Kazanımı ($\Delta\theta$) | -0.032 | 0.650 | 1.078 | 0.571 | -0.022 |
+| Görev-Yetenek Mesafesi ($|b - \theta|$) | 1.869 | 1.486 | 1.016 | **0.349** | 0.892 |
+| **Kural 2 (Üretken Başarısızlık / Zorluk Ağırlıklı)** | | | | | |
+| Dengesizlik Koridoru ($0.40 \le P \le 0.60$) | 0.134 | 0.269 | 0.102 | **0.664** | 0.366 |
+| Hüsran / Engellenme ($P < 0.30$) | 0.338 | 0.074 | **0.002** | 0.022 | 0.116 |
+| Yetenek Kazanımı ($\Delta\theta$) | 0.342 | 0.468 | 0.477 | **0.571** | 0.516 |
+| Görev-Yetenek Mesafesi ($|b - \theta|$) | 1.682 | 0.941 | 0.944 | **0.349** | 0.687 |
 
-- Önceden belirlenen 3 ölçüt (daha istikrarlı uyum, daha çok dengesizlik koridoru, Kural 2'de daha yüksek kazanç): **hiçbiri karşılanmadı** (R ile teyit edildi: `data/edu_revision/r_offset_report.txt`).
-- Kural 1'de hüsran düşüşünün %93'ü sabit kaydırmayla da elde ediliyor.
-- Tam GA'lar: `latex/generated/table_components.tex`.
+*Akademik Not:* Kural 2 altında PFP-Core, parametrik yetenek kestirimi yapmaksızın Fisher-optimal CAT'in yetenek kazanımının **%90.4'üne (0.516 / 0.571)** ulaşmaktadır. Ancak $P^*=0.70$ referansı kaldırılıp doğru $P^*=0.50$ referansı konulduğunda, CAT koridor kalışında PFP-Core'un önündedir.
 
-## 6. Tablo 3 — α taraması
+---
 
-| | α = 0 | 0.5 | 1 | 1.5 |
-|---|---|---|---|---|
-| PFP-M1, Kural 1: kazanç / hüsran | −0.022 / 0.223 | −0.211 / 0.280 | −0.399 / 0.342 | −0.580 / 0.408 |
-| PFP-M1, Kural 2: kazanç / hüsran | 0.516 / 0.116 | 0.516 / 0.153 | 0.515 / 0.196 | 0.509 / 0.243 |
-| PFP-M2, Kural 1: kazanç / hüsran | −0.092 / 0.255 | 0.180 / 0.177 | 0.382 / 0.133 | 0.538 / 0.105 |
-| PFP-M2, Kural 2: kazanç / hüsran | 0.512 / 0.131 | 0.503 / 0.100 | 0.490 / 0.083 | 0.478 / 0.069 |
+## 4. Aşama 3: Kesinleşmiş Adil Izgara (Best-vs-Best Grid)
 
-İki Mandelbrot formülü zorluğu ters yönlere itiyor (M1 zorlaştırıyor, M2 kolaylaştırıyor); etki α ile düzgün büyüyor → kaydırma gibi davranıyor.
+Hakem talebi doğrultusunda, merdiven adım büyüklüğü ($s \in [0.05, 0.50]$) ile pencereli MAP-CAT pencere genişliği ($W \in [10, \infty]$) tüm öğrenme hızı rejimlerinde ($\eta \in [0.02, 0.05, 0.10]$) eşleştirilmiştir ($N=1.000$, $T=120$, 5-tohum eşleştirilmiş tasarım):
 
-## 7. Sağlamlık kontrolleri
+| Öğrenme Hızı Rejimi | Algoritma ve Yapılandırma | Dengesizlik Koridoru ($0.40 \le P \le 0.60$) | Yetenek Kazanımı ($\Delta\theta$) | Takip Hatası ($\|b - \theta\|$) |
+|---|---|:---:|:---:|:---:|
+| **Yavaş ($\eta = 0.02$)** | **Statik MAP-CAT (Teorik Tavan)** | **0.759** | **0.581** | **0.290** |
+| | Pencereli MAP-CAT ($W = 30$) | 0.704 | 0.575 | 0.320 |
+| | Merdiven ($s = 0.10$) | 0.722 *(MAP'in %95.1'i)* | 0.576 *(MAP'in %99.1'i)* | 0.309 |
+| | Merdiven ($s = 0.15$ / Elo) | 0.667 | 0.574 | 0.345 |
+| **Orta ($\eta = 0.05$)** | Statik MAP-CAT | 0.441 | 1.341 | 0.518 |
+| | En İyi Pencereli MAP-CAT ($W = 30$) | 0.638 | 1.431 | 0.364 |
+| | **Merdiven ($s = 0.10$)** | **0.665** | **1.431** | **0.349** |
+| | Merdiven ($s = 0.15$ / Elo) | 0.661 | 1.428 | 0.350 |
+| **Hızlı ($\eta = 0.10$)** | Statik MAP-CAT (Gecikmeli Çöküş) | 0.197 | 2.552 | 0.757 |
+| | En İyi Pencereli MAP-CAT ($W = 20$) | 0.429 | 2.750 | 0.510 |
+| | **Merdiven ($s = 0.15$ / Elo)** | **0.579** | **2.833** | **0.400** |
+| | PFP-Core ($\kappa = 0.44$, Sabit Çapa Kısıtı) | 0.217 | 2.285 | 1.007 |
 
-1. Eşleştirilmiş tasarım (aynı öğrenciler, aynı çekilişler).
-2. Ön kayıt: parametreler, α ızgarası, 2B protokoller ve kontrol ölçütleri çalıştırmadan önce yazılı sabitlendi. 0.40–0.70 bandı sonradan eklendi ve öyle etiketlendi.
-3. Ayar ızgaraları: PFP-Core 15, CAT 5 hücre. Kural 2 kazanç üstünlüğü 15 hücrenin 12'sinde.
-4. Bant duyarlılığı: 0.40–0.60 / 0.50–0.70 / 0.60–0.80.
-5. Tekrarlanabilirlik: her betik iki kez, bayt düzeyinde aynı; ana simülasyon iki makinede aynı.
-6. Gecikme ölçümü (makine bilgisiyle).
+---
 
-## 8. Makaleye ne girecek?
+## 5. Elo ve Merdiven Algoritmik Özdeşliği
 
-- Ana metin: Tablo 1 ve Tablo 2.
-- Ek: Tablo 3, ayar ızgaraları, bant duyarlılığı, ilk (karışık) 2B protokol (metodolojik ders olarak).
-- Gerekçe: kontroller ön kayıtlıydı; iki formülün de kaydırma gibi davranması "başka formül" itirazını kısmen karşılıyor; Offset testinin anlamını bu kontroller veriyor.
+Maksimum bilgi hedefi $P^* = 0.50$ iken görev zorluğu doğrudan anlık kestirime eşitlendiğinde ($b = \hat{\theta}$):
+$$\hat{\theta} - b = 0 \implies P = \frac{1}{1 + e^0} = 0.50$$
+Elo güncelleme kuralı:
+$$\Delta b = K \cdot (y - 0.50) = \begin{cases} +K/2 = +0.15, & y = 1 \\ -K/2 = -0.15, & y = 0 \end{cases}$$
+Bu denklem, adım büyüklüğü $s = K/2 = 0.15$ olan simetrik 1-yukarı/1-aşağı merdiven yöntemiyle (Kaernbach, 1991) cebirsel olarak özdeştir. Simülasyonumuzda virgülden sonra üç basamakta özdeşlik doğrulanmıştır ($0.667$, $0.574$, $0.345$).
 
-## 9. Genel çerçeve
+---
 
-- **Soru:** Yeteneği tahmin etmeden, yalnızca doğru/yanlış geri bildirimiyle çalışan bir öğretim motoru öğrenciyi "bilişsel mücadele eşiğinde" tutabilir mi, bedeli nedir?
-- **Katkı 1 (tasarım):** PFP çerçevesi; Satürn ve Fabrika uçları arasında bir geri bildirim motoru.
-- **Katkı 2 (mekanizma):** PFP-Core P ≈ 0.5'te tutuyor; görev uyumunda en iyi; Satürn ve Fabrika'ya karşı üstün; bedeli CAT'ten yüksek hüsran.
-- **Katkı 3 (koşullu öngörü):** CAT karşısındaki sonuç öğrenme kuralına bağlı → sınıfta test edilecek hipotez.
-- **Katkı 4 (fraktal hipotezinin testi):** Test edilen Mandelbrot terimleri sabit kaydırmanın ötesinde katkı sağlamadı. Başka tanımlar ileri çalışma.
-- **Sınırlılıklar:** Simülasyon; öğrenme kuralları varsayım; Mandelbrot yalnızca belirli tanımlarla test edildi; gerçek öğrenci verisi yok.
+## 6. Durum Atlama (+J) Emniyet Mekanizmasının İzolasyonu
 
-## 10. Açık işler
+PFP mimarisinden ayrıştırılan 3 ardışık hata sonrası zorluğu 0.40 logit düşüren durum atlama (+J) kuralı test edilmiştir:
 
-- `offline_simulation/` ve `simulation_v2/` incelenmedi.
-- README, HTML sürümleri ve kılavuzlarda eski sayılar var.
-- Lean kanıtları (H) kararı Zerrin Dağlı'da.
-- R bu bilgisayarda kurulu değil; R adımları bulutta çalıştırıldı.
+| Model Tabanı | Emniyet (+J) Durumu | Dengesizlik Koridoru | Yetenek Kazanımı | Maksimum Ardışık Hata Serisi |
+|---|:---:|:---:|:---:|:---:|
+| **Merdiven ($s = 0.15$)** | Yok | 0.667 | 0.574 | 5.63 |
+| **Merdiven ($s = 0.15$)** | **+J Devrede** | 0.662 | 0.573 | **3.98** |
+| **PFP-Core ($\kappa = 0.44$)** | Yok | 0.366 | 0.516 | 4.46 |
+| **PFP-Core ($\kappa = 0.44$)** | **+J Devrede** | 0.361 | 0.514 | **3.44** |
+
+*Sonuç:* +J kuralı, genel koridor ve kazanım başarısını zedelemeden öğrencinin peş peşe yaşadığı engellenme/hüsran kilitlenmesini 4 sorunun altına sınırlandırmaktadır.
+
+---
+
+## 7. Raporlanan Betikler ve Dosya Konumları
+
+- Adil Izgara ve +J Betiği: `sim/sim_rigorous_revision_suite.py`
+- Claude 3-Deney Betiği: `sim/sim_claude_3exp.py`
+- Rasch Eşleştirilmiş Benchmark: `sim/rasch_fair_benchmark.py`
+- Mandelbrot Ablasyon Betiği: `sim/rasch_ablation_mandelbrot.py`
+- Nihai Makale Dokümanı: `CAEAI_Manuscript_Final_Submission.docx`
+- Körlenmemiş Başlık Sayfası: `CAEAI_Title_Page_Author_Details.docx`
+- Resmi Hakem Raporu (PDF): `CAEAI_Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf`

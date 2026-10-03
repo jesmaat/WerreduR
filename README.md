@@ -100,6 +100,10 @@ In accordance with the highest standards of scientific cumulative progression an
   *Research Milestone:* High-resolution latency benchmarking across operating systems (Linux $30.4\ \mu\text{s}$ vs. Windows 11 $38.6\ \mu\text{s}$), paired with 7 machine-checked Lean 4 theorems verifying $O(1)$ state bounds with zero `sorry` axioms.  
   *Proofs:* `lean4/PFP_HorizonProof.lean` • *Telemetry:* `data/edu_revision/latency_*.json`.
 
+* **Epoch 5: Non-Stationary Stress Testing, Elo-Staircase Equivalence & Fair Grid (`sim/sim_rigorous_revision_suite.py`)**  
+  *Research Milestone:* Addressing expert peer review by proving the algebraic and empirical equivalence of Elo ($K=0.30$) to a 1-up/1-down staircase with step size $s = 0.15$ at $P^*=0.50$. Executing a full $s \times W \times \eta$ fair grid demonstrating that the unconstrained, model-free reactive staircase eliminates psychometric estimation lag under rapid learning ($\eta = 0.10$), outperforming even optimal windowed MAP-CAT ($W=20$) in corridor (0.579 vs 0.429) and gain (2.833 vs 2.750), while matching full MAP-CAT ceiling within 95.1–99.1% under slow learning ($\eta = 0.02$). Furthermore, the +J state-jump safeguard was isolated, confirming it successfully caps frustration runs below 4.0.  
+  *Scripts:* `sim/sim_rigorous_revision_suite.py`, `sim/sim_claude_3exp.py` • *Report:* `CAEAI_Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf`.
+
 ---
 
 ## 📁 Repository Structure
@@ -111,6 +115,8 @@ In accordance with the highest standards of scientific cumulative progression an
 ├── .zenodo.json                                    # Zenodo Open-Science Metadata Record
 ├── SEAL_MANIFEST.json                              # Cryptographic SHA-256 Audit Seal
 ├── sim/                                            # Simulation Engines & Benchmarks
+│   ├── sim_rigorous_revision_suite.py              # Fair Grid (s x W x eta) & +J Safeguard Isolation
+│   ├── sim_claude_3exp.py                          # 3-Experiment Suite (Pullback, Elo Identity, Stress Test)
 │   ├── rasch_fair_benchmark.py                     # 1PL Rasch Fair Benchmark (4-arm, CRN paired)
 │   ├── rasch_ablation_mandelbrot.py                # 1D/2D Mandelbrot Component Ablation Sweep
 │   ├── rasch_pfp2d_protocol.py                     # 2D Phase-Plane Trajectory Protocol

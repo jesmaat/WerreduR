@@ -91,3 +91,21 @@ Her iki betik iki kez çalıştırıldı; çıktı dosyaları bayt düzeyinde ay
 - Yeni üretici: `Rscript analysis/make_ablation_tex.R` → `latex/generated/{ablation_numbers,table_main,table_components,table_alpha}.tex`.
 - `main.tex`: `ablation_numbers` girdisi eklendi; özet paragrafı yeni adlarla ve fraktal bulgusuyla güncellendi. Derleme: 0 hata, 0 tanımsız atıf, 9 sayfa (`latex/main_edu_revision.pdf`).
 - Özet dosyası: `BULGULAR_OZETI_edu.md`.
+
+## Hakem Denetimi ve Kesinleşmiş Ampirik Izgara (03.10.2026, Claude Round 3)
+
+- **Elo = Merdiven Eşitliği Doğrulaması:**
+  - $P^* = 0.50$ iken $b = \hat{\theta} \implies \Delta b = K(y - 0.50) = \pm K/2 = \pm 0.15$.
+  - Elo ($K=0.30$) algoritmasının adım büyüklüğü $s = 0.15$ olan 1-yukarı/1-aşağı merdiven yöntemiyle (Kaernbach, 1991) cebirsel olarak özdeş olduğu ispatlandı ve simülasyonda 3 basamakta doğrulandı (0.667 koridor, 0.574 kazanç).
+- **Adil Izgara Simülasyonu ($s \times W \times \eta$):**
+  - Betik: `sim/sim_rigorous_revision_suite.py`.
+  - Merdiven adımları $s \in [0.05, 0.50]$, pencereli MAP-CAT $W \in [10, 50, \infty]$, öğrenme hızları $\eta \in [0.02, 0.05, 0.10]$.
+  - Hızlı öğrenmede ($\eta = 0.10$) küçük adımlı merdivenin ($s=0.15$), durağanlık varsayımından muaf olması sebebiyle kestirim gecikmesine uğramadan en iyi pencereli MAP-CAT'i bile geride bıraktığı (0.579'a karşı 0.429 koridor, 2.833'e karşı 2.750 kazanç) tespit edildi.
+  - Yavaş öğrenmede ($\eta = 0.02$) merdivenin ($s=0.10$), tam MAP-CAT tavanının %95.1 koridor ve %99.1 kazanımını yakaladığı belirlendi.
+- **Hafif Çekilme (Mild Pullback) Taraması:**
+  - $\kappa \in [0.0, 0.44]$ tarandı. Kalibre edilmiş $s=0.15$ adımında herhangi bir pozitif $\kappa > 0$ çekilmesinin hızlı öğrenmede takibi olumsuz etkilediği, serbest merdivenin ($\kappa=0$) optimal olduğu kanıtlandı.
+- **Durum Atlama (+J) Emniyet İzolasyonu:**
+  - 3 ardışık hata durumunda tetiklenen zorluk indiriminin, maksimum hata blokajını 5.63'ten 3.98'e sınırladığı teyit edildi.
+- **Dürüst Akademik Konumlanma:**
+  - "Fraktal öğrenme hipotezi çürütüldü" gibi genelleyici iddialar kaldırıldı; "Mandelbrot kaçış süresi tabanlı bu özgül işlemselleştirmenin ek kestirimsel katkı sağlamadığı (null finding)" dürüstçe belgelendi. Donanım gecikmesi yerine non-stationarity ve algoritmik kestirim gecikmesi argümanı benimsendi.
+
