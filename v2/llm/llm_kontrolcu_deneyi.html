@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dil modeli zorluk kontrolcüsü olarak: deney</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#EDF1F4; --panel:#FFFFFF; --ink:#18263A; --muted:#5B6B7E; --rule:#C9D3DC;
+  --llm:#0B7A75; --cat:#B26A00; --stair:#55657A; --frac:#7A3E9D; --warn:#A23B2A; --focus:#2456C9;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#101A26; --panel:#172433; --ink:#E4EBF2; --muted:#9AAABC; --rule:#2C3D50;
+  --llm:#3FC1B8; --cat:#E6A23C; --stair:#A9B8C9; --frac:#C79BE8; --warn:#F08A76; --focus:#8FB1FF; } }
+:root[data-theme="dark"]{
+  --paper:#101A26; --panel:#172433; --ink:#E4EBF2; --muted:#9AAABC; --rule:#2C3D50;
+  --llm:#3FC1B8; --cat:#E6A23C; --stair:#A9B8C9; --frac:#C79BE8; --warn:#F08A76; --focus:#8FB1FF; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums}
+main{max-width:920px;margin:0 auto;padding:28px 20px 56px}
+h1{font-size:1.75rem;line-height:1.2;font-weight:600;margin:0 0 10px;letter-spacing:-.01em}
+h2{font-size:1.1rem;font-weight:600;margin:34px 0 10px}
+p{margin:0 0 12px;max-width:70ch}
+.lead{color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;margin:16px 0}
+.run{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+label{font-weight:500}
+select,button{font:inherit;color:inherit;border-radius:4px;border:1px solid var(--rule);background:var(--panel);padding:9px 14px}
+button{cursor:pointer;font-weight:500}
+button.go{background:var(--llm);border-color:var(--llm);color:#fff;min-width:230px}
+:root[data-theme="dark"] button.go{color:#06201F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button.go{color:#06201F}}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.bar{height:8px;background:var(--rule);border-radius:4px;overflow:hidden;margin-top:14px}
+.bar>i{display:block;height:100%;width:0;background:var(--llm);transition:width .25s}
+#status{margin:10px 0 0;color:var(--muted);min-height:1.5em}
+#status.err{color:var(--warn)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:600;font-size:.9rem;color:var(--muted)}
+tr.llm td{color:var(--llm);font-weight:600}
+tr.best td.b{text-decoration:underline;text-underline-offset:3px}
+svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.9rem;color:var(--muted);margin-top:6px}
+.legend span::before{content:"";display:inline-block;width:18px;height:3px;margin-right:6px;vertical-align:middle;background:var(--c)}
+textarea{width:100%;min-height:170px;font:inherit;font-size:.88rem;line-height:1.4;color:inherit;background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:10px}
+ul{margin:0 0 12px;padding-left:20px;max-width:70ch} li{margin-bottom:4px}
+.small{font-size:.9rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<h1>Bir dil modeli, öğrenciye soru zorluğunu ne kadar iyi ayarlar?</h1>
+<p class="lead">Bu sayfa Claude'u bir zorluk kontrolcüsü olarak yarışa sokar. 200 sentetik öğrencinin doğru/yanlış geçmişini gösterir, sıradaki sorunun zorluğunu sorar ve aynı öğrencilerde uyarlanabilir test, merdiven yöntemleri, WERR çekirdekli fraktal kapı ve özgün PFP-Core ile yan yana ölçer.</p>
+
+<div class="panel">
+  <div class="run">
+    <label for="tier">Model kademesi</label>
+    <select id="tier">
+      <option value="quick">Hızlı</option>
+      <option value="default">Varsayılan (daha yavaş, daha çok düşünür)</option>
+    </select>
+    <label for="chunk">Çağrı başına öğrenci</label>
+    <select id="chunk"><option value="100">100 (tur başına 2 çağrı)</option><option value="50">50 (tur başına 4 çağrı)</option><option value="200">200 (tur başına 1 çağrı)</option></select>
+    <button class="go" id="go" disabled>Hazırlanıyor</button>
+    <button id="reset">Sıfırla</button>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+  <p id="status" role="status">Claude bağlantısı bekleniyor.</p>
+  <p class="small">Her tıklama Claude'a tek bir çağrı yapar ve senin Claude kullanımından düşer. Deney kademe başına 38 çağrıdan oluşur (100'er öğrenci; 50'şer seçersen 76); ilk çağrıda izin istenir. Tahmini kullanım: hızlı kademede yaklaşık 150 bin, varsayılan kademede 200 ila 250 bin token. İlk soru her kontrolcü için zorluk 0'dır, o yüzden 1. tur çağrısızdır.</p>
+</div>
+
+<h2>Öğrenciden ortalama uzaklık</h2>
+<p class="small">Sorunun zorluğu ile öğrencinin gerçek düzeyi arasındaki ortalama fark. Sıfır kusursuz eşleşmedir; düşük olan iyidir. Her sütunda en iyi değerin altı çizilidir.</p>
+<div class="scroll"><table id="tbl"></table></div>
+
+<h2>Turlara göre uzaklık</h2>
+<svg id="chart" viewBox="0 0 880 300" role="img" aria-label="Turlara göre ortalama uzaklık çizgi grafiği"></svg>
+<div class="legend">
+  <span style="--c:var(--llm)">Claude</span>
+  <span style="--c:var(--cat)">Uyarlanabilir test (standart)</span>
+  <span style="--c:var(--stair)">Merdiven, adım 0.30</span>
+  <span style="--c:var(--frac)">Fraktal kapı (WERR)</span>
+</div>
+<p class="small">Sol yarı: gerçek veriden biçimlenen öğrenciler (hızlı öğrenme). Sağ yarı: 11. turda düzeyi birden 1.5 birim sıçrayan öğrenciler.</p>
+
+<h2>Sonuç özeti</h2>
+<p class="small">Deney bitince bu metni kopyalayıp sohbete yapıştır; yorumu birlikte yaparız.</p>
+<textarea id="out" readonly aria-label="Sonuç özeti"></textarea>
+<p style="margin-top:10px"><button id="dl" hidden>Ham sonuçları indir (JSON)</button></p>
+
+<h2>Deney nasıl kuruldu?</h2>
+<ul>
+  <li>100 öğrenci gerçek veriden biçimlendi: başlangıç düzeyi ortalama 0, yayılımı 1.30; soru başına ilerleme ortalama 0.085 (ASSISTments 2009-2010'dan kestirilen değerler).</li>
+  <li>100 öğrencinin düzeyi sabittir ve 11. turda 1.5 birim sıçrar.</li>
+  <li>Her öğrenci 20 soru çözer. Tüm kontrolcüler aynı öğrencileri ve aynı rastgele sayıları görür.</li>
+  <li>Claude yanıtını öğrenci numarasına göre anahtarlanmış bir liste olarak verir. Bir öğrenci için yanıt eksikse o öğrencinin önceki zorluğu korunur ve bu sayı özette raporlanır; eksikler %10'u geçerse o çağrı geçersiz sayılır ve yinelenir.</li>
+  <li>Claude'a yalnızca geçmiş zorluklar ve doğru/yanlış sonuçları verilir; öğrencinin gerçek düzeyi verilmez. Uyarlanabilir testin bildiği ölçek bilgisi (Rasch formülü, yaklaşık yayılım) ona da söylenir.</li>
+  <li>Fraktal kapı, WERR çekirdeğinin bu sayfaya taşınmış halini her kararda gerçekten hesaplar; çıktısı özgün Python ve R sürümleriyle 200 koordinatta birebir karşılaştırıldı. PFP-Core, WerreduR deposundaki kuralla aynıdır.</li>
+  <li>Sınırlar: tek bir model ailesi sınanır ve öğrenciler sentetiktir. Karar süresi, bir turdaki toplam çağrı süresinin 200'e bölünmesiyle bulunur. Bu öğrenciler 6 Ekim'deki 32 öğrencilik ön denemeden farklıdır (tohum 20261007).</li>
+</ul>
+</main>
+
+<script>
+"use strict";
+// ---------- deterministic simulation ----------
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function makeWorld(seed){
+  const r=mulberry32(seed), norm=()=>{let u=0,v=0;while(u===0)u=r();v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  const N=200,T=20,L=[];
+  for(let i=0;i<N;i++){
+    const g=i<N/2?"A":"B", th0=g==="A"?norm()*1.30:norm(), rate=g==="A"?0.085+0.061*norm():0, path=[];
+    let th=th0; for(let t=0;t<T;t++){ if(g==="B"&&t===10) th+=1.5; path.push(th); th+=rate; }
+    const U=[]; for(let t=0;t<T;t++) U.push(r());
+    L.push({g,path,U});
+  }
+  return {N,T,L};
+}
+const plogis=x=>1/(1+Math.exp(-x));
+const GRID=[];for(let k=-60;k<=60;k++)GRID.push(k/10);
+function makeCAT(discount,sd){const lp0=GRID.map(g=>-0.5*(g/sd)*(g/sd));
+  return {init:()=>({ll:GRID.map(()=>0),b:0}),b:s=>s.b,update:(s,x)=>{let m=-Infinity;const lp=[];
+    for(let k=0;k<GRID.length;k++){const p=plogis(GRID[k]-s.b);s.ll[k]=discount*s.ll[k]+(x?Math.log(p):Math.log(1-p));lp[k]=s.ll[k]+lp0[k];if(lp[k]>m)m=lp[k]}
+    let a=0,w=0;for(let k=0;k<GRID.length;k++){const e=Math.exp(lp[k]-m);a+=GRID[k]*e;w+=e} s.b=a/w;return s}}}
+const makeStair=step=>({init:()=>({b:0}),b:s=>s.b,update:(s,x)=>{s.b+=step*(2*x-1);return s}});
+const makePEST=()=>({init:()=>({b:0,s:0.30,last:null,run:0}),b:s=>s.b,update:(st,x)=>{
+  if(st.last!==null&&x!==st.last){st.s=Math.max(0.05,st.s/2);st.run=1}else{st.run++;if(st.run>=3)st.s=Math.min(0.60,st.s*2)}
+  st.b+=st.s*(2*x-1);st.last=x;return st}});
+// ---- WERR kernel port (werr/fractal.py + gates/base.py tripod branch), checked against Python and R ----
+function vecErf(x){const s=Math.sign(x),a=Math.abs(x),t=1/(1+0.3275911*a);const p=((((1.061405429*t-1.453152027)*t+1.421413741)*t-0.284496736)*t+0.254829592)*t;return s*(1-p*Math.exp(-a*a))}
+const ncdf=z=>0.5*(1+vecErf(z/Math.SQRT2));
+const WC=[],UU=[];for(let k=0;k<=36;k++){const u=k/36;UU.push(u);let om=ncdf(u/0.12)+ncdf((1-u)/0.12)-1;om=Math.min(Math.max(om,0.45),1);WC.push(1/om)}
+function werrTripod(cx,cy,zoom){const R=36,M=36,zf=[0.6,1.0,1.6],wz=[0.25,0.5,0.25],out=[0,0,0,0];
+  for(let s=0;s<3;s++){const sc=1/(zoom*zf[s]),sw=[0,0,0,0],scn=[0,0,0,0],su=[0,0,0,0];
+    for(let j=0;j<R;j++){const ci=cy-sc+2*sc*j/(R-1);for(let k=0;k<R;k++){const cr=cx-sc+2*sc*k/(R-1);let zr=0,zi=0,e=M;
+      for(let i=0;i<M;i++){const t=zr*zr-zi*zi+cr;zi=2*zr*zi+ci;zr=t;if(Math.sqrt(zr*zr+zi*zi)>2){e=i;break}}
+      const q=(j<18?0:2)+(k<18?0:1);sw[q]+=WC[e];su[q]+=WC[e]*UU[e];if(UU[e]>=0.90)scn[q]+=WC[e]}}
+    for(let q=0;q<4;q++)out[q]+=wz[s]*(0.65*scn[q]/sw[q]+0.35*su[q]/sw[q])}
+  return out}
+const GATE_SEED=[-0.80792578443908969,0.18302136198124994,300], TWIN_W=[0.031895461427411224,1.067104626736044,3,-3];
+const agree=(a,b)=>(a===null||b===null)?0:(a===b?1:-1);
+function gateGain(st,mode){const h=st.hist,a1=agree(h[0],h[1]),a2=agree(h[1],h[2]),a3=agree(h[2],h[3]),m=2*Math.abs(st.rho)/3-1,risk=Math.abs(st.rho)-1;
+  let w;if(mode==="twin")w=TWIN_W;else{const sc=1/GATE_SEED[2],dx=Math.tanh(risk!==0?risk:(a1+m)/2)*sc*0.45,dy=Math.tanh((a2+a3)/2)*sc*0.45;
+    w=werrTripod(GATE_SEED[0]+dx,GATE_SEED[1]+dy,GATE_SEED[2]*(1+0.1*Math.sin(a1+a2+m+a3))).map(q=>(q-0.5)*6)}
+  const z=Math.max(-50,Math.min(50,w[0]*a1+w[1]*a2+w[2]*m+w[3]));return 1/(1+Math.exp(-z))}
+const makeGate=mode=>({init:()=>({b:0,hist:[null,null,null,null],rho:0}),b:s=>s.b,update:(s,x)=>{s.hist=[x,s.hist[0],s.hist[1],s.hist[2]];s.rho=(1-1/3)*s.rho+(2*x-1);
+  s.b+=(0.05+0.55*gateGain(s,mode))*(2*x-1);return s}});
+// original PFP-Core (WerreduR): c <- c +/- 0.05 - 0.44 (c - X), b = 10 (c - X); only the real part matters
+const makePFPCore=()=>({init:()=>({d:0}),b:s=>10*s.d,update:(s,x)=>{s.d=s.d+(x?0.05:-0.05)-0.44*s.d;return s}});
+function runBaseline(world,mk){ // returns err[i][t]
+  return world.L.map(l=>{const c=mk(l.g),s=c.init(),e=[];for(let t=0;t<world.T;t++){const b=c.b(s);e.push(Math.abs(b-l.path[t]));c.update(s,l.U[t]<plogis(l.path[t]-b)?1:0)}return e});
+}
+function runTimed(world,mk){let t0=performance.now();const err=runBaseline(world,mk);let el=performance.now()-t0,n=world.N*world.T;if(el<60){const reps=Math.max(1,Math.min(20,Math.round(60/Math.max(el,0.05))));t0=performance.now();for(let k=0;k<reps;k++)runBaseline(world,mk);el=performance.now()-t0;n*=reps}return {err,us:el*1000/n}}
+const ARMS=[
+  ["Uyarlanabilir test (standart)", ()=>makeCAT(1,1)],
+  ["Uyarlanabilir test (veriye uygun ön bilgi)", g=>makeCAT(1,g==="A"?1.30:1)],
+  ["Uyarlanabilir test (unutmalı)", ()=>makeCAT(0.95,1)],
+  ["Merdiven, adım 0.15", ()=>makeStair(0.15)],
+  ["Merdiven, adım 0.30", ()=>makeStair(0.30)],
+  ["Merdiven, adım 0.50", ()=>makeStair(0.50)],
+  ["PEST tipi merdiven", ()=>makePEST()],
+  ["Fraktal kapı (WERR çekirdeği, 24 baytlık tohum)", ()=>makeGate("werr")],
+  ["Fraktal kapının saklı ağırlıklı ikizi", ()=>makeGate("twin")],
+  ["Özgün PFP-Core (WerreduR)", ()=>makePFPCore()]
+];
+const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+function summarize(world,err,upto){ // mean over learners in group, trials [0,upto)
+  const f=g=>{const rows=err.filter((_,i)=>world.L[i].g===g).map(e=>mean(e.slice(0,upto)));return rows.length?mean(rows):NaN};
+  return {A:f("A"),B:f("B")};
+}
+function byRound(world,err,g,upto){const o=[];for(let t=0;t<upto;t++)o.push(mean(err.filter((_,i)=>world.L[i].g===g).map(e=>e[t])));return o}
+function buildPrompt(world,hist,from,to){
+  from=from||0;to=to||world.N;const n=to-from;
+  const lines=hist.slice(from,to).map((h,i)=>(i+1)+": "+JSON.stringify(h));
+  return "You are the difficulty controller of a practice system with "+n+" independent learners.\n"+
+  "For each learner, choose the difficulty of the NEXT problem so that the learner's chance of answering correctly is as close to 50% as possible.\n\n"+
+  "Facts you may use:\n- Difficulty and ability are on the same logit scale. P(correct) = 1 / (1 + exp(-(ability - difficulty))).\n"+
+  "- A typical problem has difficulty 0. Abilities in the population are spread around 0 with a standard deviation of roughly 1.\n"+
+  "- Ability can change during a session, gradually or suddenly.\n- You never see ability. You see only past difficulties and outcomes (1 = correct, 0 = incorrect).\n\n"+
+  "History so far. Each line is a learner number followed by that learner's [difficulty, outcome] pairs in order:\n"+lines.join("\n")+"\n\n"+
+  "Reply with only a JSON object that maps every learner number to the next difficulty for that learner, with exactly "+n+" entries and keys \"1\" to \""+n+"\". Example of the format for three learners: {\"1\": 0.4, \"2\": -0.3, \"3\": 1.1}. No other text.";
+}
+function parseDifficulties(v,N){
+  if(v&&!Array.isArray(v)&&Array.isArray(v.difficulties))v=v.difficulties;
+  if(!Array.isArray(v)||v.length!==N)return null;
+  const o=v.map(Number);if(o.some(x=>!Number.isFinite(x)))return null;
+  return o.map(x=>Math.max(-6,Math.min(6,x)));
+}
+// keyed answer: {"1": b1, "2": b2, ...}. Missing or non-numeric entries keep the learner's previous difficulty.
+// Returns null when more than 10% are missing (the round is then retried).
+function parseKeyed(text,n,prev){
+  let v=null;const mo=text.match(/\{[\s\S]*\}/);
+  if(mo){try{v=JSON.parse(mo[0])}catch(_){v=null}}
+  if(!v){const ma=text.match(/\[[\s\S]*\]/);if(ma){try{const a=JSON.parse(ma[0]);if(Array.isArray(a)&&a.length===n){v={};a.forEach((x,i)=>v[i+1]=x)}else return {b:null,got:Array.isArray(a)?a.length:0}}catch(_){}}}
+  if(!v||typeof v!=="object")return {b:null,got:0};
+  const b=[];let missing=0;
+  for(let i=0;i<n;i++){const x=Number(v[String(i+1)]);if(v[String(i+1)]===undefined||v[String(i+1)]===null||!Number.isFinite(x)){b.push(prev[i]);missing++}else b.push(Math.max(-6,Math.min(6,x)))}
+  return missing>n*0.10?{b:null,got:n-missing}:{b,missing,got:n-missing};
+}
+// one LLM round: applies difficulties b[] at trial t, records errors and outcomes
+function applyRound(world,S,b){const t=S.t;for(let i=0;i<world.N;i++){const l=world.L[i],x=l.U[t]<plogis(l.path[t]-b[i])?1:0;
+  S.err[i].push(Math.abs(b[i]-l.path[t]));S.hist[i].push([Math.round(b[i]*100)/100,x])}S.t++}
+const newState=world=>({t:0,err:world.L.map(()=>[]),hist:world.L.map(()=>[]),ms:[],roundMs:[],fails:0,missing:0,chars:0,tierApplied:null,part:[],partMs:0});
+const perLearner=(err,upto)=>err.map(e=>mean(e.slice(0,upto)));
+function ci(x){const m=mean(x),s=Math.sqrt(x.reduce((a,v)=>a+(v-m)*(v-m),0)/(x.length-1)),h=1.96*s/Math.sqrt(x.length);return [m,m-h,m+h]}
+
+// ---------- page ----------
+if(typeof document!=="undefined"){
+  const $=id=>document.getElementById(id), world=makeWorld(20261007);
+  const base=ARMS.map(([name,mk])=>Object.assign({name},runTimed(world,mk)));
+  let S=newState(world), sample=null, busy=false, runs=[];
+  const fmt=x=>Number.isFinite(x)?x.toFixed(3):"";
+  function render(){
+    const up=Math.max(S.t,1), full=S.t>=world.T, rows=base.map(a=>({name:a.name,s:summarize(world,a.err,full?world.T:up),time:(a.us>=10?a.us.toFixed(0):a.us.toFixed(1))+" mikrosaniye",cls:""}));
+    if(S.t>0){const s=summarize(world,S.err,S.t),ms=S.roundMs.length?mean(S.roundMs):NaN;
+      rows.push({name:"Claude ("+($("tier").value==="quick"?"hızlı":"varsayılan")+")",s,time:Number.isFinite(ms)?(ms/world.N).toFixed(1)+" milisaniye":"",cls:"llm"})}
+    for(const r of runs)rows.push({name:r.name+" (önceki çalıştırma)",s:r.s,time:r.time,cls:"llm"});
+    const bestA=Math.min(...rows.map(r=>r.s.A)),bestB=Math.min(...rows.map(r=>r.s.B));
+    $("tbl").innerHTML="<thead><tr><th>Kontrolcü</th><th>Veriden biçimlenen öğrenciler</th><th>Ani sıçrama</th><th>Karar başına süre</th></tr></thead><tbody>"+
+      rows.map(r=>"<tr class='best "+r.cls+"'><td>"+r.name+"</td><td"+(r.s.A===bestA?" class='b'":"")+">"+fmt(r.s.A)+"</td><td"+(r.s.B===bestB?" class='b'":"")+">"+fmt(r.s.B)+"</td><td>"+r.time+"</td></tr>").join("")+"</tbody>";
+    $("prog").style.width=(100*S.t/world.T)+"%";
+    drawChart(); writeSummary(rows,full);
+    const go=$("go");
+    if(!sample){go.disabled=true;go.textContent="Claude bu görünümde kullanılamıyor"}
+    else if(full){go.disabled=true;go.textContent="Deney tamamlandı"}
+    else{go.disabled=busy;go.textContent=busy?"Claude düşünüyor":(S.t===0?"1. turu başlat (çağrısız)":(S.t+1)+". turu çalıştır ("+world.T+" turdan)"+(S.part.length?", kalan parça":""))}
+    $("tier").disabled=S.t>0||busy;$("chunk").disabled=busy||S.part.length>0;
+  }
+  function drawChart(){
+    const W=880,H=300,pad={l:44,r:12,t:14,b:30},half=(W-pad.l-pad.r-24)/2, ymax=2.0, T=world.T;
+    const x=(k,t)=>pad.l+k*(half+24)+t*half/(T-1), y=v=>pad.t+(H-pad.t-pad.b)*(1-Math.min(v,ymax)/ymax);
+    const line=(arr,k,col,w)=>arr.length?"<polyline fill='none' stroke='"+col+"' stroke-width='"+w+"' stroke-linejoin='round' points='"+arr.map((v,t)=>x(k,t).toFixed(1)+","+y(v).toFixed(1)).join(" ")+"'/>":"";
+    let g="";
+    for(let k=0;k<2;k++){
+      for(const v of [0,0.5,1,1.5,2])g+="<line x1='"+x(k,0)+"' x2='"+x(k,T-1)+"' y1='"+y(v)+"' y2='"+y(v)+"' stroke='var(--rule)' stroke-width='1'/>"+(k===0?"<text x='"+(pad.l-8)+"' y='"+(y(v)+4)+"' text-anchor='end' font-size='12' fill='var(--muted)'>"+v.toFixed(1)+"</text>":"");
+      for(const t of [0,4,9,14,19])g+="<text x='"+x(k,t)+"' y='"+(H-8)+"' text-anchor='middle' font-size='12' fill='var(--muted)'>"+(t+1)+"</text>";
+      const grp=k===0?"A":"B";
+      g+=line(byRound(world,base[0].err,grp,T),k,"var(--cat)",2)+line(byRound(world,base[4].err,grp,T),k,"var(--stair)",2)+line(byRound(world,base[7].err,grp,T),k,"var(--frac)",2)+line(byRound(world,S.err,grp,S.t),k,"var(--llm)",3);
+    }
+    g+="<line x1='"+x(1,10)+"' x2='"+x(1,10)+"' y1='"+pad.t+"' y2='"+(H-pad.b)+"' stroke='var(--muted)' stroke-dasharray='4 4'/><text x='"+(x(1,10)+6)+"' y='"+(pad.t+12)+"' font-size='12' fill='var(--muted)'>sıçrama</text>";
+    $("chart").innerHTML=g;
+  }
+  function writeSummary(rows,full){
+    const lines=["Dil modeli kontrolcü deneyi "+(full?"(tamamlandı)":"(sürüyor: "+S.t+"/"+world.T+" tur)"),"Öğrenci: 200 (100 veriden biçimlenen, 100 ani sıçrama), 20 tur, tohum 20261007","",
+      "Kontrolcü | veriden biçimlenen | ani sıçrama | karar başına süre"];
+    for(const r of rows)lines.push(r.name+" | "+fmt(r.s.A)+" | "+fmt(r.s.B)+" | "+r.time);
+    if(S.ms.length){lines.push("","Claude çağrıları: "+S.ms.length+" | çağrı başına ortalama "+(mean(S.ms)/1000).toFixed(2)+" sn (en kısa "+(Math.min(...S.ms)/1000).toFixed(2)+", en uzun "+(Math.max(...S.ms)/1000).toFixed(2)+")",
+      "Uygulanan kademe: "+(S.tierApplied||"bilinmiyor")+" | çağrı başına öğrenci: "+$("chunk").value+" | geçersiz yanıt: "+S.fails+" | eksik kalan karar (önceki zorluk korundu): "+S.missing+" | gönderilen metin: toplam "+S.chars+" karakter");
+      if(S.t>=2){const up=S.t,f3=v=>v.map(x=>x.toFixed(3)),pl=perLearner(S.err,up),idx=g=>world.L.map((l,i)=>l.g===g?i:-1).filter(i=>i>=0);
+        const cmp=[["Fraktal kapı",7],["Uyarlanabilir test (standart)",0],["Uyarlanabilir test (unutmalı)",2],["Merdiven 0.30",4],["Saklı ağırlıklı ikiz",8]];
+        for(const [g,gn] of [["A","veriden biçimlenen"],["B","ani sıçrama"]]){const ix=idx(g),c=ci(ix.map(i=>pl[i]));
+          lines.push("",gn+" (n="+ix.length+", ilk "+up+" tur): Claude ortalama "+c[0].toFixed(3)+" [%95 GA "+c[1].toFixed(3)+", "+c[2].toFixed(3)+"]");
+          for(const [nm,k] of cmp){const bl=perLearner(base[k].err,up),d=ci(ix.map(i=>bl[i]-pl[i]));lines.push("  "+nm+" eksi Claude: "+(d[0]>=0?"+":"")+d[0].toFixed(3)+" ["+d[1].toFixed(3)+", "+d[2].toFixed(3)+"]")}
+          const fg=perLearner(base[7].err,up),ct=perLearner(base[0].err,up),tw=perLearner(base[8].err,up),d1=ci(ix.map(i=>fg[i]-ct[i])),d2=ci(ix.map(i=>fg[i]-tw[i]));
+          lines.push("  Fraktal kapı eksi uyarlanabilir test: "+(d1[0]>=0?"+":"")+d1[0].toFixed(3)+" ["+d1[1].toFixed(3)+", "+d1[2].toFixed(3)+"]","  Fraktal kapı eksi ikizi: "+(d2[0]>=0?"+":"")+d2[0].toFixed(3)+" ["+d2[1].toFixed(3)+", "+d2[2].toFixed(3)+"]")}
+        lines.push("(Eksi değer: ilk yazılan öğrenciye daha yakın.)")}
+      if(S.t>10){lines.push("","Sıçramadan sonraki turlarda Claude uzaklığı: "+byRound(world,S.err,"B",S.t).slice(10).map(v=>v.toFixed(2)).join(" "));
+        lines.push("Aynı turlarda uyarlanabilir test: "+byRound(world,base[0].err,"B",world.T).slice(10,S.t).map(v=>v.toFixed(2)).join(" "));
+        lines.push("Aynı turlarda merdiven 0.30: "+byRound(world,base[4].err,"B",world.T).slice(10,S.t).map(v=>v.toFixed(2)).join(" "));
+        lines.push("Aynı turlarda fraktal kapı: "+byRound(world,base[7].err,"B",world.T).slice(10,S.t).map(v=>v.toFixed(2)).join(" "))}}
+    $("out").value=lines.join("\n");
+  }
+  const say=(t,err)=>{const s=$("status");s.textContent=t;s.className=err?"err":""};
+  const COPY={not_granted:"İzin verilmedi. Sayfayı yeniden açıp izin verirsen deney çalışır.",rate_limited:"Çağrı sınırına takıldı. Biraz bekleyip aynı düğmeye yeniden bas.",cancelled:"Durduruldu."};
+  async function step(){
+    if(busy||!sample||S.t>=world.T)return;
+    if(S.t===0){applyRound(world,S,world.L.map(()=>0));say("1. tur tamam: herkes zorluk 0 ile başladı.");render();return}
+    const chunk=+$("chunk").value,from=S.part.length,to=Math.min(world.N,from+chunk),parts=Math.ceil(world.N/chunk),k=from/chunk+1;
+    busy=true;render();say("Claude "+(S.t+1)+". tur için "+(to-from)+" zorluk seçiyor"+(parts>1?" (parça "+k+"/"+parts+")":"")+".");
+    const prompt=buildPrompt(world,S.hist,from,to),t0=performance.now();
+    try{
+      const res=await sample(prompt,{modelTier:$("tier").value,cache:false});
+      const prev=S.hist.slice(from,to).map(x=>x[x.length-1][0]),pk=parseKeyed(res.text,to-from,prev),ms=performance.now()-t0,b=pk.b;
+      if(!b){S.fails++;say("Claude "+(to-from)+" öğrenciden yalnızca "+pk.got+" tanesi için geçerli yanıt verdi"+(res.truncated?" (yanıt yarıda kesildi)":"")+". Aynı düğmeyle yeniden dene; tekrarlarsa 'çağrı başına öğrenci'yi küçült.",true)}
+      else{S.missing+=pk.missing;S.ms.push(ms);S.partMs+=ms;S.chars+=prompt.length;S.tierApplied=res.modelTierApplied||null;S.part=S.part.concat(b);
+        if(S.part.length>=world.N){S.roundMs.push(S.partMs);applyRound(world,S,S.part);S.part=[];S.partMs=0;
+          say(S.t>=world.T?"Deney tamamlandı. Aşağıdaki özeti sohbete yapıştırabilirsin.":S.t+". tur tamam ("+(ms/1000).toFixed(1)+" sn).")}
+        else say((S.t+1)+". turun "+k+". parçası tamam; düğmeye yeniden bas.")}
+    }catch(e){
+      if(e instanceof SyntaxError){S.fails++;say("Claude'un yanıtı okunamadı. Aynı düğmeyle yeniden dene.",true)}
+      else say(COPY[e&&e.code]||"Çağrı başarısız oldu"+(e&&e.code?" ("+e.code+")":"")+". Aynı düğmeyle yeniden deneyebilirsin.",true)
+    }
+    busy=false;render();
+  }
+  $("go").addEventListener("click",step);
+  $("reset").addEventListener("click",()=>{ if(busy)return;
+    if(S.t>=world.T){const s=summarize(world,S.err,world.T);runs.push({name:"Claude ("+($("tier").value==="quick"?"hızlı":"varsayılan")+")",s,time:(mean(S.roundMs)/world.N).toFixed(1)+" milisaniye"})}
+    S=newState(world);say("Sıfırlandı. Kademeyi değiştirip yeniden çalıştırabilirsin.");render()});
+  render();
+  (async()=>{
+    try{sample=window.claude?await window.claude.use("sample"):null}catch(_){sample=null}
+    say(sample?"Hazır. Düğmeye her basışta bir tur ilerler.":"Bu görünümde Claude çağrısı yapılamıyor. Sayfayı claude.ai içinde açman gerekir.",!sample);render();
+    try{const d=window.claude?await window.claude.use("downloads"):null;
+      if(d){$("dl").hidden=false;$("dl").addEventListener("click",async()=>{
+        const data=JSON.stringify({seed:20261007,tier:$("tier").value,chunk:+$("chunk").value,rounds:S.t,llm:{err:S.err,hist:S.hist,ms:S.ms,roundMs:S.roundMs,fails:S.fails,missing:S.missing},baselines:base.map(a=>({name:a.name,err:a.err})),truth:world.L.map(l=>({group:l.g,path:l.path}))});
+        try{await d.save({filename:"llm_kontrolcu_sonuclari.json",data})}catch(e){say(e&&e.code==="declined"?"İndirme iptal edildi.":"İndirme yapılamadı.",true)}})}
+    }catch(_){}
+  })();
+}else{
+  // node self-test with a stub "LLM" that behaves like a 0.30 staircase
+  const world=makeWorld(20261007),S=newState(world);applyRound(world,S,world.L.map(()=>0));
+  while(S.t<world.T){const b=S.hist.map(h=>{const l=h[h.length-1];return l[0]+0.30*(2*l[1]-1)});const p=buildPrompt(world,S.hist);if(!parseDifficulties(b,world.N))throw new Error("parse");applyRound(world,S,b);if(S.t===world.T)console.log("prompt chars at last round:",p.length)}
+  const st=runBaseline(world,()=>makeStair(0.30));
+  console.log("stub vs staircase 0.30 (should match to rounding):",summarize(world,S.err,world.T),summarize(world,st,world.T));
+  for(const [n,mk] of ARMS)console.log(n.padEnd(46),JSON.stringify(summarize(world,runBaseline(world,mk),world.T)));
+  console.log("parse checks:",parseDifficulties({difficulties:new Array(32).fill(1)},32)!==null,parseDifficulties([1,2],32)===null);
+}
+</script>
+</body>
+</html>

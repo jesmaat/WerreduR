@@ -1,0 +1,39 @@
+Dil modeli kontrolcü deneyi, 6 Ekim 2026, claude.ai artifact çalışma zamanı (sample), tohum 20261006
+Öğrenci: 32 (16 veriden biçimlenen, 16 ani sıçrama), 20 tur
+
+Kontrolcü | veriden biçimlenen | ani sıçrama | karar başına süre
+Uyarlanabilir test (standart) | 0.910 | 0.858 | 3.8 mikrosaniye
+Uyarlanabilir test (veriye uygun ön bilgi) | 0.918 | 0.858 | 3.8 mikrosaniye
+Uyarlanabilir test (unutmalı) | 0.899 | 0.820 | 4.1 mikrosaniye
+Merdiven, adım 0.15 | 0.945 | 0.821 | 0.0 mikrosaniye
+Merdiven, adım 0.30 | 0.837 | 0.714 | 0.0 mikrosaniye
+Merdiven, adım 0.50 | 0.751 | 0.711 | 0.0 mikrosaniye
+PEST tipi merdiven | 0.775 | 0.799 | 0.0 mikrosaniye
+Fraktal kapı (WERR çekirdeği, 24 baytlık tohum) | 0.846 | 0.769 | 286 mikrosaniye
+Fraktal kapının saklı ağırlıklı ikizi | 0.849 | 0.805 | 0.1 mikrosaniye
+Özgün PFP-Core (WerreduR) | 0.981 | 0.902 | 0.0 mikrosaniye
+Claude (hızlı) | 1.206 | 0.832 | 83.9 milisaniye
+Claude (varsayılan) | 1.065 | 1.074 | 495.9 milisaniye
+
+Claude (hızlı): 19 çağrı, çağrı başına ortalama 2.69 sn (2.53-2.83), geçersiz yanıt 0, gönderilen metin 67820 karakter
+  sıçramadan sonraki turlarda uzaklık: 0.99 0.99 0.91 0.91 0.91 0.91 0.91 0.86 0.91 0.87
+Claude (varsayılan): 19 çağrı, çağrı başına ortalama 15.87 sn (5.30-27.27), geçersiz yanıt 0, gönderilen metin 70186 karakter
+  sıçramadan sonraki turlarda uzaklık: 1.80 1.75 1.71 1.68 1.56 1.47 1.36 1.26 1.11 1.11
+Aynı turlarda uyarlanabilir test: 1.49 1.42 1.35 1.24 1.15 1.07 1.01 0.93 0.92 0.90
+Aynı turlarda merdiven 0.30:      1.43 1.25 1.10 0.83 0.66 0.68 0.60 0.49 0.52 0.48
+Aynı turlarda fraktal kapı:       1.47 1.36 1.27 1.10 0.90 0.71 0.57 0.48 0.48 0.48
+
+Not: Bu sonuçlar deney sayfasının ürettiği özet metindir (kullanıcı tarafından çalıştırıldı). Ham JSON indirilmedi.
+
+=== 200 öğrencilik ana çalıştırma (tohum 20261007), 6-7 Ekim 2026 ===
+Kontrolcü | veriden biçimlenen (n=100) | ani sıçrama (n=100) | karar başına süre
+Fraktal kapı (WERR çekirdeği) | 0.722 | 0.842 | 290 mikrosaniye
+Saklı ağırlıklı ikiz | 0.739 | 0.861 | 0.1 mikrosaniye
+Uyarlanabilir test (standart) | 0.742 | 0.920 | 4.0 mikrosaniye
+Uyarlanabilir test (unutmalı) | 0.723 | 0.886 | 4.4 mikrosaniye
+Merdiven 0.30 | 0.659 | 0.777 ; Merdiven 0.50 | 0.683 | 0.763 ; PEST | 0.711 | 0.890 ; PFP-Core | 0.854 | 0.945
+Claude (hızlı): 0.954 [0.832, 1.076] | 1.323 [1.221, 1.424] | 66.5 ms ; 38 çağrı, ort. 6.65 sn, 100'er öğrenci
+Claude (varsayılan): 0.784 [0.704, 0.863] | 0.933 [0.876, 0.990] | 787.7 ms ; 56 çağrı, ort. 53.45 sn (8.35-138.16); tur 2-11 100'er, tur 12-20 50'şer öğrenci
+E�li farklar (fraktal kapı eksi Claude): hızlı -0.232 [-0.301,-0.163] / -0.481 [-0.575,-0.387]; varsayılan -0.062 [-0.106,-0.018] / -0.091 [-0.134,-0.048]
+Fraktal kapı eksi uyarlanabilir test: -0.020 [-0.058,0.017] / -0.079 [-0.114,-0.043]; eksi ikizi: -0.017 [-0.032,-0.003] / -0.019 [-0.033,-0.005]
+Ham veri: ham_sonuclar_varsayilan_kademe_200_ogrenci.json (hızlı kademenin ham verisi kaydedilmedi; yalnızca özet metni var)

@@ -1,0 +1,11 @@
+"","linear unknown","linear known","log unknown","log known"
+"Fractal-seeded controller",0.563,0.456,0.564,0.465
+"Stored-weight twin",0.569,0.457,0.571,0.467
+"Adaptive test (standard prior)",0.607,0.543,0.557,0.49
+"Adaptive test (prior matched to data)",0.61,0.524,0.562,0.494
+"Adaptive test, forgetting",0.593,0.522,0.556,0.484
+"Fixed staircase, step 0.15",0.576,0.461,0.566,0.457
+"Fixed staircase, step 0.30",0.556,0.482,0.557,0.488
+"Fixed staircase, step 0.50",0.626,0.584,0.631,0.588
+"PEST-type staircase",0.591,0.516,0.584,0.513
+"Original PFP-Core",0.712,0.616,0.681,0.583

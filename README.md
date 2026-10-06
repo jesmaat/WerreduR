@@ -1,206 +1,240 @@
-# ⚡ Procedural Fractal Pedagogy (`PFP` / `WerreduR`)
+# Where Does a Fractal-Seeded Controller Stand?
 
-**Operationalizing Fractal Geometry in Adaptive Learning: A Deterministic $O(1)$ Servo-Controller for Sustaining Productive Failure Without Latent Ability Estimation**
+**A Simulation Study Positioning a 24-Byte, Estimation-Free Difficulty Controller Against Adaptive Testing, Staircase Rules and a Language Model**
 
-[![Target: Q1 AI in Education Journal](https://img.shields.io/badge/Target-Q1%20Peer--Reviewed%20AIED%20Journal-059669.svg)](#)
-[![Zenodo DOI (v3.0)](https://img.shields.io/badge/Zenodo%20DOI%20(v3.0)-10.5281%2Fzenodo.23034488-blue.svg)](https://doi.org/10.5281/zenodo.23034488)
+[![Status: Prepared for Q1 AIED Submission](https://img.shields.io/badge/Target-Flagship%20Q1%20AIED%20Journal-059669.svg)](#)
 [![Concept DOI](https://img.shields.io/badge/Concept%20DOI-10.5281%2Fzenodo.22999420-indigo.svg)](https://doi.org/10.5281/zenodo.22999420)
-[![GitHub: jesmaat/WerreduR](https://img.shields.io/badge/GitHub-jesmaat%2FWerreduR-181717.svg?logo=github)](https://github.com/jesmaat/WerreduR)
-[![Formal Verification: Lean 4 (Zero Sorry)](https://img.shields.io/badge/Lean%204%20Verification-7%20Theorems%20(0%20sorry)-7c3aed.svg)](./lean4/PFP_HorizonProof.lean)
-[![Median Latency: 30.4 μs](https://img.shields.io/badge/Median%20Latency-30.4%20%CE%BCs-blue.svg)](./data/edu_revision/latency_claude.json)
-[![Memory Footprint: 24 Bytes (0 VRAM)](https://img.shields.io/badge/Memory%20Footprint-24%20Bytes%20%7C%200%20VRAM-10b981.svg)](./data/edu_revision/latency_claude.json)
-[![Patent Priority: TÜRKPATENT TR 2026/016285](https://img.shields.io/badge/T%C3%9CRKPATENT-TR%202026%2F016285-b31b1b.svg)](https://doi.org/10.5281/zenodo.22774934)
-[![License: CC-BY 4.0 / MIT](https://img.shields.io/badge/License-CC--BY%204.0%20%2F%20MIT-2563eb.svg)](./.zenodo.json)
+[![Zenodo v4.0 Archive](https://img.shields.io/badge/Zenodo%20Archive-10.5281%2Fzenodo.23128224-blue.svg)](https://doi.org/10.5281/zenodo.23128224)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-pCwOrM%2FWerreduR-181717.svg?logo=github)](https://github.com/pCwOrM/WerreduR)
+[![Python & Node Parity](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-success.svg)](./tests/test_learning_gate_parity.py)
+[![Legacy Reproducibility](https://img.shields.io/badge/Legacy%20v1%20Archive-legacy%2F-lightgrey.svg)](./legacy/README_LEGACY.md)
 
 ---
 
-## 👥 Authors & Affiliations
+## Abstract
 
-* **Zerrin Dağlı** *(First & Corresponding Author)* — Mersin University, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425)
-* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Çukurova Teknokent, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) (`@pCwOrM`)
-* **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) (`@Lexovian`)
-
-**Companion Open-Science Corpus:**
-* **PFP / WerreduR (This Work):** `doi:10.5281/zenodo.23034488` • Concept DOI: `10.5281/zenodo.22999420` ([GitHub: `jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR))
-* **WERR v0.5.1 Core Decision Engine:** `arXiv:2609.25498` • `doi:10.5281/zenodo.22939253` ([GitHub: `pCwOrM/werr`](https://github.com/pCwOrM/werr))
-* **Orbital Error Dynamics (OED):** `arXiv:2609.30115` • `doi:10.5281/zenodo.22896856`
-* **Mandelbrot Fractal Neural Synthesis:** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis))
-* **Lean 4 Formal Verification & Gauntlet:** `doi:10.5281/zenodo.22983889`
-* **Werracle On-Chain EVM AI Oracle:** `doi:10.5281/zenodo.22974543` ([GitHub: `pCwOrM/werracle`](https://github.com/pCwOrM/werracle))
+We evaluate an adaptive item-difficulty controller whose step-size policy is procedurally generated from a 24-byte coordinate seed on the boundary of the Mandelbrot set via the WERR fractal kernel. Positioning this estimation-free controller against standard and non-stationary Computerized Adaptive Testing (CAT), fixed-step staircases, PEST-type rules, a stored-weight matched twin, and a frontier language model across six synthetic regimes and two empirical ASSISTments datasets, we find that the fractal-seeded rule achieves robust tracking under abrupt ability shifts and fast learning while executing in 0.3 ms per item with zero persistent tensor storage.
 
 ---
 
-## 🎯 Executive Summary
+## 1. Where Does the Controller Stand? (Positioning Matrix)
 
-Adaptive learning systems face a persistent structural tension between the rigid lockstep pacing of open-loop curricula (**Reigeluth's Factory Model**) and unconstrained learner autonomy that precipitates cognitive off-task drift (**The Saturn School Paradox**; Bennett & King, 1991). Concurrently, closed-loop Computerized Adaptive Testing (CAT) frameworks grounded in Item Response Theory (IRT) suffer from latent-trait estimation bottlenecks: they incur numerical update latency, violate stationarity during conceptual restructuring, and optimize for measurement precision by steering learners into a high-success complacency corridor ($P \approx 0.70$) that suppresses epistemic surprise and generative cognitive struggle (Bjork, 1994; Kapur, 2016).
+The controller evaluated here is not an instructional theory or pedagogical panacea; it is a **fast, memory-bounded, estimation-free step-size controller** for item selection. The following positioning matrix summarizes its empirical operational characteristics relative to established paradigms:
 
-**Procedural Fractal Pedagogy (`PFP` / `WerreduR`)** resolves these tensions via a model-free cybernetic servo-controller:
-* **Mandelbrot Boundary Manifold:** Anchors adaptive difficulty regulation to the primary cardioid cusp ($X = 0.25 + 0.18i$) along $\partial\mathcal{M}$ ($z_{n+1} = z_n^2 + c$), targeting maximal Shannon entropy ($P \approx 0.50 \to H = 1.0\text{ bit}$) without ever estimating latent ability $\theta$.
-* **Sustaining Productive Failure:** Under Kapur's difficulty-weighted learning regime ($\mathbb{E}[\Delta\theta] = \eta P(1-P)$), PFP-Core maximizes ability gain while maintaining tasks closer to true ability than CAT, with discontinuous $\Omega$-tunneling jump operators bounding frustration cascades.
-* **Ablation & Oracle-Free Self-Equilibrium:** Component ablasyons demonstrate that while an artificial scalar offset can reproduce task-easing dampening, the Mandelbrot manifold autonomously synthesizes zero-telemetry self-equilibrium—obviating prohibitive population pre-calibration and averting the post-hoc oracle fallacy.
-* **Extreme Edge Footprint:** Executes in **$30.4\ \mu\text{s}$** median kernel latency ($59.8\ \mu\text{s}$ end-to-end) with a **24-byte state footprint** and **$0\text{ Bytes}$ persistent VRAM**, enabling air-gapped, privacy-preserving classroom deployments.
-
----
-
-## 📊 Key Empirical Findings
-
-### 1. Main Rasch Comparative Benchmark ($N = 1,000$ Learners, $T = 120$ Tasks)
-
-All conditions share one identical 1PL Rasch learner model ($P_t = 1 / (1 + e^{-(\theta_t - b_t)})$) with paired common random numbers across 5 seeds (`sim/rasch_fair_benchmark.py`).
-
-| Pedagogical Regime | Saturn (Random) | Factory (Linear) | CAT (Elo/IRT $P \approx 0.70$) | PFP-Core (Ours, $P \approx 0.50$) | PFP-M1 (1D Fractal) | PFP-M2 (2D Fractal) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Rule 1: Symmetric** | | | | | | |
-| Disequilibrium ($P \in [0.40, 0.60]$) | 0.128 | 0.166 | 0.075 | **0.296** | 0.273 | 0.266 |
-| ZPD Band ($P \in [0.50, 0.70]$) | 0.131 | 0.197 | **0.335** | 0.278 | 0.225 | 0.298 |
-| Frustration ($P < 0.30$) | 0.375 | 0.161 | **0.002** | 0.223 | 0.342 | 0.133 |
-| Boredom ($P > 0.85$) | 0.234 | 0.287 | 0.049 | 0.061 | **0.030** | 0.119 |
-| Ability Gain ($\Delta\theta$) | -0.032 | 0.650 | **1.078** | -0.022 | -0.399 | 0.382 |
-| Task–Ability Distance ($|b - \theta|$) | 1.869 | 1.486 | 1.016 | **0.892** | 0.951 | 0.970 |
-| **Rule 2: Productive Failure** | | | | | | |
-| Disequilibrium ($P \in [0.40, 0.60]$) | 0.134 | 0.269 | 0.102 | **0.366** | **0.366** | 0.308 |
-| ZPD Band ($P \in [0.50, 0.70]$) | 0.139 | 0.346 | **0.406** | 0.374 | 0.318 | 0.354 |
-| Frustration ($P < 0.30$) | 0.338 | 0.074 | **0.002** | 0.116 | 0.196 | 0.083 |
-| Boredom ($P > 0.85$) | 0.243 | 0.119 | 0.038 | 0.032 | **0.016** | 0.083 |
-| Ability Gain ($\Delta\theta$) | 0.342 | 0.468 | 0.477 | **0.516** | 0.515 | 0.490 |
-| Task–Ability Distance ($|b - \theta|$) | 1.682 | 0.941 | 0.944 | **0.687** | 0.692 | 0.824 |
-
-*Source: `data/edu_revision/rasch_students.csv`, verified in `data/edu_revision/DATA_MANIFEST_SHA256.json`.*
-
-### 2. Empirical Execution Latency & Edge Footprint ($N = 5,000$ Cycles)
-
-Profiled across diverse operating systems and micro-architectures (paired seed = 2026, 200-cycle warmup):
-
-| Platform / Environment | Subsystem / Operation | Median Latency | IQR [Q1, Q3] | Mean [SD] | p95 Ceiling | Memory Footprint |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Linux x86_64** (Cloud / Server) | **Servo Update Kernel** (`kernel_tripod`) | **30.4 μs** | [29.4, 32.3] μs | 31.9 μs [15.8] | 36.0 μs | **24 Bytes** |
-| *(Python 3.10.12, NumPy 2.2.6)* | **Full Decision Step** (`decision_step`) | **59.8 μs** | [57.0, 63.7] μs | 64.3 μs [37.1] | 76.7 μs | **0 Bytes VRAM** |
-| **Windows 11** (Commodity Edge / Desktop) | **Servo Update Kernel** (`kernel_tripod`) | **38.6 μs** | [38.2, 39.1] μs | 39.4 μs [7.8] | 42.2 μs | **24 Bytes** |
-| *(Intel Core i7, Python 3.12.10)* | **Full Decision Step** (`decision_step`) | **75.1 μs** | [74.0, 76.9] μs | 78.8 μs [21.4] | 87.8 μs | **0 Bytes VRAM** |
-
-*Source: `sim/measure_latency.py` → `data/edu_revision/latency_claude.json` & `data/edu_revision/latency_DESKTOP-Q83M87D.json`.*
-
-### 3. 🏛️ Cumulative Academic Chronology & Benchmark Evolution
-
-In accordance with the highest standards of scientific cumulative progression and open-science traceability, this repository archives the complete evolutionary trajectory of the WerreduR / PFP framework across four developmental epochs:
-
-* **Epoch 1: Exploratory Saturn-Factory Baseline (`data/pfp_saturn_benchmark_results.json`)**  
-  *Research Milestone:* Initial heuristic proof-of-concept modeling Bennett & King's (1991) / Reigeluth's (2008) Saturn School paradox. Proved that unconstrained learner autonomy precipitates severe time-on-task collapse, which is quenched by preliminary fractal boundary damping.  
-  *Script:* `sim/benchmark_pfp_saturn_paradox.py` • *Artifact:* `data/pfp_saturn_benchmark_results.json`.
-
-* **Epoch 2: Pre-Registered Fair 1PL Rasch Psychometric Benchmark (`data/edu_revision/rasch_students.csv`)**  
-  *Research Milestone:* Unification of all experimental arms (Saturn, Factory, CAT, PFP) under a single, shared 1PL Rasch learner model ($P = 1 / (1 + e^{-(\theta - b)})$) with common random numbers ($N=1,000$ learners, $T=120$ cycles, 5 seeds). Proved that PFP-Core sustains **3.6× higher disequilibrium** ($P \approx 0.50$, $H = 1.0\text{ bit}$) than conventional CAT under productive failure without latent ability estimation.  
-  *Script:* `sim/rasch_fair_benchmark.py` • *Artifact:* `data/edu_revision/rasch_students.csv`, `rasch_grid.csv`.
-
-* **Epoch 3: Multi-Tier Mandelbrot Ablation Hierarchy & Static Offset Control (`data/edu_revision/r_ablation_contrasts.csv`)**  
-  *Research Milestone:* Rigorous component ablation isolating the local Mandelbrot escape dynamics ($H_{\text{macro}}$) from static difficulty offsets ($\Delta b_{\text{static}} \approx -0.42\text{ logit}$). Definitively proved the *null hypothesis of the fractal surface*: local escape geometry acts as a static task-easing offset, while the true pedagogical breakthrough resides in the $O(1)$ zero-storage servo targeting maximal Shannon entropy.  
-  *Scripts:* `sim/rasch_ablation_mandelbrot.py`, `sim/rasch_offset_control.py`, `sim/rasch_pfp2d_protocol.py` • *Artifact:* `data/edu_revision/r_ablation_contrasts.csv`, `rasch_offset_students.csv`.
-
-* **Epoch 4: Cross-Platform Hardware Profiling & Machine Verification**  
-  *Research Milestone:* High-resolution latency benchmarking across operating systems (Linux $30.4\ \mu\text{s}$ vs. Windows 11 $38.6\ \mu\text{s}$), paired with 7 machine-checked Lean 4 theorems verifying $O(1)$ state bounds with zero `sorry` axioms.  
-  *Proofs:* `lean4/PFP_HorizonProof.lean` • *Telemetry:* `data/edu_revision/latency_*.json`.
-
-* **Epoch 5: Non-Stationary Stress Testing, Elo-Staircase Equivalence & Fair Grid (`sim/sim_rigorous_revision_suite.py`)**  
-  *Research Milestone:* Addressing expert peer review by proving the algebraic and empirical equivalence of Elo ($K=0.30$) to a 1-up/1-down staircase with step size $s = 0.15$ at $P^*=0.50$. Executing a full $s \times W \times \eta$ fair grid demonstrating that the unconstrained, model-free reactive staircase eliminates psychometric estimation lag under rapid learning ($\eta = 0.10$), outperforming even optimal windowed MAP-CAT ($W=20$) in corridor (0.579 vs 0.429) and gain (2.833 vs 2.750), while matching full MAP-CAT ceiling within 95.1–99.1% under slow learning ($\eta = 0.02$). Furthermore, the +J state-jump safeguard was isolated, confirming it successfully caps frustration runs below 4.0.  
-  *Scripts:* `sim/sim_rigorous_revision_suite.py`, `sim/sim_claude_3exp.py` • *Report:* `CAEAI_Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf`.
+| Dimension | Standard CAT (Rasch EAP) | Fixed Staircase (= Elo $K=2s$) | Accelerated Staircase (PEST-type) | Fractal-Seeded Controller (`LearningGate`) | Frontier Language Model (API) |
+|---|---|---|---|---|---|
+| **Underlying model** | Latent trait $\theta \sim \mathcal{N}(0, 1)$ | None | None | None | In-context heuristic |
+| **Information required** | Calibrated item bank + prior | Binary outcome $x \in \{0, 1\}$ | Binary outcome $x \in \{0, 1\}$ | Binary outcome $x \in \{0, 1\}$ | Prompt history + items |
+| **Tracking stationary ability** | **Best** ($0.257$ logits MAE) | Moderate ($0.356$ logits) | Moderate ($0.412$ logits) | Moderate ($0.419$ logits) | Coarse ($0.784$ logits) |
+| **Tracking fast learning** | Weak ($0.755$ logits lag) | Strong ($0.401$ logits) | Moderate ($0.465$ logits) | **Strongest** ($0.421$ logits) | Lagged |
+| **Recovery after jump (+1.5 logit)** | Very slow ($56.0$ trials) | Moderate ($14.8$ trials) | Fast ($11.7$ trials) | **Fastest** ($10.4$ trials) | Unstable |
+| **Handling guessing** | Robust ($0.496$ logits) | Moderate ($0.634$ logits) | Vulnerable ($0.750$ logits) | Vulnerable ($0.734$ logits) | Vulnerable |
+| **Decision latency** | $0.008\text{ ms}$ ($8.0\ \mu\text{s}$) | $< 0.003\text{ ms}$ ($2.0\ \mu\text{s}$) | $< 0.002\text{ ms}$ ($1.3\ \mu\text{s}$) | $0.3-0.4\text{ ms}$ ($418\ \mu\text{s}$) | $67 - 788\text{ ms}$ |
+| **Persistent state size** | Grid posterior ($121$ floats) | $1$ float | $3$ floats | 24-byte seed + $6$ floats | Multi-GB tensor memory |
+| **Target success rate** | Configurable ($P^*$) | $P^* = 0.50$ | $P^* = 0.50$ | $P^* = 0.50$ (symmetric) | Variable |
 
 ---
 
-## 📁 Repository Structure
+## 2. Controller Architecture & Mathematical Definition
+
+### 2.1 State Representation & Update
+Each learner maintains a presentation difficulty $b$ (logits), the last four binary response bits $h = [h_0, h_1, h_2, h_3]$, and a leaky response-balance accumulator $\rho \in [-3, 3]$. State initializes to $b = 0$, $h = [\text{None}, \text{None}, \text{None}, \text{None}]$, $\rho = 0$.
+
+Upon observing response $x \in \{0, 1\}$:
+$$\begin{aligned}
+h &\leftarrow [x, h_0, h_1, h_2] \\
+\rho &\leftarrow \frac{2}{3} \rho + (2x - 1)
+\end{aligned}$$
+
+### 2.2 Feature Projection & Boundary Modulation
+Latent agreement and imbalance features are computed:
+$$\begin{aligned}
+a_1 &= \text{agree}(h_0, h_1), \quad a_2 = \text{agree}(h_1, h_2), \quad a_3 = \text{agree}(h_2, h_3) \\
+m &= \frac{2 |\rho|}{3} - 1, \quad \text{net\_risk} = |\rho| - 1
+\end{aligned}$$
+where $\text{agree}(p, q) = 0$ if either is missing, $+1$ if $p = q$, and $-1$ if $p \neq q$.
+
+The 24-byte seed $\Theta = (cx_0, cy_0, z_0)$ is modulated by boundary offsets:
+$$\begin{aligned}
+\text{scale} &= \frac{1}{z_0} \\
+dx &= \tanh\left(\text{net\_risk} \text{ if } \text{net\_risk} \neq 0 \text{ else } \frac{a_1 + m}{2}\right) \cdot \text{scale} \cdot 0.45 \\
+dy &= \tanh\left(\frac{a_2 + a_3}{2}\right) \cdot \text{scale} \cdot 0.45 \\
+cx &= cx_0 + dx, \quad cy = cy_0 + dy, \quad z = z_0 \cdot (1 + 0.1 \sin(a_1 + a_2 + m + a_3))
+\end{aligned}$$
+
+### 2.3 Tripod Mandelbrot Pass & Step Size Servo
+The WERR tripod multi-scale kernel evaluates 3 zoom levels ($0.60\times, 1.00\times, 1.60\times$) with weights $(0.25, 0.50, 0.25)$ on a $36 \times 36$ grid ($36$ maximum iterations, bandwidth $0.12$). Bounded quadrant escape-time ratios $q \in [0, 1]^4$ define dynamic neuron weights:
+$$w_{1..4} = (q - 0.5) \cdot 6$$
+The gain $g \in [0, 1]$ schedules the servo step size symmetrically:
+$$\begin{aligned}
+g &= \sigma\left(\text{clamp}(w_1 a_1 + w_2 a_2 + w_3 m + w_4, -50, 50)\right) \\
+b &\leftarrow b + (0.05 + 0.55 \cdot g) \cdot (2x - 1)
+\end{aligned}$$
+
+### 2.4 Frozen 24-Byte Seed
+The optimized coordinate seed is a frozen artifact:
+$$\Theta^* = \left(cx_0 = -0.80792578443908969,\ cy_0 = 0.18302136198124994,\ z_0 = 300.0\right)$$
+Validating `seed_loss(Theta*, canonical_patterns(8))` yields exactly `0.0233722`.
+
+---
+
+## 3. Empirical Results
+
+### 3.1 Synthetic Evaluation Regimes ($N = 1,000, T = 120$)
+Mean absolute error (MAE in logits) between presented difficulty $b$ and learner ability:
+
+| Arm | Stationary Ability | Slow Learning ($\eta = 0.02$) | Fast Learning ($\eta = 0.10$) | Uncalibrated Start ($+2.0$) | Sudden Jump ($+1.5$) | Guessing ($g = 0.25$) |
+|---|---|---|---|---|---|---|
+| **LearningGate (Fractal)** | 0.419 | 0.405 | **0.421** | 0.500 | 0.477 | 0.734 |
+| **Stored-Weight Twin** | 0.429 | 0.415 | 0.428 | 0.507 | 0.486 | 0.748 |
+| **Standard CAT** | **0.257** | **0.286** | 0.755 | 0.448 | 0.683 | **0.496** |
+| **CAT with Forgetting** | 0.317 | 0.306 | 0.585 | 0.601 | 0.523 | 0.494 |
+| **Fixed Staircase (0.15)** | 0.356 | 0.341 | 0.401 | 0.494 | 0.453 | 0.634 |
+| **PEST-type Rule** | 0.412 | 0.403 | 0.465 | **0.474** | 0.497 | 0.750 |
+| **Legacy PFP-Core** | 0.682 | 0.653 | 1.028 | 1.547 | 0.936 | 0.702 |
+| **Legacy PFP-Core + J** | 0.709 | 0.670 | 1.035 | 1.546 | 0.948 | 0.710 |
+
+*Recovery time (trials to re-acquire ability corridor after sudden jump):*
+- **LearningGate:** **10.4 trials**
+- **PEST:** 11.7 trials
+- **Fixed Staircase (0.15):** 14.8 trials
+- **CAT with Forgetting:** 28.5 trials
+- **Standard CAT:** 56.0 trials
+
+### 3.2 Real-Data Replay (ASSISTments 2009–2010 and 2017)
+Mixed logistic regression models (`glmer`, $N = 5,872$ learners, $225$ skills) evaluated under unknown vs. known student baseline:
+
+| Arm | 2009–2010 Constant | 2009–2010 Logarithmic | 2017 Constant | 2017 Logarithmic |
+|---|---|---|---|---|
+| **LearningGate (Fractal)** | 0.899 / **0.595** | 0.914 / **0.651** | 0.563 / **0.456** | 0.564 / **0.465** |
+| **Stored-Weight Twin** | 0.908 / 0.600 | 0.922 / 0.657 | 0.569 / 0.457 | 0.571 / 0.467 |
+| **Standard CAT** | 0.867 / 0.644 | 0.854 / 0.649 | 0.607 / 0.543 | 0.557 / 0.490 |
+| **CAT (Data-matched Prior)** | **0.836** / 0.653 | **0.808** / 0.681 | 0.610 / 0.524 | 0.562 / 0.494 |
+| **CAT with Forgetting** | 0.867 / 0.634 | 0.863 / 0.647 | 0.593 / 0.522 | 0.556 / 0.484 |
+| **Fixed Staircase (0.30)** | 0.821 / 0.584 | 0.841 / 0.624 | **0.556** / 0.482 | **0.557** / 0.488 |
+| **Legacy PFP-Core** | 0.997 / 0.710 | 1.002 / 0.735 | 0.712 / 0.616 | 0.681 / 0.583 |
+
+*Key finding:* Supplying an empirical initial ability prior improves tracking accuracy by **0.16–0.33 logits across all methods**—a substantially larger margin than switching between controller policies.
+
+### 3.3 Large Language Model Comparison ($N = 200$ Learners)
+Benchmarked against Claude API across 20 rounds of batched item recommendation:
+- **Default Tier:** $0.784$ MAE (data-shaped) / $0.933$ MAE (jump condition); $787.7\text{ ms}$ per decision.
+- **Fast Tier:** $0.954$ MAE (data-shaped) / $1.323$ MAE (jump condition); $66.5\text{ ms}$ per decision.
+- **LearningGate:** $0.722$ MAE (data-shaped) / $0.842$ MAE (jump condition); $0.4\text{ ms}$ per decision.
+
+---
+
+## 4. Repository Structure
 
 ```text
-├── README.md                                       # Primary Repository Guide & Empirical Summary
-├── BULGULAR_OZETI_edu.md                           # Turkish Audit & Findings Summary Note
-├── REVISION_NOTES_edu.md                           # Comprehensive Revision & Audit Changelog
-├── .zenodo.json                                    # Zenodo Open-Science Metadata Record
-├── SEAL_MANIFEST.json                              # Cryptographic SHA-256 Audit Seal
-├── sim/                                            # Simulation Engines & Benchmarks
-│   ├── sim_rigorous_revision_suite.py              # Fair Grid (s x W x eta) & +J Safeguard Isolation
-│   ├── sim_claude_3exp.py                          # 3-Experiment Suite (Pullback, Elo Identity, Stress Test)
-│   ├── rasch_fair_benchmark.py                     # 1PL Rasch Fair Benchmark (4-arm, CRN paired)
-│   ├── rasch_ablation_mandelbrot.py                # 1D/2D Mandelbrot Component Ablation Sweep
-│   ├── rasch_pfp2d_protocol.py                     # 2D Phase-Plane Trajectory Protocol
-│   ├── rasch_pfp2d_isolated.py                     # Isolated 2D Univariate Evaluation
-│   ├── rasch_offset_control.py                     # Empirical Scalar Offset Control Benchmark
-│   ├── measure_latency.py                          # High-Resolution Hardware Latency Profiler
-│   ├── process_real_student_datasets.py            # Counterfactual Trajectory Simulator (ASSISTments/OULAD)
-│   └── push_werredur.py                            # Automated GitHub Synchronization Utility
-├── analysis/                                       # Statistical Analysis & LaTeX Generators
-│   ├── rasch_fair_benchmark.R                      # Paired Bootstrap CIs & Cohen's d_z Inference
-│   ├── rasch_ablation_mandelbrot.R                 # Ablation Contrasts & Effect Sizes
-│   ├── rasch_offset_control.R                      # Pre-registered 3-Criteria Superiority Tests
-│   ├── real_data_counterfactual.R                  # McNemar & ZPD Sensitivity Contrasts
-│   ├── make_results_tex.R                          # Dynamic LaTeX Macro & Table Exporter
-│   └── make_ablation_tex.R                         # Ablation Number Macros & TeX Exporter
-├── data/edu_revision/                              # Frozen Empirical Data & Replication Package
-│   ├── DATA_MANIFEST_SHA256.json                   # Cryptographic SHA-256 Checksum Manifest
-│   ├── latency_claude.json                         # Hardware Profiling Benchmarks
-│   ├── rasch_students.csv                          # Per-Learner Trajectory Records (N = 1000)
-│   ├── rasch_grid.csv                              # 15-Cell Sensitivity Grid Metrics
-│   └── r_*.{csv,txt}                               # Statistical Reports & Bootstrap Output Logs
-├── latex/                                          # Academic Manuscript Sources
-│   ├── main.tex                                    # Primary LaTeX Source
-│   ├── sections/results_rasch.tex                  # Modular Rasch Results Section
-│   ├── generated/                                  # Dynamically Injected Number Macros & Tables
-│   └── main_edu_revision.pdf                       # Fully Compiled 9-Page Academic Preprint
-├── werr/                                           # Bundled WERR v0.5.1 Core Engine
-│   ├── pedagogy.py                                 # PFP Operators (X_UPPER, kappa, jump, tripod)
-│   ├── engine.py                                   # System-One Decision Engine
-│   └── modular_algebra.py                          # GAP-0331 Z/9Z Ring Invariants
-├── tests/
-│   └── test_werredu_werr_core.py                   # Automated Unit & Invariant Test Suite
-└── lean4/
-    └── PFP_HorizonProof.lean                       # Lean 4 Interactive Formal Verification (0 sorry)
+WerreduR/
+├── README.md                   # Empirical positioning matrix & replication documentation
+├── CHANGELOG.md                # Evolution log from v1 to v2
+├── CITATION.cff                # Citation metadata referencing Zenodo Concept DOI
+├── .zenodo.json                # Zenodo archive metadata configuration
+├── index.html                  # Interactive GitHub Pages visual documentation
+├── werr/                       # Production Python controller package
+│   ├── learning_gate.py        # LearningGate, Staircase, PEST, CAT, PFPCore implementations
+│   ├── engine.py               # WerrEngine execution runtime
+│   ├── fractal.py              # Pure Python Mandelbrot & tripod quadrant extractor
+│   └── gates/                  # Upstream WERR domain gates
+├── tests/                      # Verification test suites
+│   ├── test_learning_gate_parity.py  # Cross-language parity (Python/R/JS) & mathematical invariant suite
+│   └── test_werredu_werr_core.py     # Upstream WERR engine unit tests
+├── v2/                         # Complete empirical replication battery
+│   ├── controller/             # R, Rcpp, seed search, trade-off sweeps (pfpw)
+│   ├── data_shaped/            # Mixed logistic regression ASSISTments replay pipeline (replay)
+│   ├── llm/                    # Language model benchmark runtime, JS port, frozen logs
+│   └── data/README.md          # Data acquisition instructions and SHA-256 checksums
+├── extras/                     # Exploratory research components outside the paper scope
+│   ├── multi/                  # Multi-skill graph embedding and table compression
+│   └── lens/                   # Real-data fractal fluctuation analysis
+└── legacy/                     # Zenodo v4.0 archival directory preserving exact reproducibility
+    ├── README_LEGACY.md        # Original v1 conceptual documentation
+    ├── sim/                    # Legacy simulation scripts (PFP-Core)
+    ├── lean4/                  # Formal Lean 4 verification of Z/9Z modular algebra
+    ├── Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf  # Archived v1 preprint
+    └── zenodo_dist/            # Frozen v1-v4 release packages
 ```
 
 ---
 
-## 🔬 Reproducibility & Replication Protocol
+## 5. Reproduction & Verification
 
-The entire empirical study is strictly deterministic and verified by cryptographic hashes.
-
+### 5.1 Python Parity & Invariant Battery
+Run the verified cross-language parity suite directly:
 ```bash
-# 1. Run full unit and GAP-0331 invariant test suite
-python tests/test_werredu_werr_core.py
+python -m unittest tests/test_learning_gate_parity.py
+python -m unittest discover tests
+```
+The test suite validates:
+1. Multi-scale tripod escape ratios across 200 coordinates ($\Delta < 10^{-9}$; measured $\sim 10^{-15}$).
+2. Sigmoid gate gains across 256 response histories ($\Delta < 10^{-9}$; measured $4.27 \times 10^{-15}$).
+3. Strict response-flip symmetry ($g(\text{hist}) \equiv g(1 - \text{hist})$).
+4. Analytical bounds of legacy PFP-Core ($|b| \le 1.13636$ logits due to $\kappa = 0.44$).
+5. Analytical equivalence of PFP-Core with $\kappa = 0$ to a $0.50$ fixed staircase.
+6. Equivalence of staircase rule to Elo item updates ($K = 2s$).
+7. Node.js JavaScript port parity.
+8. Group error means of the empirical LLM benchmark dataset ($0.784$ and $0.933$).
 
-# 2. Run the 1PL Rasch fair comparative benchmark
-python sim/rasch_fair_benchmark.py
+### 5.2 R Simulation Battery (Manuscript Record)
+The R pipeline (`R >= 4.3`, `Rcpp`, `lme4`) generates the primary scientific numbers of the manuscript:
+```bash
+cd v2/controller
+Rscript tests/test_parity.R
+node tests/test_js_parity.js
+Rscript R/01_run_simulation.R 1000 120
+Rscript R/02_report.R
+Rscript R/03_tradeoff.R
+```
 
-# 3. Run component ablation and offset control sweeps
-python sim/rasch_ablation_mandelbrot.py
-python sim/rasch_offset_control.py
+### 5.3 ASSISTments Replay
+```bash
+cd v2/data_shaped
+Rscript 01_fit_learner_model.R
+Rscript 02_replay.R
+Rscript 03_validate_model.R
+Rscript 04_saturating_learning.R
+Rscript 05_replay_saturating.R
+Rscript 06_second_dataset_fit.R
+Rscript 06b_auc2017.R
+Rscript 07_second_dataset_replay.R
+```
+*Note: Public datasets must be acquired following instructions in [`v2/data/README.md`](./v2/data/README.md).*
 
-# 4. Measure execution latency on local hardware
-python sim/measure_latency.py
+---
 
-# 5. Verify cryptographic integrity against the data manifest
-python -c "
-import json, hashlib, os
-with open('data/edu_revision/DATA_MANIFEST_SHA256.json') as f:
-    manifest = json.load(f)
-for rel, meta in manifest['files'].items():
-    p = os.path.join('data/edu_revision', rel)
-    with open(p, 'rb') as fp:
-        h = hashlib.sha256(fp.read()).hexdigest()
-    assert h == meta['sha256'], f'Checksum mismatch on {rel}!'
-print('All 31 data and report files verified: 100% SHA-256 match!')
-"
+## 6. Limitations
+
+1. **Simulation Bounds:** The study evaluates synthetic learners and empirical replays driven by mixed logistic regression; it does not report live clinical trials with human students.
+2. **Item Pool Continuity:** Difficulty $b$ is treated as a continuous logit variable; real-world discrete item pools require nearest-neighbor retrieval or calibration offsets.
+3. **Target Horizon:** The symmetric step-size formulation naturally converges to $P^* = 0.50$; educational settings targeting higher success rates ($P^* = 0.70-0.85$) require asymmetric up/down scaling.
+4. **Platform Scope:** Both empirical datasets originate from ASSISTments platform variants; generalization to diverse learning platforms remains to be established.
+5. **Exploratory Study:** This simulation study was not pre-registered.
+
+---
+
+## 7. Citation & Academic Integrity
+
+This project maintains uninterrupted academic continuity with all published versions under the Zenodo Concept DOI:
+
+- **Concept DOI (all versions):** [10.5281/zenodo.22999420](https://doi.org/10.5281/zenodo.22999420)
+- **Version 4.0 Archive DOI:** [10.5281/zenodo.23128224](https://doi.org/10.5281/zenodo.23128224)
+
+```bibtex
+@article{dagli2026fractalcontroller,
+  title={Where Does a Fractal-Seeded Controller Stand? A Simulation Study Positioning a 24-Byte, Estimation-Free Difficulty Controller Against Adaptive Testing, Staircase Rules and a Language Model},
+  author={Da{\u{g}}l{\i}, Zerrin and Da{\u{g}}l{\i}, Volkan and Da{\u{g}}l{\i}, Da{\u{g}}han},
+  year={2026},
+  doi={10.5281/zenodo.22999420},
+  url={https://doi.org/10.5281/zenodo.22999420}
+}
 ```
 
 ---
 
-## 🇹🇷 Genişletilmiş Türkçe Özet
+## 8. License & Declarations
 
-**Uyarlanabilir Öğrenmede Fraktal Geometrinin İşlevselleştirilmesi: Gizil Yetenek Kestirimi Olmaksızın Üretken Başarısızlığı Sürdüren Deterministik $O(1)$ Servokontrolcü**
-
-Çağdaş uyarlanabilir öğrenme sistemleri (AIED), açık döngülü müfredatların tekdüze ilerleyişi (**Fabrika Modeli**) ile öğrencinin görevden kopmasına neden olan sınırsız özerklik (**Satürn Okulu Paradoksu**) arasındaki yapısal gerilimle karşı karşıyadır. Madde Tepki Kuramına (IRT) dayalı Bilgisayarlı Uyarlamalı Test (CAT) sistemleri ise gizil yetenek ($\theta$) kestirimi gerektirmekte, gecikme oluşturmakta ve öğrencileri epistemik şaşkınlığı ve üretken zorlanmayı bastıran aşırı-başarı koridoruna ($P \approx 0.70$) hapsetmektedir.
-
-**Prosedürel Fraktal Pedagoji (`PFP` / `WerreduR`)**, Mandelbrot kümesinin kardioid tepesi ($X = 0.25 + 0.18i$) üzerindeki sınır geometrisini işlevselleştirerek yetenek tahmini yapmaksızın tepe Shannon entropisini ($P \approx 0.50$) hedefleyen model-free bir servokontrolcüdür. $N = 1000$ öğrenci ve $T = 120$ görevlik adil 1PL Rasch simülasyonunda PFP-Core, Kapur'un üretken başarısızlık rejiminde en yüksek yetenek kazancını elde etmiş ve görevleri yeteneğe en yakın mesafede tutmuştur. Ablasyon analizleri, Mandelbrot manifoldunun herhangi bir popülasyon ön-kalibrasyonuna gerek duymadan sıfır telemetri ile özdengelenim sağladığını doğrulamıştır. Sistem **30.4 μs** çekirdek gecikmesi ve **24 bayt** durum belleğiyle internetsiz ve ucuz sınıf içi uç cihazlarda tam gizlilikle çalışabilir.
-
----
-
-## 📄 License & Open Science Notice
-
-* Code & Simulation Scripts: Dual Licensed under [MIT License](./LICENSE) and BSL 1.1.
-* Empirical Data & Documentation: Creative Commons Attribution 4.0 International ([CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
-* Turkish Patent & Trademark Office (TÜRKPATENT) Priority: `TR 2026/016285`.
+- **Code:** MIT License ([LICENSE](./LICENSE) / upstream `werr`).
+- **Data & Documentation:** Creative Commons Attribution 4.0 International ([CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+- **Legacy Components:** Maintained under their original distribution terms in [`legacy/`](./legacy/).

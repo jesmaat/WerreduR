@@ -1,0 +1,17 @@
+"arm","family","step","precision","recover","coldacq"
+"Fixed staircase, step 0.08","Fixed staircase (step varied)",0.08,0.322524467957846,28.167,39.511
+"Fixed staircase, step 0.10","Fixed staircase (step varied)",0.1,0.327294475280311,22.434,31.175
+"Fixed staircase, step 0.15","Fixed staircase (step varied)",0.15,0.356330190216736,14.814,20.575
+"Fixed staircase, step 0.20","Fixed staircase (step varied)",0.2,0.392399281305988,10.96,15.431
+"Fixed staircase, step 0.25","Fixed staircase (step varied)",0.25,0.430044271716496,8.654,12.517
+"Fixed staircase, step 0.30","Fixed staircase (step varied)",0.3,0.46925899836702,7.375,10.734
+"Fixed staircase, step 0.40","Fixed staircase (step varied)",0.4,0.538455271120467,5.502,8.228
+"Fixed staircase, step 0.50","Fixed staircase (step varied)",0.5,0.60195947944024,4.576,6.959
+"Adaptive test","Adaptive test",NA,0.25657570260098,55.974,21.336
+"Adaptive test, forgetting","Adaptive test",NA,0.317286657206041,28.527,24.372
+"PEST-type","Other estimation-free",NA,0.411549195213489,11.695,11.075
+"Stored-weight twin","Other estimation-free",NA,0.429292487647558,11.236,13.973
+"LearningGate (fractal)","Fractal gate",NA,0.418526708456117,10.446,14.132
+"Fractal, frozen","Fractal gate",NA,0.526355815178118,7.127,9.653
+"Fractal, unsearched seed","Fractal gate",NA,0.594246302427506,4.604,6.327
+"Original PFP-Core","Original PFP-Core",NA,0.681515753620225,32.588,84.322
