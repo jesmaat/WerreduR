@@ -18,7 +18,8 @@ authors:
 version: "2.0.0"
 date-released: "2026-10-07"
 license: "CC-BY-4.0"
-repository-code: "https://github.com/pCwOrM/WerreduR"
+repository-code: "https://github.com/jesmaat/WerreduR"
+url: "https://github.com/pCwOrM/WerreduR"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.22999420"
