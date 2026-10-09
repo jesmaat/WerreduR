@@ -7,7 +7,9 @@ Bu rehber, **[arxiv.org/submit](https://arxiv.org/submit)** web formunu doldurur
 ## 📁 1. Yüklenecek Dosya
 * **Dosya:** `releases/arxiv_submission_pfp_v4.zip` (veya `legacy/zenodo_dist/arxiv_submission_pfp_v4.zip`)
 * **Boyut:** ~2.03 MB
-* **İçerik:** `main.tex`, `main.bbl` (önceden derlenmiş 18 kaynakça), `references.bib`, `figures/` (4 adet 300-DPI grafik) — *TeX Live 2025 pdflatex motoru için %100 test edilmiş, sıfır hatalı tam pakettir.*
+* **İçerik:** `main.tex` (tüm 18 kaynakça doğrudan içerisine gömülü, bağımsız ve tam metin), `main.bbl` (opsiyonel yedek), `references.bib`, `figures/` (4 adet 300-DPI grafik).
+* **Önemli Not (.bbl Hakkında):** arXiv web arayüzünün `.bbl` dosyasını silme/temizleme uyarısı vermesine karşı, 18 referansın tamamı `main.tex` içine doğrudan (`thebibliography`) gömülmüştür. Dolayısıyla sistem hiçbir harici dosyaya ihtiyaç duymadan ilk geçişte tüm atıfları eksiksiz derler.
+* **Sağ Kenar Taşmaları (Overfull Margin):** Başlık altındaki patent/DOI satırı, Denklem (1), (3), (5), (6), (7), (8) ve Tablo 2 iki sütunlu düzenin sınırlarına göre çok satırlı `align`/`split`/`table*` bloklarına bölünerek sağ kenardan taşma sorunu tamamen giderilmiştir.
 
 ---
 
@@ -63,7 +65,7 @@ Contemporary AI in Education (AIED) architectures face a dual crisis: memory bot
 
 ### [6] Comments (Açıklama / Baskı Detayı)
 ```text
-6 pages, 4 figures, 2 tables. Version 4.0 camera-ready preprint. Includes Lean 4 formal verification module (PFP_HorizonProof.lean, 0 sorry axioms) and standalone unit test suite. TÜRKPATENT National Priority Application No. TR 2026/016285. GitHub: https://github.com/jesmaat/WerreduR
+9 pages, 4 figures, 2 tables. Version 4.0 camera-ready preprint. Includes Lean 4 formal verification module (PFP_HorizonProof.lean, 0 sorry axioms) and standalone unit test suite. TÜRKPATENT National Priority Application No. TR 2026/016285. GitHub: https://github.com/jesmaat/WerreduR
 ```
 
 ---

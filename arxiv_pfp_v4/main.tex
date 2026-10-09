@@ -7,14 +7,14 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{array}
-\usepackage{geometry}
+\usepackage[a4paper,left=1.6cm, right=1.6cm, top=2.0cm, bottom=2.0cm, columnsep=0.65cm]{geometry}
+\usepackage[hyphens]{url}
+\usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{cite}
 \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{enumitem}
-
-\geometry{left=1.6cm, right=1.6cm, top=2.0cm, bottom=2.0cm, columnsep=0.65cm}
 
 \hypersetup{
     colorlinks=true,
@@ -40,7 +40,8 @@
     \small $^{4}$ITouch Systems (ITouch Bili\c{s}im Sistemleri Ltd. \c{S}ti.), Mersin, Turkey \\
     \small $^{5}$Toros Science College, Mersin, Turkey $\cdot$ \texttt{ORCID: 0009-0003-2492-8313} \\[4pt]
     \small $^{*}$Corresponding Author $\cdot$ Preprint Series: Educational Complexity \& Zero-Storage AIED (Version 4.0) \\
-    \small Permanent DOI: \texttt{10.5281/zenodo.23128224} $\cdot$ Priority Patent Application: T\"URKPATENT TR 2026/016285 $\cdot$ Companion Corpus: arXiv:2609.25498, arXiv:2609.30115
+    \small Permanent DOI: \texttt{10.5281/zenodo.23128224} $\cdot$ Priority Patent: T\"URKPATENT TR 2026/016285 \\
+    \small Companion Corpus: arXiv:2609.25498, arXiv:2609.30115
 }
 
 \date{October 4, 2026}
@@ -98,7 +99,7 @@ Reigeluth \cite{reigeluth2008chaos} identified three foundational insights from 
 
 \begin{figure*}[!t]
     \centering
-    \includegraphics[width=0.98\textwidth]{figures/fig1_observer_horizon_zpd.png}
+    \includegraphics[width=0.95\textwidth]{figures/fig1_observer_horizon_zpd.png}
     \caption{\textbf{Complex Phase-Space Portrait of Procedural Fractal Pedagogy (PFP).} \textbf{(a)} Global Mandelbrot manifold ($\mathcal{M}$) illustrating the interior Factory-Model Stagnation Basin ($L \to 0$ rote equilibrium), the exterior Saturn School Drift Zone ($|z_n| > 2.0$ unconstrained off-task divergence), the Main Cardioid Cusp ($c = 1/4$), and the Observer Horizon ZPD Shoulder Loci $X_{\text{upper/lower}} = (0.25, \pm 0.18)$. \textbf{(b)} Zoomed phase portrait of the Observer Horizon ZPD Corridor demonstrating how an unconstrained Saturn School trajectory (red dashed curve) escapes into chaotic divergence, whereas the PFP / \texttt{WerreduR} trajectory (cyan solid curve) is stabilized inside the ZPD basin via Semantic Token Damping ($T_{\text{desc}} = 0.045$) and restored from stagnation via the Biomimetic Perturbed Jump Operator ($\Omega_{\text{tunneling}}$).}
     \label{fig:observer_horizon}
 \end{figure*}
@@ -115,10 +116,10 @@ Despite these insights, both Reigeluth's complexity pedagogy and contemporary ne
 
 \subsection{Zero-Storage 24-Byte Student Coordinate Seeding}
 Let a learner's instantaneous cognitive state, task context, and scaffolding scale be represented by a 24-byte coordinate seed triplet:
-\begin{equation}
-    \Theta_{\text{student}} = (c_x, c_y, \zeta) \in \mathbb{R}^3, \quad \text{sizeof}(\Theta_{\text{student}}) = 3 \times 8 = 24\text{ Bytes},
-    \label{eq:seed}
-\end{equation}
+\begin{align}
+    \Theta_{\text{student}} &= (c_x, c_y, \zeta) \in \mathbb{R}^3, \label{eq:seed} \\
+    \text{sizeof}(\Theta_{\text{student}}) &= 3 \times 8 = 24\text{ Bytes}, \nonumber
+\end{align}
 where $c = c_x + i c_y \in \mathbb{C}$ denotes the complex control parameter and $\zeta = \text{zoom} \in \mathbb{R}^+$ denotes the multi-scale curriculum magnification factor. Instead of retrieving static neural weights $W \in \mathbb{R}^{d_{\text{in}} \times d_{\text{out}}}$ from VRAM, the \texttt{Werredu} runtime evaluates the complex quadratic map from $z_0 = 0$:
 \begin{equation}
     z_{n+1} = z_n^2 + c, \quad n \in \{0, 1, \dots, N_{\max}\},
@@ -127,9 +128,10 @@ where $c = c_x + i c_y \in \mathbb{C}$ denotes the complex control parameter and
 where $N_{\max} = 36$ for local CPU edge execution and $N_{\max} = 12$ for on-chain EVM verification \cite{dagli2026lean4}. The escape iteration count $N_{\text{esc}}(c)$ is defined as the smallest $n \le N_{\max}$ such that $|z_n|^2 > 4.0$ (the Euler divergence threshold $|z_n| > 2.0$), or $N_{\max}$ if the orbit remains bounded.
 
 By partitioning a local spatial patch around $c$ into four orthogonal sub-quadrants ($Q_1, Q_2, Q_3, Q_4$), the convergent ``dark area'' ratio $D_q \in [0, 1]$ of each quadrant $q \in \{1,2,3,4\}$ directly synthesizes transient synaptic weights $(w_1, w_2, w_3)$ and threshold bias $b$ on the fly \cite{dagli2026mandelbrot}:
-\begin{equation}
-    D_q(c, \zeta) = \frac{1}{|Q_q|} \sum_{p \in Q_q} \frac{N_{\text{esc}}(p)}{N_{\max}}, \quad \{w_1, w_2, w_3, b\} = \Phi_{\text{quad}}\big(D_1, D_2, D_3, D_4\big).
-\end{equation}
+\begin{align}
+    D_q(c, \zeta) &= \frac{1}{|Q_q|} \sum_{p \in Q_q} \frac{N_{\text{esc}}(p)}{N_{\max}}, \label{eq:dark_area} \\
+    \{w_1, w_2, w_3, b\} &= \Phi_{\text{quad}}\big(D_1, D_2, D_3, D_4\big). \nonumber
+\end{align}
 Rather than integrating continuous 2D disks across millions of pixels, \texttt{Werredu} conserves CPU registers by deploying a 4-point orthogonal corner probe $\mathcal{P}_4(c, r_{\text{patch}}) = \{c + (\pm r_{\text{patch}}, \pm r_{\text{patch}})\}$, evaluated at macro-radius $r_{\text{patch}} = 0.22 / \zeta$. Because parameters are synthesized ephemerally in CPU registers and discarded immediately after decision emission, persistent tensor memory is identically $0\text{ Bytes}$ ($O(1)$ spatial complexity).
 
 \subsection{Observer Horizon ZPD Corridor Geometry and Radial Multiplier Ontology}
@@ -145,10 +147,10 @@ Evaluating the fixed-point multiplier at the conjugate Observer Horizon shoulder
     X_{\text{upper}} = 0.25 + 0.18i, \qquad X_{\text{lower}} = 0.25 - 0.18i,
     \label{eq:shoulders}
 \end{equation}
-\begin{equation}
-    \lambda = 1 - \sqrt{1 - 4(0.25 \pm 0.18i)} = 0.40 \pm 0.60i, \quad |\lambda| = \sqrt{0.52} \approx 0.7211 < 1, \quad \arg(\lambda) \approx 56.31^\circ.
-    \label{eq:lambda_shoulder}
-\end{equation}
+\begin{align}
+    \lambda &= 1 - \sqrt{1 - 4(0.25 \pm 0.18i)} = 0.40 \pm 0.60i, \label{eq:lambda_shoulder} \\
+    |\lambda| &= \sqrt{0.52} \approx 0.7211 < 1, \quad \arg(\lambda) \approx 56.31^\circ. \nonumber
+\end{align}
 Positioned strategically between the parabolic cusp ($c = 0.25$) and the critical boundary separatrix ($\hat{c} = 0.25 \pm 0.50i$), $X_{\text{upper}}$ and $X_{\text{lower}}$ form a robust spiral resonance shelf. Under the 4-point corner probe $\mathcal{P}_4$ at $r_{\text{patch}} = 0.22$, the eastern probes ($p_1, p_4$) reach $\text{Re}(c) = 0.47 > 0.25$ into the adjacent escape basin ($N_{\text{esc}} \in \{3, 6\}$), while western probes ($p_2, p_3$) remain within the cardioid interior ($\text{Re}(c) = 0.03, N_{\text{esc}} = 36$). This yields a sharp quadrant boundary dispersion $\sigma_D = \text{std}([0.083, 1.0, 1.0, 0.167]) = 0.4171 \gg 0.08$, provoking active cognitive disequilibrium. Conversely, at $c = 0$, all four probes remain bounded inside the cardioid, producing identically zero dispersion ($\sigma_D = 0.0000$), as shown in Fig.~\ref{fig:observer_horizon}.
 
 
@@ -157,28 +159,38 @@ When a self-directed learner explores a curriculum module at step $t$, environme
 
 \paragraph{1. Information-Theoretic Semantic Token Damping Filter ($T_{\text{desc}} = 0.045$):}
 When natural-language student input contains off-task distraction spikes or prompt-drift tokens (detected via localized root-ontology and phase-angle entropy), the raw perturbation is attenuated by the damping constant $T_{\text{desc}} = 0.045$ \cite{dagli2026werr} alongside a restoring harmonic potential $\kappa = 0.44$ toward the active ZPD shoulder $X_{\text{sh}} \in \{X_{\text{upper}}, X_{\text{lower}}\}$:
-\begin{equation}
-    c_{t+1} = c_t + \gamma(t)\,\Delta c_t - \kappa \big(c_t - X_{\text{sh}}\big), \quad \gamma(t) = \begin{cases} T_{\text{desc}} = 0.045, & \text{if off-task spike}, \\ \gamma_0 = 0.26, & \text{if productive inquiry}. \end{cases}
-    \label{eq:damping}
-\end{equation}
+\begin{align}
+    c_{t+1} &= c_t + \gamma(t)\,\Delta c_t - \kappa \big(c_t - X_{\text{sh}}\big), \label{eq:damping} \\
+    \gamma(t) &= \begin{cases} 
+        T_{\text{desc}} = 0.045, & \text{if off-task spike}, \\ 
+        \gamma_0 = 0.26, & \text{if productive inquiry}. 
+    \end{cases} \nonumber
+\end{align}
 
 \paragraph{2. Biomimetic Perturbed Jump Operator ($\Omega_{\text{tunneling}}$):}
 If a learner encounters a non-convex conceptual obstacle---manifesting either as interior stagnation ($\bar{D} > 0.94$ for $\tau \ge 2$ consecutive steps) or incipient boundary drift ($|c_t - X_{\text{sh}}| > R_{\text{zpd}} = 0.13$)---PFP triggers the deterministic jump operator $\Omega_{\text{tunneling}}$ (inspired by mammalian fertilization zinc-spark phase resets \cite{dagli2026oed}):
 \begin{equation}
-    \Omega_{\text{tunneling}}(c_t, m, t) = X_{\text{sh}} + r_{\text{jump}} \exp\!\left(i \frac{2\pi}{9} \big[(3m + 6t) \bmod 9\big]\right),
-    \label{eq:omega_jump}
+\begin{split}
+    \Omega_{\text{tunneling}}(c_t, m, t) &= X_{\text{sh}} + r_{\text{jump}} \\
+    &\quad \times \exp\!\left(i \frac{2\pi}{9} \big[(3m + 6t) \bmod 9\big]\right),
+\end{split}
+\label{eq:omega_jump}
 \end{equation}
 where $r_{\text{jump}} = 0.032$ and $m$ is the learner index. Equation~\eqref{eq:omega_jump} projects the learner orthogonally onto a $\mathbb{Z}/9\mathbb{Z}$-quantized phase ring around $X_{\text{sh}}$, breaking cognitive deadlock in $< 0.5\text{ ms}$ without teacher intervention.
 
 \paragraph{3. Tripod Multi-Scale Harmonic Evaluation:}
 To prevent single-scale boundary trapping, PFP evaluates every pedagogical triage decision across three geometric focal scales $\mathbf{s} = [0.60\times, 1.00\times, 1.60\times]$ with convex harmonic weights $\mathbf{w} = [0.25, 0.50, 0.25]$:
 \begin{equation}
-    \mathcal{H}_{\text{tripod}}(c_t, \zeta) = 0.25\,D(c_t, 0.6\zeta) + 0.50\,D(c_t, 1.0\zeta) + 0.25\,D(c_t, 1.6\zeta).
+\begin{split}
+    \mathcal{H}_{\text{tripod}}(c_t, \zeta) &= 0.25\,D(c_t, 0.6\zeta) + 0.50\,D(c_t, 1.0\zeta) \\
+    &\quad + 0.25\,D(c_t, 1.6\zeta).
+\end{split}
+\label{eq:tripod}
 \end{equation}
 
 \begin{figure*}[!t]
     \centering
-    \includegraphics[width=0.98\textwidth]{figures/fig2_saturn_paradox_trajectories.png}
+    \includegraphics[width=0.95\textwidth]{figures/fig2_saturn_paradox_trajectories.png}
     \caption{\textbf{Empirical Resolution of the Saturn School Paradox ($N = 1,000$ Trajectories Across 5 Seeds, $T = 120$ Cycles).} \textbf{(a)} Active on-task learner cohort retention ($\%$). Unconstrained self-directed learning (red dashed curve, Bennett \& King 1991 Saturn School baseline) suffers catastrophic drift to $11.68\% \pm 0.31\%$, while PFP / \texttt{WerreduR} (green solid curve) sustains $94.19\% \pm 0.14\%$ on-task retention, outperforming Cloud LLM Tutors ($88.96\% \pm 0.49\%$). \textbf{(b)} Cumulative cognitive stress index ($\|T_{\mu\nu}\|$ analog, log scale), demonstrating how Factory-Model error erasure ($L \to 0$) induces a burnout firewall singularity ($437.84 \pm 3.65$), whereas PFP's $\mathbb{Z}/9\mathbb{Z}$ Error-Kernel decouples stress to $1.29 \pm 0.00$ ($339.4\times$ quench).}
     \label{fig:saturn_trajectories}
 \end{figure*}
@@ -213,7 +225,7 @@ While neural AIED models (LLMs and DKT) operate as probabilistic black boxes who
 
 \begin{figure*}[!t]
     \centering
-    \includegraphics[width=0.98\textwidth]{figures/fig3_tamame_error_kernel.png}
+    \includegraphics[width=0.95\textwidth]{figures/fig3_tamame_error_kernel.png}
     \caption{\textbf{Refuting the Fallacy of Erasure via TAMAMe Complementarity and $\mathbb{Z}/9\mathbb{Z}$ Error-Kernel Invariants.} \textbf{(a)} Dynamic co-evolution of Learner Blind-Spot Density $B(t)$ (\texttt{AMA}) and Active Epistemic Seek Drive $S(t)$ (\texttt{ME}), maintaining strict unitary conservation $B(t) + S(t) = 1.00$ across curriculum perturbations. \textbf{(b)} Unitary competency retention across the nine modular residue classes of $\mathbb{Z}/9\mathbb{Z}$, showing core mastery stabilization in the closed sub-ideal $\mathcal{I}_3 = \{[0]_9, [3]_9, [6]_9\}$ ($92.4\%\text{--}94.1\%$) and non-destructive exploratory error preservation across orthogonal cosets ($61.8\%\text{--}66.5\%$).}
     \label{fig:tamame_kernel}
 \end{figure*}
@@ -265,16 +277,16 @@ In contrast, \textbf{PFP / \texttt{Werredu}} achieves \textbf{$94.19\% \pm 0.14\
 
 \begin{figure*}[!t]
     \centering
-    \includegraphics[width=0.98\textwidth]{figures/fig4_edge_latency_memory_pareto.png}
+    \includegraphics[width=0.95\textwidth]{figures/fig4_edge_latency_memory_pareto.png}
     \caption{\textbf{Hardware Latency and Asymptotic Memory Scaling Pareto Analysis.} \textbf{(a)} Pedagogical decision triage latency (ms, log scale) versus self-directed on-task retention ($\%$), illustrating how PFP / \texttt{WerreduR} dominates Cloud LLMs, Local 8B/4B LLMs, and LSTM-DKT in the sub-3ms zero-VRAM regime. \textbf{(b)} Asymptotic persistent memory scaling ($O(W)$ tensor/matrix storage vs.\ $O(1)$ 24-byte coordinate seed $\Theta = (c_x, c_y, \text{zoom})$) across $K = 10^1$ to $10^6$ synthesized curriculum decision nodes.}
     \label{fig:latency_pareto}
 \end{figure*}
 
-\begin{table}[!t]
+\begin{table*}[!t]
 \centering
 \caption{\textbf{Architectural \& Hardware Resource Comparison for Adaptive AIED Deployment.}}
 \label{tab:hardware_comparison}
-\resizebox{\columnwidth}{!}{%
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
 \textbf{System Metric} & \textbf{Cloud LLM (GPT-4o)} & \textbf{Local 4B/8B LLM} & \textbf{LSTM-DKT} & \textbf{PFP / \texttt{Werredu}} \\
@@ -289,7 +301,7 @@ In contrast, \textbf{PFP / \texttt{Werredu}} achieves \textbf{$94.19\% \pm 0.14\
 \bottomrule
 \end{tabular}%
 }
-\end{table}
+\end{table*}
 
 \subsection{Hardware Resource \& Memory-Wall Elimination}
 As shown in Table~\ref{tab:hardware_comparison} and Fig.~\ref{fig:latency_pareto}, PFP eliminates the infrastructure barriers that prevent equitable AIED adoption in under-resourced schools. Because each learner's adaptive state is encapsulated in a 24-byte coordinate seed $\Theta_{\text{student}}$ (or a single 32-byte EVM word in \texttt{Werracle-Edu}), an entire school district of $100,000$ students requires only $2.4\text{ MB}$ of total state metadata---running 100\% offline on commodity classroom laptops or $\$1$ STM32L4 microcontrollers ($330\text{ nA}$ sleep retention) with zero cloud API fees and zero student PII leakage.
@@ -305,7 +317,121 @@ By uniting Reigeluth's systemic vision with the mathematical machinery of \textb
 \noindent \textbf{Patent \& Priority Disclosure:} The procedural weight synthesis, coordinate seed routing, and boundary reflex architectures are covered by Turkish Patent and Trademark Office (T\"URKPATENT) National Priority Application No.\ \texttt{TR 2026/016285}. \par\vspace{4pt}
 \noindent \textbf{Data \& Code Availability:} Complete simulation source code (\texttt{sim/benchmark\_pfp\_saturn\_paradox.py}), Lean~4 formal proof scripts (\texttt{lean4/PFP\_HorizonProof.lean}), raw benchmark telemetry (\texttt{data/}), and cryptographic SHA-256 audit manifests (\texttt{SEAL\_MANIFEST.json}) are permanently archived on Zenodo and GitHub (\url{https://github.com/jesmaat/WerreduR}, \url{https://doi.org/10.5281/zenodo.23128224}).
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\begin{thebibliography}{18}
+
+\bibitem{hwang2020vision}
+G.-J. Hwang, H.~Xie, B.~W. Wah, and D.~Ga{\v{s}}evi{\'c}.
+\newblock Vision, challenges, roles and research issues of {Artificial
+  Intelligence in Education}.
+\newblock {\em Computers and Education: Artificial Intelligence}, 1:100001,
+  2020.
+
+\bibitem{kasneci2023chatgpt}
+E.~Kasneci, K.~Se{\ss}ler, S.~K{\"u}chemann, M.~Bannert, D.~Dementieva,
+  F.~Fischer, U.~Gasser, G.~Groh, S.~G{\"u}nnemann, E.~H{\"u}llermeier, et~al.
+\newblock {ChatGPT} for good? {On} opportunities and challenges of large
+  language models for education.
+\newblock {\em Learning and Individual Differences}, 103:102274, 2023.
+
+\bibitem{corbett1994knowledge}
+A.~T. Corbett and J.~R. Anderson.
+\newblock Knowledge tracing: Modeling the acquisition of procedural knowledge.
+\newblock {\em User Modeling and User-Adapted Interaction}, 4(4):253--278, 1994.
+
+\bibitem{piech2015deep}
+C.~Piech, J.~Bassen, J.~Huang, S.~Ganguli, M.~Sahami, L.~J. Guibas, and
+  J.~Sohl-Dickstein.
+\newblock Deep knowledge tracing.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  volume~28, pages 505--513, 2015.
+
+\bibitem{dagli2026werr}
+V.~Da{\u{g}}l{\i}, Z.~Da{\u{g}}l{\i}, and D.~Da{\u{g}}l{\i}.
+\newblock Universal fractal natural language decision map: Real-time edge
+  triage across heterogeneous domains.
+\newblock {\em arXiv preprint arXiv:2609.25498}, 2026.
+
+\bibitem{dagli2026mandelbrot}
+V.~Da{\u{g}}l{\i}, Z.~Da{\u{g}}l{\i}, and D.~Da{\u{g}}l{\i}.
+\newblock {Mandelbrot} fractal neural synthesis: Zero-storage procedural weight
+  derivation and non-linear decision boundaries.
+\newblock {\em Zenodo Open Science Archive}, September 2026.
+
+\bibitem{reigeluth2008chaos}
+C.~M. Reigeluth.
+\newblock Chaos theory and the sciences of complexity: Foundations for
+  transforming educational systems.
+\newblock In B.~Despres, editor, {\em Systems Thinkers in Action: A Field Guide
+  for Effective Change Leadership in Education}, pages 24--38. Rowman \&
+  Littlefield Education, Lanham, MD, 2008.
+
+\bibitem{prigogine1984order}
+I.~Prigogine and I.~Stengers.
+\newblock {\em Order Out of Chaos: Man's New Dialogue with Nature}.
+\newblock Bantam Books, New York, NY, 1984.
+
+\bibitem{wheatley1999leadership}
+M.~J. Wheatley.
+\newblock {\em Leadership and the New Science: Discovering Order in a Chaotic
+  World}.
+\newblock Berrett-Koehler Publishers, San Francisco, CA, 2nd edition, 1999.
+
+\bibitem{jantsch1980self}
+E.~Jantsch.
+\newblock {\em The Self-Organizing Universe: Scientific and Human Implications
+  of the Emerging Paradigm of Evolution}.
+\newblock Pergamon Press, Oxford, UK, 1980.
+
+\bibitem{sweller1988cognitive}
+J.~Sweller.
+\newblock Cognitive load during problem solving: Effects on learning.
+\newblock {\em Cognitive Science}, 12(2):257--285, 1988.
+
+\bibitem{dagli2026oed}
+V.~Da{\u{g}}l{\i}, Z.~Da{\u{g}}l{\i}, and D.~Da{\u{g}}l{\i}.
+\newblock Orbital error dynamics: Self-organized criticality, ephemeral
+  parameter resonance, and non-linear biological ontologies in zero-storage
+  neural synthesis.
+\newblock {\em arXiv preprint arXiv:2609.30115}, 2026.
+
+\bibitem{dagli2026pagecurve}
+V.~Da{\u{g}}l{\i}, Z.~Da{\u{g}}l{\i}, and D.~Da{\u{g}}l{\i}.
+\newblock Unitary black hole {Page} curve reconstruction via wormhole
+  error-kernel invariants: Non-dissipative state preservation, 40-core
+  bare-metal telemetry, and formal verification.
+\newblock {\em Zenodo Open Science Archive}, September 2026.
+
+\bibitem{dagli2026lean4}
+V.~Da{\u{g}}l{\i}, Z.~Da{\u{g}}l{\i}, and D.~Da{\u{g}}l{\i}.
+\newblock Zero-storage procedural neural synthesis via boundary dynamics:
+  Formal verification in {Lean 4} and bare-metal gauntlet validation.
+\newblock {\em Zenodo Open Science Archive}, September 2026.
+
+\bibitem{dagli2026werracle}
+V.~Da{\u{g}}l{\i}, Z.~Da{\u{g}}l{\i}, and D.~Da{\u{g}}l{\i}.
+\newblock Werracle: Sub-cent intra-block {AI} reflex oracles and flash-loan
+  circuit breakers for {EVM} smart contracts.
+\newblock {\em Zenodo Open Science Archive}, September 2026.
+
+\bibitem{vygotsky1978mind}
+L.~S. Vygotsky.
+\newblock {\em Mind in Society: The Development of Higher Psychological
+  Processes}.
+\newblock Harvard University Press, Cambridge, MA, 1978.
+
+\bibitem{bennett1991saturn}
+D.~A. Bennett and D.~T. King.
+\newblock The {Saturn} school of tomorrow.
+\newblock {\em Educational Leadership}, 48(8):41--45, 1991.
+
+\bibitem{baker2010better}
+R.~S. Baker, S.~K. D'Mello, M.~M.~T. Rodrigo, and A.~C. Graesser.
+\newblock Better to be frustrated than bored: The incidence, persistence, and
+  impact of learners' cognitive-affective states during interactions with three
+  different computer-based learning environments.
+\newblock {\em International Journal of Human-Computer Studies},
+  68(4):223--241, 2010.
+
+\end{thebibliography}
 
 \end{document}
