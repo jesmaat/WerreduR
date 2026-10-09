@@ -63,7 +63,7 @@ Contemporary AI in Education (AIED) architectures face a dual crisis: memory bot
 
 ### [6] Comments (Açıklama / Baskı Detayı)
 ```text
-6 pages, 4 figures, 2 tables. Version 4.0 camera-ready preprint. Includes Lean 4 formal verification module (PFP_HorizonProof.lean, 0 sorry axioms) and standalone unit test suite. TÜRKPATENT National Priority Application No. TR 2026/016285. GitHub: https://github.com/pCwOrM/WerreduR
+6 pages, 4 figures, 2 tables. Version 4.0 camera-ready preprint. Includes Lean 4 formal verification module (PFP_HorizonProof.lean, 0 sorry axioms) and standalone unit test suite. TÜRKPATENT National Priority Application No. TR 2026/016285. GitHub: https://github.com/jesmaat/WerreduR
 ```
 
 ---
