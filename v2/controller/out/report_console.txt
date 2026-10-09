@@ -1,0 +1,472 @@
+seed: -0.8079257844390897 0.1830213619812499 300.0000000000000000  gate loss: 0.0233722 
+                                    scenario                            arm
+                       A. Stationary ability       CAT 0.5 (EAP, reference)
+                       A. Stationary ability      CAT 0.5 (EAP, forgetting)
+                       A. Stationary ability         Staircase = Elo (0.15)
+                       A. Stationary ability            PEST-type staircase
+                       A. Stationary ability Explicit gate (stored weights)
+                       A. Stationary ability             PFP-W LearningGate
+                       A. Stationary ability                   PFP-W frozen
+                       A. Stationary ability          PFP-W unsearched seed
+                       A. Stationary ability              Original PFP-Core
+                       A. Stationary ability            Original PFP-Core+J
+               B. Slow learning (eta = 0.02)       CAT 0.5 (EAP, reference)
+               B. Slow learning (eta = 0.02)      CAT 0.5 (EAP, forgetting)
+               B. Slow learning (eta = 0.02)         Staircase = Elo (0.15)
+               B. Slow learning (eta = 0.02)            PEST-type staircase
+               B. Slow learning (eta = 0.02) Explicit gate (stored weights)
+               B. Slow learning (eta = 0.02)             PFP-W LearningGate
+               B. Slow learning (eta = 0.02)                   PFP-W frozen
+               B. Slow learning (eta = 0.02)          PFP-W unsearched seed
+               B. Slow learning (eta = 0.02)              Original PFP-Core
+               B. Slow learning (eta = 0.02)            Original PFP-Core+J
+               C. Fast learning (eta = 0.10)       CAT 0.5 (EAP, reference)
+               C. Fast learning (eta = 0.10)      CAT 0.5 (EAP, forgetting)
+               C. Fast learning (eta = 0.10)         Staircase = Elo (0.15)
+               C. Fast learning (eta = 0.10)            PEST-type staircase
+               C. Fast learning (eta = 0.10) Explicit gate (stored weights)
+               C. Fast learning (eta = 0.10)             PFP-W LearningGate
+               C. Fast learning (eta = 0.10)                   PFP-W frozen
+               C. Fast learning (eta = 0.10)          PFP-W unsearched seed
+               C. Fast learning (eta = 0.10)              Original PFP-Core
+               C. Fast learning (eta = 0.10)            Original PFP-Core+J
+ D. Cold start (population mean +2, unknown)       CAT 0.5 (EAP, reference)
+ D. Cold start (population mean +2, unknown)      CAT 0.5 (EAP, forgetting)
+ D. Cold start (population mean +2, unknown)         Staircase = Elo (0.15)
+ D. Cold start (population mean +2, unknown)            PEST-type staircase
+ D. Cold start (population mean +2, unknown) Explicit gate (stored weights)
+ D. Cold start (population mean +2, unknown)             PFP-W LearningGate
+ D. Cold start (population mean +2, unknown)                   PFP-W frozen
+ D. Cold start (population mean +2, unknown)          PFP-W unsearched seed
+ D. Cold start (population mean +2, unknown)              Original PFP-Core
+ D. Cold start (population mean +2, unknown)            Original PFP-Core+J
+         E. Sudden insight (+1.5 logit jump)       CAT 0.5 (EAP, reference)
+         E. Sudden insight (+1.5 logit jump)      CAT 0.5 (EAP, forgetting)
+         E. Sudden insight (+1.5 logit jump)         Staircase = Elo (0.15)
+         E. Sudden insight (+1.5 logit jump)            PEST-type staircase
+         E. Sudden insight (+1.5 logit jump) Explicit gate (stored weights)
+         E. Sudden insight (+1.5 logit jump)             PFP-W LearningGate
+         E. Sudden insight (+1.5 logit jump)                   PFP-W frozen
+         E. Sudden insight (+1.5 logit jump)          PFP-W unsearched seed
+         E. Sudden insight (+1.5 logit jump)              Original PFP-Core
+         E. Sudden insight (+1.5 logit jump)            Original PFP-Core+J
+                 F. Guessing (3PL, c = 0.25)       CAT 0.5 (EAP, reference)
+                 F. Guessing (3PL, c = 0.25)      CAT 0.5 (EAP, forgetting)
+                 F. Guessing (3PL, c = 0.25)         Staircase = Elo (0.15)
+                 F. Guessing (3PL, c = 0.25)            PEST-type staircase
+                 F. Guessing (3PL, c = 0.25) Explicit gate (stored weights)
+                 F. Guessing (3PL, c = 0.25)             PFP-W LearningGate
+                 F. Guessing (3PL, c = 0.25)                   PFP-W frozen
+                 F. Guessing (3PL, c = 0.25)          PFP-W unsearched seed
+                 F. Guessing (3PL, c = 0.25)              Original PFP-Core
+                 F. Guessing (3PL, c = 0.25)            Original PFP-Core+J
+                  mae             corridor trials_to_acquire mean_P
+ 0.257 [0.249, 0.264] 0.818 [0.806, 0.829]               7.0  0.499
+ 0.317 [0.310, 0.325] 0.713 [0.702, 0.725]               6.3  0.498
+ 0.356 [0.350, 0.362] 0.655 [0.647, 0.664]               8.2  0.499
+ 0.412 [0.404, 0.419] 0.597 [0.586, 0.607]               6.4  0.502
+ 0.429 [0.422, 0.436] 0.563 [0.553, 0.572]               7.7  0.502
+ 0.419 [0.412, 0.425] 0.571 [0.563, 0.579]               7.3  0.502
+ 0.526 [0.520, 0.533] 0.470 [0.464, 0.476]               5.5  0.500
+ 0.594 [0.589, 0.599] 0.420 [0.416, 0.423]               3.3  0.502
+ 0.682 [0.661, 0.702] 0.365 [0.354, 0.377]              16.3  0.495
+ 0.709 [0.686, 0.732] 0.353 [0.341, 0.366]              18.6  0.485
+ 0.286 [0.278, 0.294] 0.770 [0.754, 0.785]               5.7  0.535
+ 0.306 [0.298, 0.313] 0.728 [0.716, 0.740]               5.6  0.522
+ 0.341 [0.335, 0.346] 0.671 [0.663, 0.679]               7.1  0.511
+ 0.403 [0.395, 0.411] 0.611 [0.601, 0.622]               5.6  0.509
+ 0.415 [0.409, 0.421] 0.577 [0.569, 0.586]               7.3  0.507
+ 0.405 [0.399, 0.411] 0.587 [0.579, 0.595]               6.7  0.507
+ 0.516 [0.510, 0.522] 0.478 [0.471, 0.484]               5.1  0.503
+ 0.588 [0.583, 0.593] 0.426 [0.422, 0.430]               3.1  0.503
+ 0.653 [0.635, 0.671] 0.379 [0.369, 0.390]              13.1  0.530
+ 0.670 [0.650, 0.690] 0.372 [0.361, 0.383]              14.7  0.523
+ 0.755 [0.747, 0.763] 0.195 [0.188, 0.203]               9.5  0.661
+ 0.585 [0.574, 0.596] 0.308 [0.295, 0.320]               7.3  0.623
+ 0.401 [0.393, 0.408] 0.579 [0.568, 0.590]               8.0  0.569
+ 0.465 [0.458, 0.473] 0.497 [0.487, 0.507]               5.5  0.557
+ 0.428 [0.422, 0.435] 0.556 [0.547, 0.565]               7.1  0.545
+ 0.421 [0.415, 0.428] 0.564 [0.555, 0.573]               6.6  0.547
+ 0.509 [0.502, 0.515] 0.483 [0.476, 0.490]               5.0  0.526
+ 0.573 [0.568, 0.578] 0.436 [0.432, 0.440]               3.0  0.522
+ 1.028 [1.004, 1.052] 0.210 [0.202, 0.219]              15.9  0.673
+ 1.035 [1.011, 1.059] 0.207 [0.198, 0.215]              16.4  0.670
+ 0.448 [0.434, 0.462] 0.584 [0.564, 0.604]              21.3  0.596
+ 0.601 [0.584, 0.617] 0.369 [0.352, 0.386]              24.4  0.631
+ 0.494 [0.484, 0.504] 0.579 [0.570, 0.587]              20.6  0.568
+ 0.474 [0.466, 0.483] 0.569 [0.558, 0.580]              11.1  0.537
+ 0.507 [0.499, 0.515] 0.537 [0.528, 0.545]              14.0  0.539
+ 0.500 [0.493, 0.508] 0.541 [0.533, 0.550]              14.1  0.542
+ 0.579 [0.572, 0.586] 0.455 [0.448, 0.461]               9.7  0.525
+ 0.630 [0.624, 0.636] 0.406 [0.402, 0.410]               6.3  0.521
+ 1.547 [1.504, 1.590] 0.082 [0.072, 0.092]              84.3  0.791
+ 1.546 [1.503, 1.590] 0.082 [0.072, 0.092]              84.3  0.790
+ 0.683 [0.674, 0.693] 0.376 [0.365, 0.387]               6.2  0.619
+ 0.523 [0.513, 0.533] 0.486 [0.476, 0.497]               5.7  0.579
+ 0.453 [0.446, 0.460] 0.563 [0.555, 0.572]               7.8  0.544
+ 0.497 [0.490, 0.505] 0.527 [0.517, 0.536]               5.7  0.530
+ 0.486 [0.479, 0.493] 0.530 [0.522, 0.539]               7.3  0.527
+ 0.477 [0.470, 0.483] 0.532 [0.524, 0.539]               6.9  0.528
+ 0.559 [0.553, 0.566] 0.452 [0.446, 0.458]               5.2  0.516
+ 0.619 [0.614, 0.624] 0.408 [0.404, 0.411]               3.2  0.515
+ 0.936 [0.910, 0.963] 0.264 [0.255, 0.272]              14.4  0.617
+ 0.948 [0.921, 0.974] 0.259 [0.251, 0.268]              16.0  0.612
+ 0.496 [0.478, 0.515] 0.752 [0.733, 0.771]              17.7  0.550
+ 0.494 [0.477, 0.510] 0.687 [0.671, 0.704]              13.6  0.557
+ 0.634 [0.620, 0.647] 0.739 [0.730, 0.749]              13.0  0.533
+ 0.750 [0.732, 0.767] 0.665 [0.653, 0.677]              12.4  0.522
+ 0.748 [0.734, 0.763] 0.660 [0.650, 0.670]              12.9  0.521
+ 0.734 [0.720, 0.749] 0.669 [0.660, 0.678]              11.7  0.522
+ 0.870 [0.856, 0.885] 0.559 [0.551, 0.567]               8.2  0.515
+ 0.950 [0.936, 0.965] 0.510 [0.504, 0.516]               4.5  0.513
+ 0.702 [0.680, 0.724] 0.379 [0.362, 0.396]              15.4  0.620
+ 0.710 [0.687, 0.734] 0.380 [0.363, 0.397]              16.8  0.617
+                                    scenario                            arm
+                       A. Stationary ability      CAT 0.5 (EAP, forgetting)
+                       A. Stationary ability         Staircase = Elo (0.15)
+                       A. Stationary ability            PEST-type staircase
+                       A. Stationary ability Explicit gate (stored weights)
+                       A. Stationary ability             PFP-W LearningGate
+                       A. Stationary ability             PFP-W LearningGate
+                       A. Stationary ability             PFP-W LearningGate
+                       A. Stationary ability             PFP-W LearningGate
+                       A. Stationary ability                   PFP-W frozen
+                       A. Stationary ability                   PFP-W frozen
+                       A. Stationary ability                   PFP-W frozen
+                       A. Stationary ability                   PFP-W frozen
+                       A. Stationary ability          PFP-W unsearched seed
+                       A. Stationary ability          PFP-W unsearched seed
+                       A. Stationary ability          PFP-W unsearched seed
+                       A. Stationary ability          PFP-W unsearched seed
+                       A. Stationary ability              Original PFP-Core
+                       A. Stationary ability            Original PFP-Core+J
+               B. Slow learning (eta = 0.02)      CAT 0.5 (EAP, forgetting)
+               B. Slow learning (eta = 0.02)         Staircase = Elo (0.15)
+               B. Slow learning (eta = 0.02)            PEST-type staircase
+               B. Slow learning (eta = 0.02) Explicit gate (stored weights)
+               B. Slow learning (eta = 0.02)             PFP-W LearningGate
+               B. Slow learning (eta = 0.02)             PFP-W LearningGate
+               B. Slow learning (eta = 0.02)             PFP-W LearningGate
+               B. Slow learning (eta = 0.02)             PFP-W LearningGate
+               B. Slow learning (eta = 0.02)                   PFP-W frozen
+               B. Slow learning (eta = 0.02)                   PFP-W frozen
+               B. Slow learning (eta = 0.02)                   PFP-W frozen
+               B. Slow learning (eta = 0.02)                   PFP-W frozen
+               B. Slow learning (eta = 0.02)          PFP-W unsearched seed
+               B. Slow learning (eta = 0.02)          PFP-W unsearched seed
+               B. Slow learning (eta = 0.02)          PFP-W unsearched seed
+               B. Slow learning (eta = 0.02)          PFP-W unsearched seed
+               B. Slow learning (eta = 0.02)              Original PFP-Core
+               B. Slow learning (eta = 0.02)            Original PFP-Core+J
+               C. Fast learning (eta = 0.10)      CAT 0.5 (EAP, forgetting)
+               C. Fast learning (eta = 0.10)         Staircase = Elo (0.15)
+               C. Fast learning (eta = 0.10)            PEST-type staircase
+               C. Fast learning (eta = 0.10) Explicit gate (stored weights)
+               C. Fast learning (eta = 0.10)             PFP-W LearningGate
+               C. Fast learning (eta = 0.10)             PFP-W LearningGate
+               C. Fast learning (eta = 0.10)             PFP-W LearningGate
+               C. Fast learning (eta = 0.10)             PFP-W LearningGate
+               C. Fast learning (eta = 0.10)                   PFP-W frozen
+               C. Fast learning (eta = 0.10)                   PFP-W frozen
+               C. Fast learning (eta = 0.10)                   PFP-W frozen
+               C. Fast learning (eta = 0.10)                   PFP-W frozen
+               C. Fast learning (eta = 0.10)          PFP-W unsearched seed
+               C. Fast learning (eta = 0.10)          PFP-W unsearched seed
+               C. Fast learning (eta = 0.10)          PFP-W unsearched seed
+               C. Fast learning (eta = 0.10)          PFP-W unsearched seed
+               C. Fast learning (eta = 0.10)              Original PFP-Core
+               C. Fast learning (eta = 0.10)            Original PFP-Core+J
+ D. Cold start (population mean +2, unknown)      CAT 0.5 (EAP, forgetting)
+ D. Cold start (population mean +2, unknown)         Staircase = Elo (0.15)
+ D. Cold start (population mean +2, unknown)            PEST-type staircase
+ D. Cold start (population mean +2, unknown) Explicit gate (stored weights)
+ D. Cold start (population mean +2, unknown)             PFP-W LearningGate
+ D. Cold start (population mean +2, unknown)             PFP-W LearningGate
+ D. Cold start (population mean +2, unknown)             PFP-W LearningGate
+ D. Cold start (population mean +2, unknown)             PFP-W LearningGate
+ D. Cold start (population mean +2, unknown)                   PFP-W frozen
+ D. Cold start (population mean +2, unknown)                   PFP-W frozen
+ D. Cold start (population mean +2, unknown)                   PFP-W frozen
+ D. Cold start (population mean +2, unknown)                   PFP-W frozen
+ D. Cold start (population mean +2, unknown)          PFP-W unsearched seed
+ D. Cold start (population mean +2, unknown)          PFP-W unsearched seed
+ D. Cold start (population mean +2, unknown)          PFP-W unsearched seed
+ D. Cold start (population mean +2, unknown)          PFP-W unsearched seed
+ D. Cold start (population mean +2, unknown)              Original PFP-Core
+ D. Cold start (population mean +2, unknown)            Original PFP-Core+J
+         E. Sudden insight (+1.5 logit jump)      CAT 0.5 (EAP, forgetting)
+         E. Sudden insight (+1.5 logit jump)         Staircase = Elo (0.15)
+         E. Sudden insight (+1.5 logit jump)            PEST-type staircase
+         E. Sudden insight (+1.5 logit jump) Explicit gate (stored weights)
+         E. Sudden insight (+1.5 logit jump)             PFP-W LearningGate
+         E. Sudden insight (+1.5 logit jump)             PFP-W LearningGate
+         E. Sudden insight (+1.5 logit jump)             PFP-W LearningGate
+         E. Sudden insight (+1.5 logit jump)             PFP-W LearningGate
+         E. Sudden insight (+1.5 logit jump)                   PFP-W frozen
+         E. Sudden insight (+1.5 logit jump)                   PFP-W frozen
+         E. Sudden insight (+1.5 logit jump)                   PFP-W frozen
+         E. Sudden insight (+1.5 logit jump)                   PFP-W frozen
+         E. Sudden insight (+1.5 logit jump)          PFP-W unsearched seed
+         E. Sudden insight (+1.5 logit jump)          PFP-W unsearched seed
+         E. Sudden insight (+1.5 logit jump)          PFP-W unsearched seed
+         E. Sudden insight (+1.5 logit jump)          PFP-W unsearched seed
+         E. Sudden insight (+1.5 logit jump)              Original PFP-Core
+         E. Sudden insight (+1.5 logit jump)            Original PFP-Core+J
+                 F. Guessing (3PL, c = 0.25)      CAT 0.5 (EAP, forgetting)
+                 F. Guessing (3PL, c = 0.25)         Staircase = Elo (0.15)
+                 F. Guessing (3PL, c = 0.25)            PEST-type staircase
+                 F. Guessing (3PL, c = 0.25) Explicit gate (stored weights)
+                 F. Guessing (3PL, c = 0.25)             PFP-W LearningGate
+                 F. Guessing (3PL, c = 0.25)             PFP-W LearningGate
+                 F. Guessing (3PL, c = 0.25)             PFP-W LearningGate
+                 F. Guessing (3PL, c = 0.25)             PFP-W LearningGate
+                 F. Guessing (3PL, c = 0.25)                   PFP-W frozen
+                 F. Guessing (3PL, c = 0.25)                   PFP-W frozen
+                 F. Guessing (3PL, c = 0.25)                   PFP-W frozen
+                 F. Guessing (3PL, c = 0.25)                   PFP-W frozen
+                 F. Guessing (3PL, c = 0.25)          PFP-W unsearched seed
+                 F. Guessing (3PL, c = 0.25)          PFP-W unsearched seed
+                 F. Guessing (3PL, c = 0.25)          PFP-W unsearched seed
+                 F. Guessing (3PL, c = 0.25)          PFP-W unsearched seed
+                 F. Guessing (3PL, c = 0.25)              Original PFP-Core
+                 F. Guessing (3PL, c = 0.25)            Original PFP-Core+J
+                         versus                diff_mae
+       CAT 0.5 (EAP, reference)    0.061 [0.055, 0.066]
+       CAT 0.5 (EAP, reference)    0.100 [0.094, 0.106]
+       CAT 0.5 (EAP, reference)    0.155 [0.147, 0.163]
+       CAT 0.5 (EAP, reference)    0.173 [0.165, 0.180]
+       CAT 0.5 (EAP, reference)    0.162 [0.155, 0.169]
+ Explicit gate (stored weights) -0.011 [-0.014, -0.007]
+         Staircase = Elo (0.15)    0.062 [0.058, 0.066]
+              Original PFP-Core -0.263 [-0.281, -0.245]
+       CAT 0.5 (EAP, reference)    0.270 [0.262, 0.278]
+ Explicit gate (stored weights)    0.097 [0.092, 0.102]
+         Staircase = Elo (0.15)    0.170 [0.165, 0.176]
+              Original PFP-Core -0.155 [-0.175, -0.136]
+       CAT 0.5 (EAP, reference)    0.338 [0.330, 0.345]
+ Explicit gate (stored weights)    0.165 [0.159, 0.171]
+         Staircase = Elo (0.15)    0.238 [0.233, 0.243]
+              Original PFP-Core -0.087 [-0.107, -0.068]
+       CAT 0.5 (EAP, reference)    0.425 [0.406, 0.444]
+       CAT 0.5 (EAP, reference)    0.452 [0.431, 0.474]
+       CAT 0.5 (EAP, reference)    0.020 [0.014, 0.026]
+       CAT 0.5 (EAP, reference)    0.055 [0.048, 0.062]
+       CAT 0.5 (EAP, reference)    0.117 [0.109, 0.125]
+       CAT 0.5 (EAP, reference)    0.129 [0.121, 0.137]
+       CAT 0.5 (EAP, reference)    0.119 [0.112, 0.127]
+ Explicit gate (stored weights) -0.010 [-0.013, -0.006]
+         Staircase = Elo (0.15)    0.064 [0.060, 0.069]
+              Original PFP-Core -0.248 [-0.264, -0.231]
+       CAT 0.5 (EAP, reference)    0.230 [0.222, 0.239]
+ Explicit gate (stored weights)    0.101 [0.096, 0.106]
+         Staircase = Elo (0.15)    0.175 [0.170, 0.181]
+              Original PFP-Core -0.137 [-0.154, -0.119]
+       CAT 0.5 (EAP, reference)    0.302 [0.294, 0.310]
+ Explicit gate (stored weights)    0.173 [0.167, 0.179]
+         Staircase = Elo (0.15)    0.247 [0.242, 0.253]
+              Original PFP-Core -0.065 [-0.082, -0.047]
+       CAT 0.5 (EAP, reference)    0.367 [0.350, 0.384]
+       CAT 0.5 (EAP, reference)    0.384 [0.365, 0.403]
+       CAT 0.5 (EAP, reference) -0.170 [-0.178, -0.162]
+       CAT 0.5 (EAP, reference) -0.354 [-0.360, -0.347]
+       CAT 0.5 (EAP, reference) -0.289 [-0.297, -0.281]
+       CAT 0.5 (EAP, reference) -0.326 [-0.334, -0.319]
+       CAT 0.5 (EAP, reference) -0.334 [-0.341, -0.326]
+ Explicit gate (stored weights) -0.007 [-0.010, -0.004]
+         Staircase = Elo (0.15)    0.020 [0.016, 0.025]
+              Original PFP-Core -0.607 [-0.631, -0.584]
+       CAT 0.5 (EAP, reference) -0.246 [-0.255, -0.237]
+ Explicit gate (stored weights)    0.081 [0.075, 0.086]
+         Staircase = Elo (0.15)    0.108 [0.101, 0.115]
+              Original PFP-Core -0.519 [-0.544, -0.495]
+       CAT 0.5 (EAP, reference) -0.182 [-0.190, -0.174]
+ Explicit gate (stored weights)    0.145 [0.139, 0.151]
+         Staircase = Elo (0.15)    0.172 [0.165, 0.179]
+              Original PFP-Core -0.455 [-0.480, -0.431]
+       CAT 0.5 (EAP, reference)    0.274 [0.251, 0.296]
+       CAT 0.5 (EAP, reference)    0.280 [0.258, 0.303]
+       CAT 0.5 (EAP, reference)    0.153 [0.144, 0.161]
+       CAT 0.5 (EAP, reference)    0.046 [0.038, 0.054]
+       CAT 0.5 (EAP, reference)    0.026 [0.015, 0.038]
+       CAT 0.5 (EAP, reference)    0.059 [0.048, 0.070]
+       CAT 0.5 (EAP, reference)    0.052 [0.042, 0.063]
+ Explicit gate (stored weights) -0.006 [-0.010, -0.003]
+         Staircase = Elo (0.15)    0.006 [0.000, 0.012]
+              Original PFP-Core -1.047 [-1.085, -1.008]
+       CAT 0.5 (EAP, reference)    0.131 [0.119, 0.143]
+ Explicit gate (stored weights)    0.072 [0.067, 0.077]
+         Staircase = Elo (0.15)    0.085 [0.077, 0.093]
+              Original PFP-Core -0.968 [-1.008, -0.928]
+       CAT 0.5 (EAP, reference)    0.182 [0.170, 0.194]
+ Explicit gate (stored weights)    0.123 [0.117, 0.130]
+         Staircase = Elo (0.15)    0.136 [0.127, 0.145]
+              Original PFP-Core -0.917 [-0.958, -0.876]
+       CAT 0.5 (EAP, reference)    1.099 [1.063, 1.135]
+       CAT 0.5 (EAP, reference)    1.098 [1.063, 1.134]
+       CAT 0.5 (EAP, reference) -0.160 [-0.168, -0.152]
+       CAT 0.5 (EAP, reference) -0.231 [-0.239, -0.222]
+       CAT 0.5 (EAP, reference) -0.186 [-0.196, -0.176]
+       CAT 0.5 (EAP, reference) -0.198 [-0.207, -0.188]
+       CAT 0.5 (EAP, reference) -0.207 [-0.216, -0.197]
+ Explicit gate (stored weights) -0.009 [-0.012, -0.005]
+         Staircase = Elo (0.15)    0.024 [0.019, 0.029]
+              Original PFP-Core -0.459 [-0.485, -0.434]
+       CAT 0.5 (EAP, reference) -0.124 [-0.134, -0.114]
+ Explicit gate (stored weights)    0.074 [0.068, 0.079]
+         Staircase = Elo (0.15)    0.106 [0.100, 0.113]
+              Original PFP-Core -0.377 [-0.403, -0.351]
+       CAT 0.5 (EAP, reference) -0.064 [-0.074, -0.055]
+ Explicit gate (stored weights)    0.133 [0.127, 0.140]
+         Staircase = Elo (0.15)    0.166 [0.160, 0.173]
+              Original PFP-Core -0.317 [-0.344, -0.291]
+       CAT 0.5 (EAP, reference)    0.253 [0.228, 0.278]
+       CAT 0.5 (EAP, reference)    0.264 [0.239, 0.289]
+       CAT 0.5 (EAP, reference)  -0.003 [-0.013, 0.007]
+       CAT 0.5 (EAP, reference)    0.137 [0.125, 0.150]
+       CAT 0.5 (EAP, reference)    0.253 [0.237, 0.269]
+       CAT 0.5 (EAP, reference)    0.252 [0.236, 0.267]
+       CAT 0.5 (EAP, reference)    0.238 [0.223, 0.253]
+ Explicit gate (stored weights) -0.014 [-0.019, -0.008]
+         Staircase = Elo (0.15)    0.100 [0.093, 0.108]
+              Original PFP-Core    0.032 [0.010, 0.055]
+       CAT 0.5 (EAP, reference)    0.374 [0.357, 0.390]
+ Explicit gate (stored weights)    0.122 [0.114, 0.130]
+         Staircase = Elo (0.15)    0.237 [0.227, 0.246]
+              Original PFP-Core    0.169 [0.145, 0.193]
+       CAT 0.5 (EAP, reference)    0.454 [0.437, 0.471]
+ Explicit gate (stored weights)    0.202 [0.192, 0.212]
+         Staircase = Elo (0.15)    0.316 [0.306, 0.327]
+              Original PFP-Core    0.248 [0.224, 0.273]
+       CAT 0.5 (EAP, reference)    0.205 [0.182, 0.228]
+       CAT 0.5 (EAP, reference)    0.214 [0.190, 0.238]
+                  verdict
+             non-inferior
+             inconclusive
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+             non-inferior
+                   better
+ inferior (beyond margin)
+             inconclusive
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+             non-inferior
+             non-inferior
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+             non-inferior
+                   better
+ inferior (beyond margin)
+             inconclusive
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+                   better
+                   better
+                   better
+                   better
+                   better
+             non-inferior
+                   better
+                   better
+             non-inferior
+ inferior (beyond margin)
+                   better
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+             non-inferior
+             non-inferior
+             non-inferior
+             non-inferior
+                   better
+             non-inferior
+                   better
+ inferior (beyond margin)
+             non-inferior
+             non-inferior
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+                   better
+                   better
+                   better
+                   better
+                   better
+             non-inferior
+                   better
+                   better
+             non-inferior
+ inferior (beyond margin)
+                   better
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+ inferior (beyond margin)
+ inferior (beyond margin)
+             non-inferior
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                   better
+             inconclusive
+             non-inferior
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+ inferior (beyond margin)
+                            arm microseconds_per_decision
+       CAT 0.5 (EAP, reference)                       8.0
+      CAT 0.5 (EAP, forgetting)                       7.7
+         Staircase = Elo (0.15)                       2.0
+            PEST-type staircase                       1.3
+ Explicit gate (stored weights)                       7.3
+             PFP-W LearningGate                     418.3
+                   PFP-W frozen                       7.3
+          PFP-W unsearched seed                     344.7
+              Original PFP-Core                       2.7
+            Original PFP-Core+J                       1.0
+           persistent_state
+        121-point posterior
+        121-point posterior
+                   1 number
+                  3 numbers
+      4 weights + 6 numbers
+   24-byte seed + 6 numbers
+   24-byte seed + 6 numbers
+   24-byte seed + 6 numbers
+           1 complex number
+ 1 complex number + counter

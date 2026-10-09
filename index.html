@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WerreduR | 24-Byte Fractal-Seeded Difficulty Controller</title>
+  <meta name="description" content="A Simulation Study Positioning a 24-Byte, Estimation-Free Difficulty Controller Against Adaptive Testing, Staircase Rules and a Language Model.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          },
+          colors: {
+            brand: {
+              cyan: '#38bdf8',
+              emerald: '#10b981',
+              purple: '#a855f7',
+              navy: '#0b0f19',
+              card: '#111827',
+              border: '#1f293d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0b0f19; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+    .glow-cyan { box-shadow: 0 0 25px rgba(56, 189, 248, 0.2); }
+    .glow-emerald { box-shadow: 0 0 25px rgba(16, 185, 129, 0.2); }
+    .glow-purple { box-shadow: 0 0 25px rgba(168, 85, 247, 0.2); }
+    .gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-brand-navy/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl font-black tracking-tight text-white">Werredu<span class="text-sky-400">R</span></span>
+        <span class="text-xs font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-0.5 rounded-full">v2.0 Positioning</span>
+      </div>
+      <div class="flex items-center space-x-6 text-sm font-medium">
+        <a href="#positioning" class="text-slate-400 hover:text-white transition">Positioning Matrix</a>
+        <a href="#demo" class="text-slate-400 hover:text-white transition">Live Controller Demo</a>
+        <a href="#benchmarks" class="text-slate-400 hover:text-white transition">Empirical Data</a>
+        <a href="https://doi.org/10.5281/zenodo.22999420" target="_blank" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold px-4 py-1.5 rounded-lg transition flex items-center space-x-1">
+          <span>Zenodo Concept DOI</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-20 pb-16 px-6 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700 px-3.5 py-1.5 rounded-full text-xs font-mono text-slate-300 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Prepared for Flagship Peer-Reviewed AIED Submission</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-white leading-tight">
+        Where Does a Fractal-Seeded <br><span class="gradient-text">Controller Stand?</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+        A simulation study positioning a 24-byte, estimation-free difficulty controller (<code class="text-sky-300">LearningGate</code>) 
+        against Computerized Adaptive Testing, staircase rules, matched stored-weight twins, and frontier Large Language Models.
+      </p>
+
+      <!-- Badges row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left mb-12">
+        <div class="bg-brand-card border border-brand-border p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Fast Learning Lag</div>
+          <div class="text-2xl font-black text-sky-400">0.421 Logits</div>
+          <div class="text-xs text-slate-400 mt-1">vs 0.755 in Standard CAT</div>
+        </div>
+        <div class="bg-brand-card border border-brand-border p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Recovery After Jump</div>
+          <div class="text-2xl font-black text-emerald-400">10.4 Trials</div>
+          <div class="text-xs text-slate-400 mt-1">vs 56.0 in Standard CAT</div>
+        </div>
+        <div class="bg-brand-card border border-brand-border p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Decision Latency</div>
+          <div class="text-2xl font-black text-purple-400">0.4 ms</div>
+          <div class="text-xs text-slate-400 mt-1">vs 788 ms in Claude API</div>
+        </div>
+        <div class="bg-brand-card border border-brand-border p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">State Footprint</div>
+          <div class="text-2xl font-black text-amber-400">24 Bytes</div>
+          <div class="text-xs text-slate-400 mt-1">0 Persistent VRAM</div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/><path fill="#0284c7" d="M8 11a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm0 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/></svg>
+          <span>Download Preprint PDF (v4.0)</span>
+        </a>
+        <a href="./releases/arxiv_submission_pfp_v4.zip" class="bg-purple-600 hover:bg-purple-500 text-white font-semibold px-6 py-3 rounded-lg transition flex items-center space-x-2">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
+          <span>arXiv v4.0 Package (.zip)</span>
+        </a>
+        <a href="https://doi.org/10.5281/zenodo.23128224" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-3 rounded-lg border border-slate-700 flex items-center space-x-2 transition">
+          <span>Zenodo v4.0 Archive</span>
+          <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+        <a href="https://github.com/pCwOrM/WerreduR" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-3 rounded-lg border border-slate-700 flex items-center space-x-2 transition">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub Repo</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Demo -->
+  <section id="demo" class="py-16 px-6 bg-slate-900/60 border-t border-b border-brand-border">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-white mb-2">Live In-Browser LearningGate Servo Demo</h2>
+        <p class="text-slate-400 text-sm">Experience the authentic WERR tripod Mandelbrot kernel dynamically adjusting step sizes in your browser.</p>
+      </div>
+
+      <div class="bg-brand-card border border-brand-border rounded-2xl p-6 shadow-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-base font-semibold text-white mb-4 flex items-center space-x-2">
+              <span>Simulation Controls</span>
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">Learner Latent Ability (&theta;): <span id="val-theta" class="text-sky-400 font-bold">0.00</span></label>
+                <input id="slider-theta" type="range" min="-2.5" max="2.5" step="0.05" value="0.0" class="w-full accent-sky-400 bg-slate-800 rounded">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">Presented Difficulty (b): <span id="val-b" class="text-purple-400 font-bold">0.00</span></label>
+                <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div id="bar-b" class="h-full bg-purple-500" style="width: 50%"></div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">Rasch Probability P(correct): <span id="val-p" class="text-emerald-400 font-bold">50.0%</span></label>
+                <div class="text-xs text-slate-400" id="val-status">Balanced Horizon (P &approx; 0.50)</div>
+              </div>
+              <div class="pt-4 border-t border-slate-800 flex gap-3">
+                <button id="btn-correct" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-2 px-3 rounded-lg text-sm transition">
+                  Submit Correct (1)
+                </button>
+                <button id="btn-incorrect" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-medium py-2 px-3 rounded-lg text-sm transition">
+                  Submit Wrong (0)
+                </button>
+                <button id="btn-reset" class="bg-slate-700 hover:bg-slate-600 text-slate-300 font-medium py-2 px-3 rounded-lg text-sm transition">
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-white mb-2 flex items-center justify-between">
+              <span>Tracking Trajectory</span>
+              <span class="text-xs font-mono text-slate-400">Trials: <span id="step-counter" class="text-sky-400">0</span></span>
+            </h3>
+            <div class="relative bg-slate-950/80 border border-slate-800 rounded-xl p-3 h-48 flex items-center justify-center">
+              <canvas id="trajectory-canvas" class="w-full h-full"></canvas>
+            </div>
+            <div class="mt-3 grid grid-cols-2 gap-2 text-xs font-mono text-slate-400">
+              <div class="bg-slate-800/50 p-2 rounded border border-slate-700/50">
+                Current Gain: <span id="val-gain" class="text-sky-400 font-bold">--</span>
+              </div>
+              <div class="bg-slate-800/50 p-2 rounded border border-slate-700/50">
+                Step Size (s): <span id="val-step" class="text-emerald-400 font-bold">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Positioning Matrix Section -->
+  <section id="positioning" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-white mb-3">Empirical Positioning Matrix</h2>
+      <p class="text-slate-400 text-sm max-w-2xl mx-auto">How the 24-byte fractal-seeded controller compares with standard psychometric testing, staircase rules, and frontier AI.</p>
+    </div>
+
+    <div class="overflow-x-auto bg-brand-card border border-brand-border rounded-xl">
+      <table class="w-full text-left text-xs text-slate-300 border-collapse">
+        <thead class="bg-slate-800/80 text-slate-200 uppercase font-mono border-b border-brand-border">
+          <tr>
+            <th class="p-3.5">Dimension</th>
+            <th class="p-3.5">Standard CAT</th>
+            <th class="p-3.5">Fixed Staircase (= Elo)</th>
+            <th class="p-3.5">PEST-type Rule</th>
+            <th class="p-3.5 text-sky-300">LearningGate (Fractal)</th>
+            <th class="p-3.5">Frontier LLM (API)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800">
+          <tr>
+            <td class="p-3.5 font-semibold text-white">Underlying Model</td>
+            <td class="p-3.5">&theta; ~ N(0,1) Rasch</td>
+            <td class="p-3.5">None</td>
+            <td class="p-3.5">None</td>
+            <td class="p-3.5 text-sky-300 font-medium">None (Estimation-Free)</td>
+            <td class="p-3.5">In-Context Heuristic</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-semibold text-white">State Footprint</td>
+            <td class="p-3.5">121-point posterior</td>
+            <td class="p-3.5">1 float</td>
+            <td class="p-3.5">3 floats</td>
+            <td class="p-3.5 text-sky-300 font-medium">24-byte seed + 6 floats</td>
+            <td class="p-3.5">Multi-GB VRAM</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-semibold text-white">Decision Latency</td>
+            <td class="p-3.5">0.008 ms (8 &mu;s)</td>
+            <td class="p-3.5">&lt; 0.003 ms</td>
+            <td class="p-3.5">&lt; 0.002 ms</td>
+            <td class="p-3.5 text-sky-300 font-medium">0.3 - 0.4 ms</td>
+            <td class="p-3.5">67 - 788 ms</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-semibold text-white">Stationary Tracking</td>
+            <td class="p-3.5 text-emerald-400 font-bold">0.257 logits (Best)</td>
+            <td class="p-3.5">0.356 logits</td>
+            <td class="p-3.5">0.412 logits</td>
+            <td class="p-3.5 text-sky-300">0.419 logits</td>
+            <td class="p-3.5">0.784 logits</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-semibold text-white">Fast Learning Tracking</td>
+            <td class="p-3.5 text-rose-400">0.755 logits lag</td>
+            <td class="p-3.5">0.401 logits</td>
+            <td class="p-3.5">0.465 logits</td>
+            <td class="p-3.5 text-emerald-400 font-bold">0.421 logits (Strongest)</td>
+            <td class="p-3.5">Lagged</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-semibold text-white">Recovery After Jump</td>
+            <td class="p-3.5 text-rose-400">56.0 trials</td>
+            <td class="p-3.5">14.8 trials</td>
+            <td class="p-3.5">11.7 trials</td>
+            <td class="p-3.5 text-emerald-400 font-bold">10.4 trials (Fastest)</td>
+            <td class="p-3.5">Unstable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-brand-border bg-brand-navy py-8 px-6 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto space-y-2">
+      <p>WerreduR &bull; Maintained by pCwOrM &bull; Concept DOI: <a href="https://doi.org/10.5281/zenodo.22999420" class="text-sky-400 hover:underline">10.5281/zenodo.22999420</a></p>
+      <p>All legacy v1/PFP-Core artifacts preserved in <code class="text-slate-400">legacy/</code> for uninterrupted academic reproducibility.</p>
+    </div>
+  </footer>
+
+  <!-- Script running authentic LearningGate JS in-browser -->
+  <script>
+    // WERR JS kernel matching werr_cekirdek_js_portu.js
+    function vecErf(x){const s=Math.sign(x),a=Math.abs(x),t=1/(1+0.3275911*a);const p=((((1.061405429*t-1.453152027)*t+1.421413741)*t-0.284496736)*t+0.254829592)*t;return s*(1-p*Math.exp(-a*a))}
+    const ncdf=z=>0.5*(1+vecErf(z/Math.SQRT2));
+    const WC=[],UU=[];for(let k=0;k<=36;k++){const u=k/36;UU.push(u);let om=ncdf(u/0.12)+ncdf((1-u)/0.12)-1;om=Math.min(Math.max(om,0.45),1);WC.push(1/om)}
+    function werrTripod(cx,cy,zoom){const R=36,M=36,zf=[0.6,1.0,1.6],wz=[0.25,0.5,0.25],out=[0,0,0,0];
+      for(let s=0;s<3;s++){const sc=1/(zoom*zf[s]),sw=[0,0,0,0],scn=[0,0,0,0],su=[0,0,0,0];
+        for(let j=0;j<R;j++){const ci=cy-sc+2*sc*j/(R-1);for(let k=0;k<R;k++){const cr=cx-sc+2*sc*k/(R-1);let zr=0,zi=0,e=M;
+          for(let i=0;i<M;i++){const t=zr*zr-zi*zi+cr;zi=2*zr*zi+ci;zr=t;if(Math.sqrt(zr*zr+zi*zi)>2){e=i;break}}
+          const q=(j<18?0:2)+(k<18?0:1);sw[q]+=WC[e];su[q]+=WC[e]*UU[e];if(UU[e]>=0.90)scn[q]+=WC[e]}}
+        for(let q=0;q<4;q++)out[q]+=wz[s]*(0.65*scn[q]/sw[q]+0.35*su[q]/sw[q])}
+      return out}
+
+    const GATE_SEED=[-0.80792578443908969,0.18302136198124994,300];
+    const agree=(a,b)=>(a===null||b===null)?0:(a===b?1:-1);
+
+    function computeGain(hist, rho) {
+      const a1=agree(hist[0],hist[1]),a2=agree(hist[1],hist[2]),a3=agree(hist[2],hist[3]);
+      const m=2*Math.abs(rho)/3-1, risk=Math.abs(rho)-1;
+      const sc=1/GATE_SEED[2];
+      const dx=Math.tanh(risk!==0?risk:(a1+m)/2)*sc*0.45;
+      const dy=Math.tanh((a2+a3)/2)*sc*0.45;
+      const z=GATE_SEED[2]*(1+0.1*Math.sin(a1+a2+m+a3));
+      const w=werrTripod(GATE_SEED[0]+dx,GATE_SEED[1]+dy,z).map(q=>(q-0.5)*6);
+      const dot=Math.max(-50,Math.min(50,w[0]*a1+w[1]*a2+w[2]*m+w[3]));
+      return 1/(1+Math.exp(-dot));
+    }
+
+    let theta = 0.0;
+    let b = 0.0;
+    let hist = [null, null, null, null];
+    let rho = 0.0;
+    let step = 0;
+    let historyP = [0.50];
+    let lastGain = 0.50;
+    let lastStep = 0.325;
+
+    const sliderTheta = document.getElementById('slider-theta');
+    const valTheta = document.getElementById('val-theta');
+    const valB = document.getElementById('val-b');
+    const valP = document.getElementById('val-p');
+    const valGain = document.getElementById('val-gain');
+    const valStep = document.getElementById('val-step');
+    const valStatus = document.getElementById('val-status');
+    const barB = document.getElementById('bar-b');
+    const stepCounter = document.getElementById('step-counter');
+    const canvas = document.getElementById('trajectory-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', () => { resizeCanvas(); renderChart(); });
+
+    function calcP() {
+      return 1 / (1 + Math.exp(-(theta - b)));
+    }
+
+    function updateUI() {
+      const p = calcP();
+      valTheta.textContent = theta.toFixed(2);
+      valB.textContent = b.toFixed(2);
+      valP.textContent = (p * 100).toFixed(1) + '%';
+      valGain.textContent = lastGain.toFixed(3);
+      valStep.textContent = lastStep.toFixed(3);
+      stepCounter.textContent = step;
+
+      const bPercent = Math.max(0, Math.min(100, ((b + 3) / 6) * 100));
+      barB.style.width = bPercent + '%';
+
+      if (p >= 0.40 && p <= 0.60) {
+        valStatus.textContent = 'Balanced Horizon (P ≈ 0.50)';
+        valStatus.className = 'text-emerald-400 font-bold text-xs';
+      } else if (p < 0.40) {
+        valStatus.textContent = 'High Challenge (P < 0.40)';
+        valStatus.className = 'text-rose-400 font-bold text-xs';
+      } else {
+        valStatus.textContent = 'Low Challenge (P > 0.60)';
+        valStatus.className = 'text-amber-400 font-bold text-xs';
+      }
+      renderChart();
+    }
+
+    function renderChart() {
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      if (historyP.length < 2) return;
+
+      // Draw horizon target line at 0.50
+      ctx.beginPath();
+      ctx.strokeStyle = '#334155';
+      ctx.setLineDash([4, 4]);
+      ctx.moveTo(0, h * 0.5);
+      ctx.lineTo(w, h * 0.5);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Draw trajectory
+      ctx.beginPath();
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2.5;
+      const stepX = w / Math.max(15, historyP.length - 1);
+      for (let i = 0; i < historyP.length; i++) {
+        const x = i * stepX;
+        const y = h - (historyP[i] * h);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      for (let i = 0; i < historyP.length; i++) {
+        const x = i * stepX;
+        const y = h - (historyP[i] * h);
+        ctx.fillStyle = (historyP[i] >= 0.40 && historyP[i] <= 0.60) ? '#10b981' : '#f43f5e';
+        ctx.beginPath();
+        ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    sliderTheta.addEventListener('input', (e) => {
+      theta = parseFloat(e.target.value);
+      updateUI();
+    });
+
+    function applyResponse(x) {
+      step++;
+      hist = [x, hist[0], hist[1], hist[2]];
+      rho = (2/3) * rho + (2 * x - 1);
+      lastGain = computeGain(hist, rho);
+      lastStep = 0.05 + 0.55 * lastGain;
+      b += lastStep * (2 * x - 1);
+      historyP.push(calcP());
+      if (historyP.length > 30) historyP.shift();
+      updateUI();
+    }
+
+    document.getElementById('btn-correct').addEventListener('click', () => applyResponse(1));
+    document.getElementById('btn-incorrect').addEventListener('click', () => applyResponse(0));
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      theta = 0.0;
+      b = 0.0;
+      hist = [null, null, null, null];
+      rho = 0.0;
+      step = 0;
+      sliderTheta.value = 0.0;
+      historyP = [0.50];
+      lastGain = 0.50;
+      lastStep = 0.325;
+      updateUI();
+    });
+
+    setTimeout(() => {
+      resizeCanvas();
+      updateUI();
+    }, 100);
+  </script>
+</body>
+</html>

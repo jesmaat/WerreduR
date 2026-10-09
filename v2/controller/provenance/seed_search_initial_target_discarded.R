@@ -1,0 +1,10 @@
+source("R/werr_kernel.R"); Rcpp::sourceCpp("src/werr_kernel.cpp"); source("R/learning_gate.R")
+pat <- canonical_patterns(8L)
+cat("patterns:", length(pat), " target dist:"); print(table(round(sapply(pat, `[[`, "target"), 2)))
+shipped <- list(base = WERR_BASE_SEED, combat = c(cx=-0.7445, cy=0.125, zoom=65),
+  fin = c(cx=-0.748, cy=0.065, zoom=60), iot = c(cx=-0.745, cy=0.112, zoom=85), fraud = c(cx=-0.7495, cy=0.082, zoom=70))
+for (n in names(shipped)) cat(sprintf("%-7s loss werr=%.4f frozen=%.4f\n", n, seed_loss(shipped[[n]], pat), seed_loss(shipped[[n]], pat, "frozen")))
+cat("constant g=mean(target) loss:", var(sapply(pat, `[[`, "target")) * 255/256, "\n")
+ex <- fit_explicit_weights(pat); cat("explicit optimum loss:", ex$loss, " w:", round(ex$w, 3), "\n")
+t0 <- Sys.time(); res <- search_seed(pat); print(Sys.time() - t0); print(res$seed, digits = 16); cat("loss", res$loss, "\n")
+saveRDS(list(res = res, ex = ex), "out/seed_search.rds")
