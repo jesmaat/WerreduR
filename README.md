@@ -5,6 +5,8 @@
 [![arXiv v4.0 Package](https://img.shields.io/badge/arXiv%20v4.0%20Submission-Ready%20(.zip)-success.svg)](./releases/arxiv_submission_pfp_v4.zip)
 [![Preprint PDF](https://img.shields.io/badge/Camera--Ready%20PDF-Download%20v4.0-red.svg)](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf)
 [![Lean 4 Formal Verification](https://img.shields.io/badge/Lean%204-7%20Theorems%20(0%20sorry)-7c3aed.svg)](./legacy/lean4/PFP_HorizonProof.lean)
+[![Canonical Repo](https://img.shields.io/badge/Canonical%20Repo-jesmaat%2FWerreduR-181717.svg?logo=github)](https://github.com/jesmaat/WerreduR)
+[![Mirror](https://img.shields.io/badge/Mirror-pCwOrM%2FWerreduR-blue.svg?logo=github)](https://github.com/pCwOrM/WerreduR)
 [![Live Simulator](https://img.shields.io/badge/Live%20Simulator-pcworm.github.io%2FWerreduR-0284c7.svg)](https://pcworm.github.io/WerreduR/)
 [![Target: Flagship Q1 AIED Journal](https://img.shields.io/badge/Ongoing%20Research-Targeting%20Flagship%20Q1%20AIED-059669.svg)](#-track-2-ongoing-flagship-q1-empirical-study-v20)
 [![Parity Tests](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-emerald.svg)](./tests/test_learning_gate_parity.py)
