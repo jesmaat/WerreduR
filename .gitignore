@@ -15,6 +15,7 @@ lake-packages/
 # LaTeX auxiliary files
 *.aux
 *.bbl
+!arxiv_pfp_v4/*.bbl
 *.blg
 *.fdb_latexmk
 *.fls

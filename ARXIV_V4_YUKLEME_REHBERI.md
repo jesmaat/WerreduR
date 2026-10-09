@@ -7,7 +7,7 @@ Bu rehber, **[arxiv.org/submit](https://arxiv.org/submit)** web formunu doldurur
 ## 📁 1. Yüklenecek Dosya
 * **Dosya:** `releases/arxiv_submission_pfp_v4.zip` (veya `legacy/zenodo_dist/arxiv_submission_pfp_v4.zip`)
 * **Boyut:** ~2.03 MB
-* **İçerik:** `main.tex`, `references.bib`, `figures/` (4 adet 300-DPI grafik) — *Önceden test edilmiş, sıfır hatalı tam pakettir.*
+* **İçerik:** `main.tex`, `main.bbl` (önceden derlenmiş 18 kaynakça), `references.bib`, `figures/` (4 adet 300-DPI grafik) — *TeX Live 2025 pdflatex motoru için %100 test edilmiş, sıfır hatalı tam pakettir.*
 
 ---
 
