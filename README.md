@@ -10,6 +10,10 @@
 [![Live Simulator](https://img.shields.io/badge/Live%20Simulator-pcworm.github.io%2FWerreduR-0284c7.svg)](https://pcworm.github.io/WerreduR/)
 [![Target: Flagship Q1 AIED Journal](https://img.shields.io/badge/Ongoing%20Research-Targeting%20Flagship%20Q1%20AIED-059669.svg)](#-track-2-ongoing-flagship-q1-empirical-study-v20)
 [![Parity Tests](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-emerald.svg)](./tests/test_learning_gate_parity.py)
+[![Median Latency: 30.4 μs](https://img.shields.io/badge/Median%20Latency-30.4%20%CE%BCs-blue.svg)](./data/edu_revision/latency_claude.json)
+[![Memory Footprint: 24 Bytes (0 VRAM)](https://img.shields.io/badge/Memory%20Footprint-24%20Bytes%20%7C%200%20VRAM-10b981.svg)](./data/edu_revision/latency_claude.json)
+[![Patent Priority: TÜRKPATENT TR 2026/016285](https://img.shields.io/badge/T%C3%9CRKPATENT-TR%202026%2F016285-b31b1b.svg)](https://doi.org/10.5281/zenodo.22774934)
+[![License: CC-BY 4.0 / MIT](https://img.shields.io/badge/License-CC--BY%204.0%20%2F%20MIT-2563eb.svg)](./.zenodo.json)
 
 ---
 
@@ -27,6 +31,26 @@
 >    * **Working Title:** *"Where Does a Fractal-Seeded Controller Stand? An Empirical Assessment of Adaptive Curriculum Sequencing in Simulated and Real-World Learners"*
 >    * **Status:** **ACTIVE ONGOING RESEARCH** (In Preparation for Flagship Q1 AIED Journal)
 >    * **Core Assets:** Decoupled cybernetic difficulty controller in [`werr/learning_gate.py`](./werr/learning_gate.py), empirical benchmarking across 200,000 synthetic learners and ASSISTments 2017 in [`v2/`](./v2/), and 100% passing parity test suite ([`tests/test_learning_gate_parity.py`](./tests/test_learning_gate_parity.py)).
+
+---
+
+## 👥 Authors & Affiliations
+
+* **Zerrin Dağlı** *(First & Corresponding Author)* — Mersin University, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425)
+* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Çukurova Teknokent, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) (`@pCwOrM`)
+* **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) (`@Lexovian`)
+
+### 🌐 Companion Open-Science Corpus & Cross-Verification
+* **PFP / WerreduR (This Work):** `doi:10.5281/zenodo.23128224 (v4.0)` • Concept DOI: `10.5281/zenodo.22999420` ([GitHub: `jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) • [Mirror: `pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR) • [Live Simulator](https://pcworm.github.io/WerreduR/))
+* **WERR Core Decision Engine:** `arXiv:2609.25498` • `doi:10.5281/zenodo.22939253` ([GitHub: `pCwOrM/werr`](https://github.com/pCwOrM/werr))
+* **GAP → Lean 4 Formal Verification:** `arXiv:2609.38492` • `doi:10.5281/zenodo.23045504` ([GitHub: `pCwOrM/gap-lean4-port`](https://github.com/pCwOrM/gap-lean4-port))
+* **WerrSoma Whole-Brain Connectome (158K Neurons):** `doi:10.5281/zenodo.23072929 (v1.1)` • [Live Portal: werrsoma.answerr.me](https://werrsoma.answerr.me/) ([GitHub: `Lexovian/WerrSoma`](https://github.com/Lexovian/WerrSoma))
+* **Güneş Dili Formal Phonetics & Morphology:** `doi:10.5281/zenodo.23273006` ([GitHub: `pCwOrM/gunes-dili`](https://github.com/pCwOrM/gunes-dili))
+* **answerr Reflex AI & Live Workspace:** `https://answerr.me` ([GitHub: `pCwOrM/answerr`](https://github.com/pCwOrM/answerr))
+* **Orbital Error Dynamics (OED):** `arXiv:2609.30115` • `doi:10.5281/zenodo.22896856`
+* **Mandelbrot Fractal Neural Synthesis (MFNS):** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis))
+* **Lean 4 Formal Verification & 40-Core Gauntlet:** `arXiv:2609.33066` • `doi:10.5281/zenodo.22983889`
+* **Werracle Sub-Cent Intra-Block EVM AI Oracle:** `arXiv:2609.30719` • `doi:10.5281/zenodo.22942598` ([GitHub: `pCwOrM/werracle`](https://github.com/pCwOrM/werracle))
 
 ---
 
