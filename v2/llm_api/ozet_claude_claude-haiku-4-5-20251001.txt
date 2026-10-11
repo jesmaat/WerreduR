@@ -1,0 +1,32 @@
+Dil modeli API deneyi | claude | claude-haiku-4-5-20251001
+Tarih: 2026-10-07 00:20
+API'nin bildirdiği model sü claude-haiku-4-5-20251001
+Öu11frenci: 200 (A: 100, B: 100) | tur: 20 | ö1frenci başına ayrı sorgu | sጜaklık: 0
+Karar sayısı: 3800 | geçsiz yanıt (öki zorluk korundu): 0 | yeniden deneme gerektiren: 0
+Karar başına sün): ortalama 0.685 | ortanca 0.630 | %95'lik 0.840 | en uzun 10.640
+Token: girdi toplam 971606 (karar başına 256) | ç131ktı toplam 28342 (karar başına 7)
+
+Veriden bi�imlenen �\u11frenciler (n = 100): dil modeli ortalama uzaklık 0.828 [0.736, 0.919]
+   Fraktal_kontrolcu      0.722 | eksi dil modeli: -0.106 [-0.162, -0.049]
+   Sakli_agirlikli_ikiz   0.739 | eksi dil modeli: -0.088 [-0.149, -0.028]
+   CAT_standart           0.742 | eksi dil modeli: -0.085 [-0.135, -0.035]
+   CAT_unutmali           0.723 | eksi dil modeli: -0.104 [-0.155, -0.054]
+   Merdiven_0.30          0.659 | eksi dil modeli: -0.168 [-0.221, -0.115]
+   Merdiven_0.50          0.683 | eksi dil modeli: -0.144 [-0.218, -0.071]
+   PEST                   0.711 | eksi dil modeli: -0.116 [-0.174, -0.058]
+   PFP_Core               0.854 | eksi dil modeli: +0.026 [-0.050, 0.102]
+
+Ani sıçma (n = 100): dil modeli ortalama uzaklık 1.004 [0.937, 1.071]
+   Fraktal_kontrolcu      0.842 | eksi dil modeli: -0.162 [-0.208, -0.117]
+   Sakli_agirlikli_ikiz   0.861 | eksi dil modeli: -0.143 [-0.189, -0.097]
+   CAT_standart           0.920 | eksi dil modeli: -0.084 [-0.131, -0.036]
+   CAT_unutmali           0.886 | eksi dil modeli: -0.118 [-0.165, -0.071]
+   Merdiven_0.30          0.777 | eksi dil modeli: -0.228 [-0.278, -0.177]
+   Merdiven_0.50          0.763 | eksi dil modeli: -0.241 [-0.301, -0.181]
+   PEST                   0.890 | eksi dil modeli: -0.114 [-0.165, -0.063]
+   PFP_Core               0.945 | eksi dil modeli: -0.059 [-0.126, 0.007]
+   Sıçmadan sonraki turlarda dil modeli:    1.40 1.37 1.36 1.35 1.31 1.30 1.28 1.25 1.23 1.20
+   Aynı turlarda fraktal kontrolcü       1.56 1.46 1.35 1.22 1.08 0.97 0.88 0.83 0.77 0.70
+   Aynı turlarda CAT (standart):              1.61 1.49 1.41 1.35 1.27 1.22 1.16 1.11 1.05 1.00
+
+(Eksi deᇾr: ilk yazılan kol ö1frenciye dil modelinden daha yakın.)

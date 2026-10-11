@@ -56,7 +56,7 @@ make_gate_servo <- function(seed = NULL, mode = "werr", w_explicit = NULL) {
 }
 
 # --- Legacy arms from the original PFP manuscript, re-implemented from the authors' code
-# (github.com/jesmaat/WerreduR, sim/sim_rigorous_revision_suite.py, commit 4251db9):
+# ([reference implementation repository omitted for double-blind review], sim/sim_rigorous_revision_suite.py, commit 4251db9):
 #   c <- c + (+/-0.05) - kappa * (c - X),  X = 0.25 + 0.18i,  kappa = 0.44,  b = 10 * Re(c - X)
 #   +J: after 4 consecutive failures, c <- X (reset to the anchor) instead of the usual step.
 # No Mandelbrot iteration is computed in these arms; X is used as a constant.

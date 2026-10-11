@@ -1,6 +1,6 @@
 # =============================================================================
 # werr_kernel.R -- Pure-R reference port of the WERR fractal kernel
-# Source of truth: github.com/pCwOrM/werr  (werr/fractal.py, werr/gates/base.py)
+# Source of truth: [reference implementation repository omitted for double-blind review]  (werr/fractal.py, werr/gates/base.py)
 # Ported at commit f80883a (2026-10-04). Function names mirror the Python API.
 # This file is the readable reference; src/werr_kernel.cpp is the fast path and
 # is checked against this file and against Python WERR in tests/.

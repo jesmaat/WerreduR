@@ -1,0 +1,9 @@
+"controller","distance","observed_success"
+"Fractal-seeded controller",0.73420415187606,0.522019704799126
+"Fractal-seeded controller, guess-aware steps",0.474120515102917,0.584313865600868
+"Stored-weight twin, guess-aware steps",0.511593268121628,0.572991271141236
+"Staircase 0.15",0.633753513711729,0.532795424473731
+"Staircase 0.15, guess-aware steps",0.37373245149928,0.638736765540162
+"Adaptive test (assumes no guessing)",0.496486629358941,0.550469419299754
+"Adaptive test, guess-aware (3PL)",0.336636391329081,0.649496941465979
+"Adaptive test, guess-aware, forgetting",0.396148996211242,0.647889985217947

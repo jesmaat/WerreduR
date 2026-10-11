@@ -1,38 +1,60 @@
-# PFP-W: WERR/MFNS tabanlı uyarlanabilir zorluk kontrolcüsü (R)
+# PFP-W: Procedural Fractal-Seeded Difficulty Controller (R & C++)
 
-WERR (github.com/pCwOrM/werr, commit f80883a) fraktal çekirdeğinin R portu ve bunun üzerine
-kurulu, yalnızca ikili yanıtları gören bir zorluk servosu. Theta kestirimi, madde parametresi
-ve popülasyon ön bilgisi kullanılmaz.
+This directory contains the R and C++ implementation of the fractal-seeded difficulty controller (`LearningGate`), the evolutionary seed optimization algorithm, and the complete simulation testbed comparing it against reference baselines.
 
-## Çalıştırma
-    Rscript tests/test_parity.R            # R ve Rcpp portu, Python WERR ile birebir mi?
-    Rscript R/00_seed_search.R             # LearningGate tohumu (bir kez; ~10 dk)
-    Rscript R/01_run_simulation.R 1000 120 # ana deney (~15 dk)
-    Rscript R/02_report.R                  # tablolar ve şekiller -> out/
-    Rscript R/03_tradeoff.R                # toparlanma hızı - hassasiyet dengesi (adım büyüklüğü taraması)
-Gerekenler: R >= 4.3, Rcpp, ggplot2, C++ derleyici.
-Python referansını yeniden üretmek için: python tests/export_python_reference.py <werr yolu> tests/python_reference.csv
+The controller operates strictly without latent ability estimation (theta), requires no calibrated item parameters, maintains zero persistent learner states, and relies on no training data from real students.
 
-## Dosyalar
-- R/werr_kernel.R, src/werr_kernel.cpp : yama, sınır düzeltmeli 4 çeyrek, tripod füzyonu
-- R/learning_gate.R : LearningGate (durum projeksiyonu, koordinat modülasyonu, MFNS nöronu, tohum araması)
-- R/controllers.R   : CAT 0.5 (EAP), unutmalı CAT, merdiven/Elo, PEST tipi, saklı ağırlıklı kapı, PFP-W türevleri,
-                      özgün PFP-Core ve PFP-Core+J (jesmaat/WerreduR, commit 4251db9 kodundan yeniden yazıldı)
-- R/simulate.R      : senaryolar, eşli tohumlu simülasyon, ölçütler
-- tests/werr_seed_swap_test.py : WERR'in kendi kararlarının tohuma bağlılığını ölçer
-- out/              : sonuç tabloları (CSV), şekiller (PNG), ham sonuçlar (RDS), günlükler
+---
 
-## Tasarım kararları ve açıklanması gerekenler
-- Kazanç nöronunun hedef tablosu öğrenci verisi içermez: P = 0.50 altında k uzunluklu dizinin
-  olasılığı 2^-(k-1); hedef = max(0, 1 - 4 * 2^-(k-1)).
-- Hedef tablo, 60 öğrencilik ilk denemeden sonra BİR KEZ değiştirildi (ilk hali 2'li dizilere
-  aşırı tepki veriyordu). Ana deney farklı rastgele tohumlarla koşuldu.
-- Adım sınırları (0.05, 0.60), rho sızıntısı (1/3) ve merdiven adımı (0.15) ayarlanmadı.
-- Non-inferiority marjı (0.10 logit) yer tutucudur; ön kayıtta sabitlenmelidir.
-- Madde bankası sürekli varsayılır (istenen b'de madde hep var). Sonlu banka test edilmedi.
-- "Saklı ağırlıklı kapı" kontrolünün ağırlıkları MFNS aralığına ([-3, 3]) sınırlandı ve hedef
-  tabloya uyduruldu; performansa göre ayarlanmış bir fraktalsız kontrol değildir.
+## Execution Instructions
 
-## Kaynaklar
-Kaernbach (1991) Percept. Psychophys. 49, 227-229. Levitt (1971) JASA 49, 467-477.
-Pelánek (2016) Comput. Educ. 98, 169-179. Taylor & Creelman (1967) JASA 41, 782-787.
+```bash
+# Verify parity between native R implementation and Rcpp C++ kernel
+Rscript tests/test_parity.R
+
+# Evolutionary seed search (minimizing squared loss against balanced responding gain target)
+# Pre-computed seed is stored in out/seed_search.rds; can be skipped
+Rscript R/00_seed_search.R
+
+# Primary Monte Carlo simulation: 6 learner conditions, 1,000 learners each, 120 items
+Rscript R/01_run_simulation.R 1000 120
+
+# Summary reporting and paired differences table generation
+Rscript R/02_report.R
+
+# Precision vs. recovery speed trade-off sweep (8 staircase step sizes)
+Rscript R/03_tradeoff.R
+
+# Generate manuscript figures (Figure 1, Figure 2, Figure S1)
+Rscript R/06_figures.R
+
+# Seed sensitivity analysis across three independent evolutionary runs (Seeds A, B, and Primary)
+Rscript R/07_seed_sensitivity.R report
+```
+
+---
+
+## Key Files and Architecture
+
+* **`src/werr_kernel.cpp` & `R/werr_kernel.R`:** Core procedural kernel implementing boundary-corrected complex plane sampling and tripod weight fusion.
+* **`R/learning_gate.R`:** `LearningGate` decision unit, input state projection (history running sum $ho$), coordinate shifting, and evolutionary seed optimizer.
+* **`R/controllers.R`:** Implementation of all comparison controllers:
+  * Computerized Adaptive Testing (CAT) targeting 50% success probability under Rasch IRT
+  * CAT with exponential forgetting factor (0.95)
+  * CAT with empirical prior matching
+  * Fixed-step up-down staircases (equivalent to Elo item selection with $K = 2s$)
+  * Adaptive-step PEST-type rule
+  * Stored-weight twin (identical architecture with fixed regression weights)
+  * Frozen-window and unsearched-seed variants
+  * First version controller (Authors, 2026b)
+* **`R/simulate.R`:** Simulation scenarios, response generators, common random numbers framework, and performance metric evaluators.
+* **`R/06_figures.R`:** Publication-grade figure generation exporting 600-DPI PNG and vector PDF figures to `out/`.
+* **`out/`:** Pre-computed simulation outputs, RDS binary artifacts, performance metric CSV tables, and execution logs.
+
+---
+
+## Methodological Notes
+
+* **Non-Inferiority Margin:** The pre-specified non-inferiority margin is fixed at $\Delta = 0.10$ logits (corresponding to ~2.5% success probability deviation at the target).
+* **Item Bank:** Standard conditions assume a continuous item pool (items of any requested difficulty $b$ available). Finite bank depletion is evaluated in `R/05_finite_bank.R` and `R/05b_finite_bank_reuse.R`.
+* **Anonymization:** In `R/06_figures.R`, `ANONYMISED <- TRUE` ensures that the authors' earlier design is neutrally labeled as *"First version"*, adhering to double-anonymized review.
