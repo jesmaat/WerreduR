@@ -17,7 +17,7 @@ authors:
     affiliation: "Toros Science High School, MEV (Toros University), Mersin, Turkey"
 version: "2.1.0"
 date-released: "2026-10-11"
-license: "CC-BY-4.0"
+license: "BUSL-1.1"
 repository-code: "https://github.com/jesmaat/WerreduR"
 url: "https://github.com/pCwOrM/WerreduR"
 identifiers:

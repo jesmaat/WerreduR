@@ -102,6 +102,18 @@ cd ../llm_api
 
 ## Methodological Notes for Independent Auditors
 
-1. **Double-Anonymized Review Compliance:** All references to author names, institutional affiliations, and identifying GitHub repositories have been blinded.
+1. **Double-Anonymized Review Compliance:** All references to author names, institutional affiliations, and identifying GitHub repositories have been blinded in manuscripts.
 2. **Deterministic Reproducibility:** Every simulation script explicitly sets random seeds (`set.seed(...)`).
 3. **Execution Latency:** Compute benchmarks were recorded on a single core of a dedicated testing workstation; per-decision latencies will scale relative to host CPU architecture.
+
+---
+
+## License & Intellectual Property
+
+* **Replication Software & Algorithms:** Licensed under the **[Business Source License 1.1 (BSL 1.1)](./LICENSE)**.
+  * **Free Academic, Educational & Scientific Research Use:** You may freely run, compile, inspect, benchmark, test, fork, and reproduce the code, models, and simulation suites free of charge for non-commercial research, academic study, and peer-review evaluations.
+  * **Commercial Restrictions:** Production commercial deployment, hosted software-as-a-service (SaaS), paid APIs, or cloud-based decision services require an express written Commercial Enterprise License from **ITouch Bilişim Sistemleri Ltd. Şti.** ([answerr.me](https://answerr.me)).
+  * **Change Date:** Transitions automatically to Apache 2.0 on 2030-01-01.
+* **Empirical Datasets:** ASSISTments benchmark datasets are governed by their original Open Science CC-BY licenses.
+* **Patent Protection:** Procedural coordinate seed routing and boundary modulation architectures are protected under Turkish Patent and Trademark Office (TÜRKPATENT) National Priority Application No. **`TR 2026/016285`**.
+
