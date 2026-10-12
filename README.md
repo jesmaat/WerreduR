@@ -12,6 +12,9 @@
 [![Parity Tests](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-emerald.svg)](./tests/test_learning_gate_parity.py)
 [![License: BSL 1.1](https://img.shields.io/badge/License-BSL%201.1%20(Free%20Academic)-orange.svg)](./LICENSE)
 [![Live Web Simulator](https://img.shields.io/badge/Live%20Simulator-pcworm.github.io%2FWerreduR-0284c7.svg)](https://pcworm.github.io/WerreduR/)
+[![Sister Repo: GDT Lean4](https://img.shields.io/badge/Sister%20Repo-GDT%20Lean4-024dad.svg)](https://github.com/pCwOrM/general-divisor-theorem)
+[![Sister Repo: Niemeier A8^3 Moonshine](https://img.shields.io/badge/Sister%20Repo-Niemeier%20A8%5E3%20Moonshine-024dad.svg)](https://github.com/pCwOrM/niemeier-a8-umbral-moonshine)
+[![Sister Repo: Schönhage Record](https://img.shields.io/badge/Sister%20Repo-Sch%C3%B6nhage%20Record-brightgreen.svg)](https://github.com/pCwOrM/integer-mult-bounds)
 
 ---
 
@@ -54,6 +57,9 @@
 * **Mandelbrot Fractal Neural Synthesis (MFNS):** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis))
 * **Lean 4 Formal Verification & 40-Core Gauntlet:** `arXiv:2609.33066` • `doi:10.5281/zenodo.22983889`
 * **Werracle Sub-Cent Intra-Block EVM AI Oracle:** `arXiv:2609.30719` • `doi:10.5281/zenodo.22942598` ([GitHub: `pCwOrM/werracle`](https://github.com/pCwOrM/werracle))
+* **Schönhage Tensor Carrier Compression (World Record):** `arXiv: submit/8207241` • `doi:10.5281/zenodo.23268580` ([GitHub: `pCwOrM/integer-mult-bounds`](https://github.com/pCwOrM/integer-mult-bounds))
+* **General Divisor Theorem (GDT) Lean 4:** `doi:10.5281/zenodo.23316070` ([GitHub: `pCwOrM/general-divisor-theorem`](https://github.com/pCwOrM/general-divisor-theorem))
+* **24D Niemeier Lattice $A_8^3$ & K3 Umbral Moonshine Lean 4:** `doi:10.5281/zenodo.23324066` • Record `23324067` ([GitHub: `pCwOrM/niemeier-a8-umbral-moonshine`](https://github.com/pCwOrM/niemeier-a8-umbral-moonshine))
 
 ---
 
