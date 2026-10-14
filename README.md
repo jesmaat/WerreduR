@@ -14,6 +14,10 @@
 [![Memory Footprint: 24 Bytes (0 VRAM)](https://img.shields.io/badge/Memory%20Footprint-24%20Bytes%20%7C%200%20VRAM-10b981.svg)](./data/edu_revision/latency_claude.json)
 [![Patent Priority: TÜRKPATENT TR 2026/016285](https://img.shields.io/badge/T%C3%9CRKPATENT-TR%202026%2F016285-b31b1b.svg)](https://doi.org/10.5281/zenodo.22774934)
 [![License: CC-BY 4.0 / MIT](https://img.shields.io/badge/License-CC--BY%204.0%20%2F%20MIT-2563eb.svg)](./.zenodo.json)
+[![Sister Repo: Schönhage Record](https://img.shields.io/badge/Sister%20Repo-Sch%C3%B6nhage%20Record-brightgreen.svg)](https://github.com/pCwOrM/integer-mult-bounds)
+[![arXiv:2610.14263](https://img.shields.io/badge/arXiv-2610.14263%20%5Bcs.CC%5D-b31b1b.svg)](https://arxiv.org/abs/2610.14263)
+[![arXiv DOI: 10.48550/arXiv.2610.14263](https://img.shields.io/badge/DOI-10.48550%2FarXiv.2610.14263-b31b1b.svg)](https://doi.org/10.48550/arXiv.2610.14263)
+[![CrocSwap PR #226: Incorporated](https://img.shields.io/badge/CrocSwap%20Main-PR%20%23226%20Incorporated%20(50d76881)-brightgreen.svg)](https://github.com/CrocSwap/integer-mult-bounds/blob/50d768818f579d4e165b4c257c6ee25bca300802/docs/research/community-reconciliation-next100-review.md)
 
 ---
 
