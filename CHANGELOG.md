@@ -18,13 +18,7 @@ Submission of the finalized manuscript and full empirical replication suite:
 > Double-Blind Replication Portal: `https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2`
 
 ### Added
-- **`docs/manuscript/`**: Complete submission documents (preserved under academic embargo to protect double-blind peer review and prevent crawler pre-indexing):
-  - `Title_Page.docx`: Full author metadata, affiliations, ORCIDs, and TÜRKPATENT priority disclosure.
-  - `Manuscript.docx`: Double-anonymized final manuscript text (360 KB).
-  - `Highlights.docx`: Core scientific takeaways and findings.
-  - `Cover_Letter.docx`: Detailed cover letter to the Editor-in-Chief.
-  - `Declaration_Statement.docx`: CRediT authorship contribution statement, patent disclosure, and conflict of interest declaration.
-  - `Supplementary_Material.docx`: Supplementary Tables S1–S12 and Text S1 (205 KB).
+- **`v2/` Empirical Replication & Evaluation Suite**: Self-contained replication suite featuring C++ kernel, R simulation harness, ASSISTments mixed models, and out-of-sample prediction validation.
 - **`v2/llm_api/`**: Large Language Model benchmark suite using Claude Haiku 4.5 via Messages API across 200 learners (3,800 decision calls, frozen temperature 0).
   - `kararlar_claude_claude-haiku-4-5-20251001.csv`: Raw trial-by-trial decision logs.
   - `ozet_claude_claude-haiku-4-5-20251001.txt`: Complete execution summary.

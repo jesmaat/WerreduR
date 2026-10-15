@@ -33,7 +33,7 @@
 >    * **Title:** *"Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model"*  
 >    * **Venue:** Under Double-Blind Peer Review at a flagship Q1 journal in Learning Technologies & Intelligent Educational Systems.  
 >    * **Contents:** Rigorous benchmarking of the estimation-free, 24-byte difficulty controller (`LearningGate`) against Computerized Adaptive Testing (CAT, Rasch EAP), fixed staircases (= Elo), accelerated PEST, stored-weight twins, and frontier LLM (Claude Haiku 4.5 across 3,800 decisions). Verified across 6,000 synthetic learners and empirical replays on **1.25 million interactions** from ASSISTments 2009–2010 and 2017.  
->    * **Quick Access:** [📦 Complete Replication Suite (.zip)](./releases/Supplementary_Code_and_Data_v2.zip) | [🔬 Code & Data Directory](./v2/) | [📑 Review Defense Report](./docs/Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf) | [🔒 Anonymized OSF Portal](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)
+>    * **Quick Access:** [📦 Complete Replication Suite (.zip)](./releases/Supplementary_Code_and_Data_v2.zip) | [🔬 Code & Data Directory](./v2/) | [🔒 Anonymized OSF Portal](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)
 >
 > 2. **[Track 2: Published Seed Preprint & Live arXiv Package (Version 4.0)](#-track-2-published-seed-preprint--arxiv-package-version-40)** *(Foundational Theory)*  
 >    * **Title:** *"Procedural Fractal Pedagogy: Resolving the Saturn School Disequilibrium Paradox in Self-Directed AI Education via Zero-Storage Mandelbrot Boundary Reflexes"*  
@@ -154,9 +154,8 @@ This study isolates and benchmarks **`LearningGate`**, an estimation-free adapti
 
 ### 📥 Track 1 Replication Package & Double-Blind Review Assets
 
-* **Manuscript Status:** Currently under double-blind peer review at a leading Q1 journal in Learning Technologies & Intelligent Educational Systems. In strict compliance with double-anonymized peer review policies and to protect against pre-publication web indexing (iThenticate / Turnitin / Crossref), submission drafts are maintained under academic embargo until formal acceptance (preserved in `docs/manuscript/`). Reviewers can inspect the complete anonymized replication suite via the [OSF View-Only Node](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2).
+* **Manuscript Status:** Currently under double-blind peer review at a leading Q1 journal in Learning Technologies & Intelligent Educational Systems. In strict compliance with double-anonymized peer review policies and to protect against pre-publication web indexing (iThenticate / Turnitin / Crossref), raw manuscript drafts and submission documents are maintained under confidential academic embargo until formal acceptance. Independent peer reviewers can access and inspect the complete anonymized replication suite via the [OSF View-Only Node](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2).
 * 📦 **[Supplementary_Code_and_Data_v2.zip](./releases/Supplementary_Code_and_Data_v2.zip)** — Complete, self-contained, byte-exact replication archive (7.4 MB).
-* 📑 **[Strategic Review Defense & Synthesis Report (PDF)](./docs/Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf)** — Review defense and methodological rationale.
 * 🔬 **[v2/ Replication Suite Directory](./v2/)**:
   * [`v2/pfpw/`](./v2/pfpw/): C++ kernel (`werr_kernel.cpp`), R wrappers, simulation runs, finite bank tests, guessing remedies, sensitivity sweeps, and vector publication figures (`Figure 1`, `Figure 2`, `Figure S1`).
   * [`v2/replay/`](./v2/replay/): ASSISTments 2009–2010 and 2017 mixed models and counterfactual replay scripts.
@@ -208,16 +207,6 @@ WerreduR/
 ├── .zenodo.json                                 # 🌐 Zenodo metadata yapılandırması
 ├── LICENSE                                      # ⚖️ Business Source License 1.1 (BSL 1.1)
 ├── index.html                                   # 🌐 Canlı GitHub Pages web simülatörü
-│
-├── docs/                                        # 📚 Makale ve Dokümantasyon Portalı
-│   ├── manuscript/                              # 🎓 Q1 Çift-Kör Başvuru Dokümanları (Embargolu)
-│   │   ├── Title_Page.docx                      # Yazarlar, kurumlar, ORCID ve iletişim
-│   │   ├── Manuscript.docx                      # Çift-kör ana makale metni (360 KB)
-│   │   ├── Highlights.docx                      # Özet vurgular
-│   │   ├── Cover_Letter.docx                    # Editöre kapak mektubu
-│   │   ├── Declaration_Statement.docx           # CRediT yazarlık, patent & çıkar çatışması beyanı
-│   │   └── Supplementary_Material.docx          # Tablolar S1-S12, Metin S1 (205 KB)
-│   └── (hakem ve stratejik analiz raporları)
 │
 ├── v2/                                          # 🔬 Track 1: Q1 Ampirik Replikasyon ve Veri Paketi
 │   ├── README.md                                # Replikasyon rehberi ve çalıştırma talimatları
