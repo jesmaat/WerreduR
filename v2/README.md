@@ -1,8 +1,7 @@
 # Replication and Analysis Package
 
 **Companion Code and Data for:**  
-*"Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model"*  
-Submitted to *Computers and Education: Artificial Intelligence (CAEAI)*.
+Companion empirical study under double-blind peer review at a leading Q1 journal in Learning Technologies & Intelligent Educational Systems. Anonymized review portal: [OSF View-Only Node](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2).
 
 This package provides the complete, self-contained replication environment for all simulations, statistical models, sensitivity analyses, and figure generation scripts reported in the manuscript. All random seeds are fixed in the code to ensure byte-exact reproducibility.
 

@@ -1,6 +1,8 @@
 # WerreduR: Adaptive Difficulty Control & Procedural Cognitive Reflex Engine
 
-[![Target: Computers & Education: Artificial Intelligence (CAEAI)](https://img.shields.io/badge/Flagship%20Submission-CAEAI%20(Elsevier)-007398.svg)](#-track-1-flagship-q1-empirical-study-caeai-submission)
+[![Status: Under Peer Review](https://img.shields.io/badge/Flagship%20Study-Under%20Peer%20Review-0284c7.svg)](#-track-1-flagship-q1-empirical-positioning-study)
+[![Target: Flagship Q1 Journal](https://img.shields.io/badge/Target-Flagship%20Q1%20Learning%20Technologies-059669.svg)](#-track-1-flagship-q1-empirical-positioning-study)
+[![Double-Blind Replication Portal](https://img.shields.io/badge/Double--Blind%20Replication-OSF%20(Open%20Science)-6b7280.svg)](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)
 [![Canonical Repo](https://img.shields.io/badge/Canonical%20Repo-jesmaat%2FWerreduR-181717.svg?logo=github)](https://github.com/jesmaat/WerreduR)
 [![Mirror](https://img.shields.io/badge/Engineering%20Mirror-pCwOrM%2FWerreduR-blue.svg?logo=github)](https://github.com/pCwOrM/WerreduR)
 [![Werr Certified](https://img.shields.io/badge/Werr%20Ecosystem-Validated%20Controller-059669.svg)](https://answerr.me)
@@ -27,11 +29,11 @@
 >
 > This repository is the open-science home of **WerreduR**, developed and validated within the **Werr cognitive architecture environment** ([answerr.me](https://answerr.me) / ITouch Systems). To preserve unbroken scientific continuity, earlier publications, datasets, and formal proofs remain permanently accessible alongside our latest empirical breakthroughs:
 >
-> 1. **[Track 1: Flagship Q1 Empirical Positioning Study (CAEAI Submission)](#-track-1-flagship-q1-empirical-study-caeai-submission)** *(Flagship Milestone)*  
+> 1. **[Track 1: Flagship Q1 Empirical Positioning Study (Under Double-Blind Peer Review)](#-track-1-flagship-q1-empirical-positioning-study)** *(Flagship Milestone)*  
 >    * **Title:** *"Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model"*  
->    * **Venue:** Submitted to *Computers and Education: Artificial Intelligence (Elsevier CAEAI)*.  
+>    * **Venue:** Under Double-Blind Peer Review at a flagship Q1 journal in Learning Technologies & Intelligent Educational Systems.  
 >    * **Contents:** Rigorous benchmarking of the estimation-free, 24-byte difficulty controller (`LearningGate`) against Computerized Adaptive Testing (CAT, Rasch EAP), fixed staircases (= Elo), accelerated PEST, stored-weight twins, and frontier LLM (Claude Haiku 4.5 across 3,800 decisions). Verified across 6,000 synthetic learners and empirical replays on **1.25 million interactions** from ASSISTments 2009–2010 and 2017.  
->    * **Quick Access:** [📦 Complete Replication Suite (.zip)](./releases/Supplementary_Code_and_Data_v2.zip) | [🔬 Code & Data Directory](./v2/) | [📑 Review Defense Report](./docs/CAEAI_Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf)
+>    * **Quick Access:** [📦 Complete Replication Suite (.zip)](./releases/Supplementary_Code_and_Data_v2.zip) | [🔬 Code & Data Directory](./v2/) | [📑 Review Defense Report](./docs/Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf) | [🔒 Anonymized OSF Portal](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)
 >
 > 2. **[Track 2: Published Seed Preprint & Live arXiv Package (Version 4.0)](#-track-2-published-seed-preprint--arxiv-package-version-40)** *(Foundational Theory)*  
 >    * **Title:** *"Procedural Fractal Pedagogy: Resolving the Saturn School Disequilibrium Paradox in Self-Directed AI Education via Zero-Storage Mandelbrot Boundary Reflexes"*  
@@ -67,7 +69,7 @@
 
 ---
 
-## 🏆 Track 1: Flagship Q1 Empirical Study (CAEAI Submission)
+## 🏆 Track 1: Flagship Q1 Empirical Positioning Study (Under Double-Blind Peer Review)
 
 ### *Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model*
 
@@ -76,7 +78,8 @@
 * **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703)  
 * **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313)  
 
-**Target Journal:** *Computers and Education: Artificial Intelligence (CAEAI)*  
+**Target Journal:** Flagship Q1 Journal in Learning Technologies & Intelligent Educational Systems (Under Double-Blind Peer Review)  
+**Double-Blind Review Portal:** [OSF Anonymized View-Only Node](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)  
 **Canonical Repository:** [`https://github.com/jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR)  
 **Engineering Mirror:** [`https://github.com/pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR)  
 **Werr Ecosystem:** Validated and certified production difficulty controller within `werr` ([answerr.me](https://answerr.me))  
@@ -151,9 +154,9 @@ This study isolates and benchmarks **`LearningGate`**, an estimation-free adapti
 
 ### 📥 Track 1 Replication Package & Double-Blind Review Assets
 
-* **Manuscript Status:** Submitted to *Computers and Education: Artificial Intelligence (Elsevier CAEAI)*. In strict compliance with double-anonymized peer review and to protect against pre-publication web indexing (iThenticate / Turnitin), raw submission drafts are kept under academic embargo until formal acceptance (preserved locally in `docs/q1_caeai/`).
+* **Manuscript Status:** Currently under double-blind peer review at a leading Q1 journal in Learning Technologies & Intelligent Educational Systems. In strict compliance with double-anonymized peer review policies and to protect against pre-publication web indexing (iThenticate / Turnitin / Crossref), submission drafts are maintained under academic embargo until formal acceptance (preserved in `docs/manuscript/`). Reviewers can inspect the complete anonymized replication suite via the [OSF View-Only Node](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2).
 * 📦 **[Supplementary_Code_and_Data_v2.zip](./releases/Supplementary_Code_and_Data_v2.zip)** — Complete, self-contained, byte-exact replication archive (7.4 MB).
-* 📑 **[Strategic Review Defense & Synthesis Report (PDF)](./docs/CAEAI_Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf)** — Review defense and methodological rationale.
+* 📑 **[Strategic Review Defense & Synthesis Report (PDF)](./docs/Hakem_Elestirisi_Cozum_ve_Revizyon_Raporu.pdf)** — Review defense and methodological rationale.
 * 🔬 **[v2/ Replication Suite Directory](./v2/)**:
   * [`v2/pfpw/`](./v2/pfpw/): C++ kernel (`werr_kernel.cpp`), R wrappers, simulation runs, finite bank tests, guessing remedies, sensitivity sweeps, and vector publication figures (`Figure 1`, `Figure 2`, `Figure S1`).
   * [`v2/replay/`](./v2/replay/): ASSISTments 2009–2010 and 2017 mixed models and counterfactual replay scripts.
@@ -200,23 +203,23 @@ All assets prior to Version 2.0 are preserved in [`legacy/`](./legacy/) for cont
 ```text
 WerreduR/
 ├── README.md                                    # 📖 Ana bilimsel portal ve kümülatif yol haritası
-├── CHANGELOG.md                                 # 📜 Sürüm günlüğü (v1.0 -> v4.0 -> v2.0 CAEAI)
+├── CHANGELOG.md                                 # 📜 Sürüm günlüğü (v1.0 -> v4.0 -> v2.0 -> v2.1 Q1)
 ├── CITATION.cff                                 # 📑 Akademik atıf künyesi
 ├── .zenodo.json                                 # 🌐 Zenodo metadata yapılandırması
 ├── LICENSE                                      # ⚖️ Business Source License 1.1 (BSL 1.1)
 ├── index.html                                   # 🌐 Canlı GitHub Pages web simülatörü
 │
 ├── docs/                                        # 📚 Makale ve Dokümantasyon Portalı
-│   ├── q1_caeai/                                # 🎓 Elsevier CAEAI Q1 Başvuru Dosyaları
+│   ├── manuscript/                              # 🎓 Q1 Çift-Kör Başvuru Dokümanları (Embargolu)
 │   │   ├── Title_Page.docx                      # Yazarlar, kurumlar, ORCID ve iletişim
 │   │   ├── Manuscript.docx                      # Çift-kör ana makale metni (360 KB)
-│   │   ├── Highlights.docx                      # Elsevier Highlights (3-5 can alıcı madde)
-│   │   ├── Cover_Letter.docx                    # CAEAI Baş Editörüne kapak mektubu
-│   │   ├── Declaration_Statement.docx           # CRediT yazarlık & çıkar çatışması beyanı
+│   │   ├── Highlights.docx                      # Özet vurgular
+│   │   ├── Cover_Letter.docx                    # Editöre kapak mektubu
+│   │   ├── Declaration_Statement.docx           # CRediT yazarlık, patent & çıkar çatışması beyanı
 │   │   └── Supplementary_Material.docx          # Tablolar S1-S12, Metin S1 (205 KB)
 │   └── (hakem ve stratejik analiz raporları)
 │
-├── v2/                                          # 🔬 Track 1: Q1 CAEAI Replikasyon ve Veri Paketi
+├── v2/                                          # 🔬 Track 1: Q1 Ampirik Replikasyon ve Veri Paketi
 │   ├── README.md                                # Replikasyon rehberi ve çalıştırma talimatları
 │   ├── pfpw/                                    # C++ çekirdeği, R wrapperları, 6 sentetik koşul
 │   │   ├── src/werr_kernel.cpp                  # C++11 optimize WERR tripod Mandelbrot çekirdeği
@@ -244,7 +247,7 @@ WerreduR/
 │   └── test_learning_gate_parity.py             # 9/9 Geçen Parite ve Değişmezlik Testleri (C++, R, JS, Python)
 │
 ├── releases/                                    # 📦 Dağıtım Paketleri ve İndirmeler
-│   ├── Supplementary_Code_and_Data_v2.zip       # Q1 CAEAI eksiksiz replikasyon arşivi (7.4 MB)
+│   ├── Supplementary_Code_and_Data_v2.zip       # Q1 eksiksiz replikasyon arşivi (7.4 MB)
 │   ├── arxiv_submission_pfp_v4.zip              # Track 2: arXiv v4.0 TeX/PNG paketi
 │   └── Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf # Track 2: Kamera hazır önbaskı PDF
 │
@@ -287,7 +290,7 @@ WerreduR represents Paper 3 in the unified open-science corpus spanning fractal 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Paper 1: MFNS** | Mandelbrot Fractal Neural Synthesis | [`10.5281/zenodo.22867037`](https://doi.org/10.5281/zenodo.22867037) | [`10.5281/zenodo.22774934`](https://doi.org/10.5281/zenodo.22774934) | Açık Bilim Önbaskısı (Revizyonda) | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
 | **Paper 2: OED** | Orbital Error Dynamics (OED v3) | [`10.5281/zenodo.22900465`](https://doi.org/10.5281/zenodo.22900465) | [`10.5281/zenodo.22896855`](https://doi.org/10.5281/zenodo.22896855) | [`arXiv:2609.30115`](https://arxiv.org/abs/2609.30115) • [HF Paper](https://huggingface.co/papers/2609.30115) | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
-| **Paper 3: WerreduR** | Procedural Fractal Pedagogy (v4.0) | [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | Hedef: Q1 AIED / CAEAI • [Canlı Simülatör](https://pcworm.github.io/WerreduR/) | [`jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) (Mirror: [`pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR)) |
+| **Paper 3: WerreduR** | Procedural Fractal Pedagogy (v4.0) | [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | Hedef: Q1 Learning Technologies (Hakemde) • [Canlı Simülatör](https://pcworm.github.io/WerreduR/) | [`jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) (Mirror: [`pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR)) |
 | **Paper 4: BH Page** | Black Hole Page Curve & Quantum Gravity (v5) | [`10.5281/zenodo.23072120`](https://doi.org/10.5281/zenodo.23072120) | [`10.5281/zenodo.22961999`](https://doi.org/10.5281/zenodo.22961999) | CERN Record 22978460 • Stabilizer Kodları | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
 | **Paper 5: Formal** | Lean 4 40-Core Gauntlet (v2) | [`10.5281/zenodo.22983889`](https://doi.org/10.5281/zenodo.22983889) | [`10.5281/zenodo.22974543`](https://doi.org/10.5281/zenodo.22974543) | [`arXiv:2609.33066`](https://arxiv.org/abs/2609.33066) • [HF Paper](https://huggingface.co/papers/2609.33066) | [`pCwOrM/werr`](https://github.com/pCwOrM/werr) & [`werracle`](https://github.com/pCwOrM/werracle) |
 | **Paper 6: WerrSoma** | Drosophila Connectome (158K Nöron, v1.1) | [`10.5281/zenodo.23072929`](https://doi.org/10.5281/zenodo.23072929) | [`10.5281/zenodo.22996625`](https://doi.org/10.5281/zenodo.22996625) | `arXiv:submit/8161759` [on hold] • [3D Portal](https://werrsoma.answerr.me/) | [`Lexovian/WerrSoma`](https://github.com/Lexovian/WerrSoma) (Mirror: [`pCwOrM/WerrSoma`](https://github.com/pCwOrM/WerrSoma)) |
@@ -305,14 +308,14 @@ WerreduR represents Paper 3 in the unified open-science corpus spanning fractal 
 
 ## 📜 Citation & Open Science
 
-### 1. Citing the Flagship Q1 Empirical Positioning Study (CAEAI Submission)
+### 1. Citing the Flagship Q1 Empirical Positioning Study (Under Review)
 ```bibtex
 @article{dagli2026learninggate,
   author    = {Da{\u{g}}l{\i}, Zerrin and Da{\u{g}}l{\i}, Volkan and Da{\u{g}}l{\i}, Da{\u{g}}han},
   title     = {Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model},
-  journal   = {Computers and Education: Artificial Intelligence},
+  journal   = {Under Peer Review},
   year      = {2026},
-  note      = {Submitted; Replication package: \url{https://github.com/jesmaat/WerreduR}}
+  note      = {Flagship Empirical Study; Replication package: \url{https://github.com/jesmaat/WerreduR}}
 }
 ```
 

@@ -9,20 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.0] - 2026-10-11
 
-### Summary: Official Q1 Journal Submission to Computers and Education: Artificial Intelligence (CAEAI)
+### Summary: Official Q1 Journal Submission (Flagship Empirical Study Under Double-Blind Review)
 Submission of the finalized manuscript and full empirical replication suite:
 > *"Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model"*  
 > Authors: Zerrin Dağlı, Volkan Dağlı, Dağhan Dağlı  
-> Target: *Computers and Education: Artificial Intelligence (Elsevier CAEAI)*  
-> Canonical Repository: `https://github.com/jesmaat/WerreduR` | Engineering Mirror: `https://github.com/pCwOrM/WerreduR`
+> Target: Premier Q1 Journal in Learning Technologies & Intelligent Educational Systems (Under Double-Blind Peer Review)  
+> Canonical Repository: `https://github.com/jesmaat/WerreduR` | Engineering Mirror: `https://github.com/pCwOrM/WerreduR`  
+> Double-Blind Replication Portal: `https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2`
 
 ### Added
-- **`docs/q1_caeai/`**: Complete, finalized Elsevier submission documents:
-  - `Title_Page.docx`: Full author metadata, affiliations, and ORCIDs.
+- **`docs/manuscript/`**: Complete submission documents (preserved under academic embargo to protect double-blind peer review and prevent crawler pre-indexing):
+  - `Title_Page.docx`: Full author metadata, affiliations, ORCIDs, and TÜRKPATENT priority disclosure.
   - `Manuscript.docx`: Double-anonymized final manuscript text (360 KB).
-  - `Highlights.docx`: Official Elsevier Highlights.
-  - `Cover_Letter.docx`: Cover letter to CAEAI Editor-in-Chief.
-  - `Declaration_Statement.docx`: CRediT authorship contribution statement and conflict of interest declaration.
+  - `Highlights.docx`: Core scientific takeaways and findings.
+  - `Cover_Letter.docx`: Detailed cover letter to the Editor-in-Chief.
+  - `Declaration_Statement.docx`: CRediT authorship contribution statement, patent disclosure, and conflict of interest declaration.
   - `Supplementary_Material.docx`: Supplementary Tables S1–S12 and Text S1 (205 KB).
 - **`v2/llm_api/`**: Large Language Model benchmark suite using Claude Haiku 4.5 via Messages API across 200 learners (3,800 decision calls, frozen temperature 0).
   - `kararlar_claude_claude-haiku-4-5-20251001.csv`: Raw trial-by-trial decision logs.
@@ -37,7 +38,7 @@ Submission of the finalized manuscript and full empirical replication suite:
 
 ### Changed
 - Refactored `v2/` directory structure to strictly match Table 1 of the supplementary replication guide (`pfpw/`, `replay/`, `llm_api/`, `llm_pilot_runs/`, `data/`).
-- Synchronized `README.md` to feature Track 1 (CAEAI Submission) as the flagship version while maintaining complete unbroken access to Track 2 (Preprint v4.0 / arXiv) and Track 3 (Legacy v1.0).
+- Synchronized `README.md` to feature Track 1 (Flagship Q1 Empirical Study) as the flagship version while maintaining complete unbroken access to Track 2 (Preprint v4.0 / arXiv) and Track 3 (Legacy v1.0).
 
 ---
 
