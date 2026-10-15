@@ -43,5 +43,11 @@ simulation_v2/
 *.doc
 docs/
 legacy/docs/
+legacy/*_edu.*
+legacy/HAKEM_*
+legacy/*REVISION*
+legacy/*YUKLEME*
+legacy/latex/main_edu_revision.pdf
 manuscript/
 submission/
+academic_embargo/
