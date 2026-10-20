@@ -125,7 +125,29 @@ SSRN yükleme ekranında **"Browse SSRN Classifications"** altındaki listeden a
 
 ---
 
-### [8] Working Paper Series & Identification (Opsiyonel Referans Bilgileri)
+### [8] Step 5: Research Integrity (Kopyala - Yapıştır)
+
+#### 1. Declaration of Interest (Çıkar Çatışması Beyanı)
+```text
+Volkan Dağlı is affiliated with ITouch Systems (Mersin, Turkey), which provided high-performance computational modeling and software infrastructure support for this study. Bekirhan Dağlı is a partner and co-founder of ITouch Systems. The procedural fractal architecture and boundary damping mechanisms are subject to TÜRKPATENT National Priority Patent Application No. TR 2026/016285. All other authors (Zerrin Dağlı, Dağhan Dağlı) declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+```
+
+#### 2. Funder (Fon / Destek Beyanı)
+```text
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors. High-performance computational and simulation infrastructure was provided by ITouch Systems (Mersin, Turkey). All work was conducted using institutional and private academic resources.
+```
+
+#### 3. Ethics approval (Etik Kurul Onay Beyanı - İsteğe Bağlı)
+```text
+Not applicable. This research is an in-silico computational simulation, mathematical modeling, and formal verification study based on synthetic agent trajectories (N = 1,000) and machine-checked Lean 4 theorem proving. No human participants, patients, clinical interventions, or identifiable personal data were involved; therefore, formal institutional ethics committee approval was not required.
+```
+
+#### 4. Terms & Conditions
+* ✅ **İşaretleyiniz:** `I have reviewed each file that I am uploading and I have the right to upload this file. I have read and agree to the SSRN Terms and Conditions.`
+
+---
+
+### [9] Working Paper Series & Identification (Opsiyonel Referans Bilgileri)
 
 * **Working Paper Series / Number:**
   ```text
