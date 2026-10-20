@@ -15,7 +15,7 @@ lake-packages/
 # LaTeX auxiliary files
 *.aux
 *.bbl
-!arxiv_pfp_v4/*.bbl
+
 *.blg
 *.fdb_latexmk
 *.fls
@@ -51,3 +51,7 @@ legacy/latex/main_edu_revision.pdf
 manuscript/
 submission/
 academic_embargo/
+# arXiv submission packages & guides (preserved in encrypted vault)
+ARXIV_*
+arxiv_pfp_v4/
+*arxiv_submission*.zip

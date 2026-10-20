@@ -39,6 +39,11 @@ INTERNAL_FILES = [
     "legacy/REVISION_NOTES_edu.md",
     "legacy/ZENODO_ARXIV_Q1_YUKLEME_REHBERI.md",
     "legacy/latex/main_edu_revision.pdf",
+    "ARXIV_V4_YUKLEME_REHBERI.md",
+    "releases/arxiv_submission_pfp_v4.zip",
+    "legacy/zenodo_dist/arxiv_submission_pfp_v1.zip",
+    "legacy/zenodo_dist/arxiv_submission_pfp_v4.zip",
+    "arxiv_pfp_v4",
 ]
 
 
@@ -60,8 +65,15 @@ def lock_vault(passphrase: str):
     with zipfile.ZipFile(temp_zip, "w", zipfile.ZIP_DEFLATED) as zf:
         for rel in INTERNAL_FILES:
             if os.path.exists(rel):
-                zf.write(rel, rel)
-                count += 1
+                if os.path.isdir(rel):
+                    for root, _, files in os.walk(rel):
+                        for f in files:
+                            fpath = os.path.join(root, f)
+                            zf.write(fpath, fpath)
+                            count += 1
+                else:
+                    zf.write(rel, rel)
+                    count += 1
             else:
                 print(f"[!] Warning: Missing {rel}")
                 

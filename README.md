@@ -10,7 +10,7 @@
 [![Zenodo v4.0 Archive](https://img.shields.io/badge/Zenodo%20v4.0%20Archive-10.5281%2Fzenodo.23128224-blue.svg)](https://doi.org/10.5281/zenodo.23128224)
 [![Concept DOI](https://img.shields.io/badge/Concept%20DOI%20(All%20Versions)-10.5281%2Fzenodo.22999420-indigo.svg)](https://doi.org/10.5281/zenodo.22999420)
 [![SSRN: 7641538](https://img.shields.io/badge/SSRN-7641538-blue.svg)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538)
-[![arXiv v4.0 Package](https://img.shields.io/badge/arXiv%20v4.0%20Package-Ready%20(.zip)-success.svg)](./releases/arxiv_submission_pfp_v4.zip)
+
 [![Lean 4 Formal Proofs](https://img.shields.io/badge/Lean%204-7%20Theorems%20(0%20sorry)-7c3aed.svg)](./legacy/lean4/PFP_HorizonProof.lean)
 [![Parity Tests](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-emerald.svg)](./tests/test_learning_gate_parity.py)
 [![License: BSL 1.1](https://img.shields.io/badge/License-BSL%201.1%20(Free%20Academic)-orange.svg)](./LICENSE)
@@ -36,11 +36,11 @@
 >    * **Contents:** Rigorous benchmarking of the estimation-free, 24-byte difficulty controller (`LearningGate`) against Computerized Adaptive Testing (CAT, Rasch EAP), fixed staircases (= Elo), accelerated PEST, stored-weight twins, and frontier LLM (Claude Haiku 4.5 across 3,800 decisions). Verified across 6,000 synthetic learners and empirical replays on **1.25 million interactions** from ASSISTments 2009–2010 and 2017.  
 >    * **Quick Access:** [📦 Complete Replication Suite (.zip)](./releases/Supplementary_Code_and_Data_v2.zip) | [🔬 Code & Data Directory](./v2/) | [🔒 Anonymized OSF Portal](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)
 >
-> 2. **[Track 2: Published Seed Preprint & Live arXiv Package (Version 4.0)](#-track-2-published-seed-preprint--arxiv-package-version-40)** *(Foundational Theory)*  
+> 2. **[Track 2: Published Seed Preprint & SSRN Working Paper (Version 4.0)](#-track-2-published-seed-preprint--ssrn-working-paper-version-40)** *(Foundational Theory)*  
 >    * **Title:** *"Procedural Fractal Pedagogy: Resolving the Saturn School Disequilibrium Paradox in Self-Directed AI Education via Zero-Storage Mandelbrot Boundary Reflexes"*  
 >    * **Preprint Identifiers:** SSRN: [`7641538`](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538) | Zenodo DOI: [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | Concept DOI: [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | TR Priority Patent Application: `TR 2026/016285`  
 >    * **Contents:** Theoretical framework anchoring Vygotsky's Zone of Proximal Development (ZPD) to Mandelbrot boundary resonances, 7 machine-checked theorems in Lean 4 (0 sorry), and $N=1,000$ self-directed learning trajectory simulations.  
->    * **Quick Access:** [📑 SSRN Paper (ID: 7641538)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538) | [📄 SSRN Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_SSRN_Preprint.pdf) | [📄 Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf) | [📋 SSRN Guide](./SSRN_YUKLEME_REHBERI.md) | [📦 arXiv TeX Package (.zip)](./releases/arxiv_submission_pfp_v4.zip) | [📜 Lean 4 Proofs](./legacy/lean4/PFP_HorizonProof.lean)
+>    * **Quick Access:** [📑 SSRN Paper (ID: 7641538)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538) | [📄 SSRN Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_SSRN_Preprint.pdf) | [📄 Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf) | [📋 SSRN Guide](./SSRN_YUKLEME_REHBERI.md) | [📜 Lean 4 Proofs](./legacy/lean4/PFP_HorizonProof.lean)
 >
 > 3. **[Track 3: Historical Archival Corpus (Version 1.0 & PFP-Core Heritage)](#-track-3-historical-archival-corpus-legacy)** *(Cumulative Archive)*  
 >    * All historical telemetry, initial seed papers, LaTeX drafts, and Zenodo distributions are preserved in [`legacy/`](./legacy/) ensuring 100% citation persistence.
@@ -166,7 +166,7 @@ This study isolates and benchmarks **`LearningGate`**, an estimation-free adapti
 
 ---
 
-## 🚀 Track 2: Published Seed Preprint & arXiv Package (Version 4.0)
+## 🚀 Track 2: Published Seed Preprint & SSRN Working Paper (Version 4.0)
 
 ### *Procedural Fractal Pedagogy: Resolving the Saturn School Disequilibrium Paradox in Self-Directed AI Education via Zero-Storage Mandelbrot Boundary Reflexes*
 
@@ -184,8 +184,8 @@ In this foundational paper, we formalize Vygotsky’s Zone of Proximal Developme
 * 📄 **[Download Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf)** — 2-column preprint PDF.
 * 📑 **[Download SSRN Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_SSRN_Preprint.pdf)** — SSRN / ERN camera-ready preprint PDF.
 * 📋 **[SSRN Yükleme Rehberi (Step-by-Step Guide)](./SSRN_YUKLEME_REHBERI.md)** — Kopyala-yapıştır SSRN başvuru rehberi.
-* 📦 **[Download arXiv v4.0 Package](./releases/arxiv_submission_pfp_v4.zip)** — Complete self-contained TeX source, BibTeX, and 4 PNG figures.
-* 📋 **[arXiv Yükleme Rehberi (Step-by-Step Guide)](./ARXIV_V4_YUKLEME_REHBERI.md)** — Copy-paste submission guide.
+
+
 * 📜 **[Lean 4 Machine Proofs](./legacy/lean4/PFP_HorizonProof.lean)** — 7 theorems machine-checked with zero `sorry` axioms.
 * 🎮 **[Interactive Web Simulator](https://pcworm.github.io/WerreduR/)** — In-browser visualization of the Mandelbrot Observer Horizon.
 

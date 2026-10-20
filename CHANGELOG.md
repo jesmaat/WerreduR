@@ -32,7 +32,7 @@ Submission of the finalized manuscript and full empirical replication suite:
 
 ### Changed
 - Refactored `v2/` directory structure to strictly match Table 1 of the supplementary replication guide (`pfpw/`, `replay/`, `llm_api/`, `llm_pilot_runs/`, `data/`).
-- Synchronized `README.md` to feature Track 1 (Flagship Q1 Empirical Study) as the flagship version while maintaining complete unbroken access to Track 2 (Preprint v4.0 / arXiv) and Track 3 (Legacy v1.0).
+- Synchronized `README.md` to feature Track 1 (Flagship Q1 Empirical Study) as the flagship version while maintaining complete unbroken access to Track 2 (Preprint v4.0 / SSRN) and Track 3 (Legacy v1.0).
 
 ---
 
