@@ -94,6 +94,10 @@ SSRN yükleme ekranında **"Browse SSRN Classifications"** altındaki listeden a
 #### 🟢 A. Education Research Network (Temel Ağ - En Yüksek Öncelik)
 * ✅ **Pedagogy Alert**  
   *(Makalenin omurgası: Procedural Fractal Pedagogy, Saturn School Paradoksu, pedagojik sistemik dönüşüm)*
+  * 🎯 **Online/Virtual Instruction** *(Yapay zeka tabanlı otonom, sanal ve dijital öğrenme ortamları - Tam isabet)*
+  * 🎯 **Student Assessment** *(Makaledeki 'Fallacy of Erasure' skalar notlandırma eleştirisi ve Z/9Z korunumlu hata çekirdeği analizi)*
+  * 🎯 **Classroom Instruction** *(Reigeluth Saturn okulu sınıf içi öğretim tasarımı ve dengesizlik koridoru)*
+  * 🎯 **Secondary Education** *(Lise/K-12 ve ileri düzey adaptif müfredat uygulamaları)*
 * ✅ **Educational Technology, Media & Library Science Alert**  
   *(AIED, Akıllı Öğretici Sistemler - ITS, Edge AI, Sıfır VRAM eğitim mimarisi)*
 * ✅ **Educational Psychology & Cognition Alert**  
