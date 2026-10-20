@@ -9,6 +9,7 @@
 [![Replication Package](https://img.shields.io/badge/Replication%20Package-v2.0%20(7.4%20MB)-emerald.svg)](./releases/Supplementary_Code_and_Data_v2.zip)
 [![Zenodo v4.0 Archive](https://img.shields.io/badge/Zenodo%20v4.0%20Archive-10.5281%2Fzenodo.23128224-blue.svg)](https://doi.org/10.5281/zenodo.23128224)
 [![Concept DOI](https://img.shields.io/badge/Concept%20DOI%20(All%20Versions)-10.5281%2Fzenodo.22999420-indigo.svg)](https://doi.org/10.5281/zenodo.22999420)
+[![SSRN Working Paper](https://img.shields.io/badge/SSRN-Working%20Paper%20Ready-blue.svg)](./SSRN_YUKLEME_REHBERI.md)
 [![arXiv v4.0 Package](https://img.shields.io/badge/arXiv%20v4.0%20Package-Ready%20(.zip)-success.svg)](./releases/arxiv_submission_pfp_v4.zip)
 [![Lean 4 Formal Proofs](https://img.shields.io/badge/Lean%204-7%20Theorems%20(0%20sorry)-7c3aed.svg)](./legacy/lean4/PFP_HorizonProof.lean)
 [![Parity Tests](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-emerald.svg)](./tests/test_learning_gate_parity.py)
@@ -39,7 +40,7 @@
 >    * **Title:** *"Procedural Fractal Pedagogy: Resolving the Saturn School Disequilibrium Paradox in Self-Directed AI Education via Zero-Storage Mandelbrot Boundary Reflexes"*  
 >    * **Preprint Identifiers:** Zenodo DOI: [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | Concept DOI: [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | TR Priority Patent Application: `TR 2026/016285`  
 >    * **Contents:** Theoretical framework anchoring Vygotsky's Zone of Proximal Development (ZPD) to Mandelbrot boundary resonances, 7 machine-checked theorems in Lean 4 (0 sorry), and $N=1,000$ self-directed learning trajectory simulations.  
->    * **Quick Access:** [📄 Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf) | [📦 arXiv TeX Source Package (.zip)](./releases/arxiv_submission_pfp_v4.zip) | [📋 arXiv Submission Guide](./ARXIV_V4_YUKLEME_REHBERI.md) | [📜 Lean 4 Proofs](./legacy/lean4/PFP_HorizonProof.lean)
+>    * **Quick Access:** [📄 Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf) | [📑 SSRN Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_SSRN_Preprint.pdf) | [📋 SSRN Guide](./SSRN_YUKLEME_REHBERI.md) | [📦 arXiv TeX Package (.zip)](./releases/arxiv_submission_pfp_v4.zip) | [📜 Lean 4 Proofs](./legacy/lean4/PFP_HorizonProof.lean)
 >
 > 3. **[Track 3: Historical Archival Corpus (Version 1.0 & PFP-Core Heritage)](#-track-3-historical-archival-corpus-legacy)** *(Cumulative Archive)*  
 >    * All historical telemetry, initial seed papers, LaTeX drafts, and Zenodo distributions are preserved in [`legacy/`](./legacy/) ensuring 100% citation persistence.
@@ -180,6 +181,8 @@ In this foundational paper, we formalize Vygotsky’s Zone of Proximal Developme
 
 ### 📥 Track 2 Resources
 * 📄 **[Download Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf)** — 2-column preprint PDF.
+* 📑 **[Download SSRN Camera-Ready PDF](./releases/Procedural_Fractal_Pedagogy_SSRN_Preprint.pdf)** — SSRN / ERN camera-ready preprint PDF.
+* 📋 **[SSRN Yükleme Rehberi (Step-by-Step Guide)](./SSRN_YUKLEME_REHBERI.md)** — Kopyala-yapıştır SSRN başvuru rehberi.
 * 📦 **[Download arXiv v4.0 Package](./releases/arxiv_submission_pfp_v4.zip)** — Complete self-contained TeX source, BibTeX, and 4 PNG figures.
 * 📋 **[arXiv Yükleme Rehberi (Step-by-Step Guide)](./ARXIV_V4_YUKLEME_REHBERI.md)** — Copy-paste submission guide.
 * 📜 **[Lean 4 Machine Proofs](./legacy/lean4/PFP_HorizonProof.lean)** — 7 theorems machine-checked with zero `sorry` axioms.
@@ -279,7 +282,7 @@ WerreduR represents Paper 3 in the unified open-science corpus spanning fractal 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Paper 1: MFNS** | Mandelbrot Fractal Neural Synthesis | [`10.5281/zenodo.22867037`](https://doi.org/10.5281/zenodo.22867037) | [`10.5281/zenodo.22774934`](https://doi.org/10.5281/zenodo.22774934) | Açık Bilim Önbaskısı (Revizyonda) | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
 | **Paper 2: OED** | Orbital Error Dynamics (OED v3) | [`10.5281/zenodo.22900465`](https://doi.org/10.5281/zenodo.22900465) | [`10.5281/zenodo.22896855`](https://doi.org/10.5281/zenodo.22896855) | [`arXiv:2609.30115`](https://arxiv.org/abs/2609.30115) • [HF Paper](https://huggingface.co/papers/2609.30115) | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
-| **Paper 3: WerreduR** | Procedural Fractal Pedagogy (v4.0) | [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | Hedef: Q1 Learning Technologies (Hakemde) • [Canlı Simülatör](https://pcworm.github.io/WerreduR/) | [`jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) (Mirror: [`pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR)) |
+| **Paper 3: WerreduR** | Procedural Fractal Pedagogy (v4.0) | [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | Hedef: Q1 Learning Technologies (Hakemde) • [SSRN Rehberi](./SSRN_YUKLEME_REHBERI.md) • [Canlı Simülatör](https://pcworm.github.io/WerreduR/) | [`jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) (Mirror: [`pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR)) |
 | **Paper 4: BH Page** | Black Hole Page Curve & Quantum Gravity (v5) | [`10.5281/zenodo.23072120`](https://doi.org/10.5281/zenodo.23072120) | [`10.5281/zenodo.22961999`](https://doi.org/10.5281/zenodo.22961999) | CERN Record 22978460 • Stabilizer Kodları | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
 | **Paper 5: Formal** | Lean 4 40-Core Gauntlet (v2) | [`10.5281/zenodo.22983889`](https://doi.org/10.5281/zenodo.22983889) | [`10.5281/zenodo.22974543`](https://doi.org/10.5281/zenodo.22974543) | [`arXiv:2609.33066`](https://arxiv.org/abs/2609.33066) • [HF Paper](https://huggingface.co/papers/2609.33066) | [`pCwOrM/werr`](https://github.com/pCwOrM/werr) & [`werracle`](https://github.com/pCwOrM/werracle) |
 | **Paper 6: WerrSoma** | Drosophila Connectome (158K Nöron, v1.1) | [`10.5281/zenodo.23072929`](https://doi.org/10.5281/zenodo.23072929) | [`10.5281/zenodo.22996625`](https://doi.org/10.5281/zenodo.22996625) | `arXiv:submit/8161759` [on hold] • [3D Portal](https://werrsoma.answerr.me/) | [`Lexovian/WerrSoma`](https://github.com/Lexovian/WerrSoma) (Mirror: [`pCwOrM/WerrSoma`](https://github.com/pCwOrM/WerrSoma)) |
