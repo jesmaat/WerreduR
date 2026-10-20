@@ -87,25 +87,37 @@ I20, I21, C63, O31, O33
 
 ---
 
-### [7] SSRN Research Networks & Subject Classifications (Kritik Görünürlük Adımı)
+### [7] SSRN Research Networks & Subject Classifications (Ekranınızdaki Listeye Birebir Uyumlu)
 
-SSRN'de **"Classify your paper"** adımında aşağıdaki ağları ve konu başlıklarını işaretleyiniz:
+SSRN yükleme ekranında **"Browse SSRN Classifications"** altındaki listeden aşağıdaki kutucukları işaretleyiniz:
 
-1. **Education Research Network (ERN):**
-   * ✅ `ERN: Educational Technology (EdTech) (Topic)` *(Birincil Ağ)*
-   * ✅ `ERN: Curriculum & Instruction (Topic)`
-   * ✅ `ERN: Cognitive Skills & Learning Processes (Topic)`
-   * ✅ `ERN: Primary & Secondary Education (K-12) (Topic)`
-   * ✅ `ERN: Educational Psychology (Topic)`
+#### 🟢 A. Education Research Network (Temel Ağ - En Yüksek Öncelik)
+* ✅ **Pedagogy Alert**  
+  *(Makalenin omurgası: Procedural Fractal Pedagogy, Saturn School Paradoksu, pedagojik sistemik dönüşüm)*
+* ✅ **Educational Technology, Media & Library Science Alert**  
+  *(AIED, Akıllı Öğretici Sistemler - ITS, Edge AI, Sıfır VRAM eğitim mimarisi)*
+* ✅ **Educational Psychology & Cognition Alert**  
+  *(Vygotsky ZPD, Reigeluth bilişsel dengesizlik - disequilibrium, öğrenci tükenmişlik/stres bastırma)*
+* ✅ **Educational Impact & Evaluation Research Alert**  
+  *(N=1,000 öğrenci simülasyonu, Cloud LLM vs Saturn vs WerreduR ampirik etki analizi)*
+* ✅ **Engineering & Applied Sciences Education Alert**  
+  *(Mühendislik, algoritma ve matematik tabanlı yapay zeka eğitim sistemleri)*
 
-2. **Cognitive Science Network (CSN):**
-   * ✅ `CSN: Cognitive Modeling (Topic)`
-   * ✅ `CSN: Learning & Memory (Topic)`
-   * ✅ `CSN: Problem Solving & Decision Making (Topic)`
+#### 🔵 B. Cognitive Science Network (Bilişsel Bilim ve Matematik Ağı)
+* ✅ **Cognition in Mathematics, Science, & Technology Alert**  
+  *(Mandelbrot fraktal dinamikleri, Lean 4 biçimsel ispatları, matematiksel biliş)*
+* ✅ **Human Cognition in Evolution & Development Alert**  
+  *(Öğrenci zihinsel gelişim yörüngeleri, özerk öğrenme dinamikleri)*
+* ✅ **Cognitive Social Science Alert**  
+  *(Reigeluth sistem teorisi, eğitimde karmaşıklık ve kaos dinamikleri)*
 
-3. **Information Systems & eBusiness Network (ISN):**
-   * ✅ `ISN: Artificial Intelligence (AI) (Topic)`
-   * ✅ `ISN: Human-Computer Interaction (HCI) in Learning Systems`
+#### 🟣 C. Information Systems & eBusiness Network (Bilişim ve Yapay Zeka Sistemleri)
+* ✅ **Information Technology & Systems Alert**  
+  *(O(1) karar triyaj motoru, 2.32 ms refleks latansı, donanım/bellek verimliliği)*
+* ✅ **Frontiers in Information Systems Research & Applications Alert**  
+  *(Yeni nesil deterministik yapay zeka ve sistem araştırmaları)*
+* ✅ **Information Systems Education Alert**  
+  *(Bilişim sistemleri ve yazılım eğitimi entegrasyonu)*
 
 ---
 
