@@ -1,12 +1,16 @@
 # 🚀 SSRN Web Formu İçin Kesin ve Tek Yükleme Rehberi (WerreduR / PFP)
 
 > [!TIP]
-> ### 🎉 BAŞARIYLA TAMAMLANDI VE SSRN'YE KAYDEDİLDİ!
+> ### 🎉 RESMEN ONAYLANDI VE YAYINDA (STATUS: APPROVED)!
 > * **SSRN Abstract ID:** [`7641538`](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538)  
 > * **Doğrudan Erişim Linki:** [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538)  
+> * **Yayınlanma & Onay Tarihi:** 21 Ekim 2026 (Status: `APPROVED`, Public View: `Yes`, eDocument: `Yes`)  
 > * **Lisans:** Creative Commons Attribution-NonCommercial-NoDerivs (CC BY-NC-ND 4.0)  
 > * **Kardeş SSRN Makalesi:** [SSRN: 7626279 (Werracle)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7626279)  
-> * **Tarih:** 20 Ekim 2026
+> * **SSRN Yazar Sayfaları:**  
+>   * 👩‍🏫 **Zerrin Dağlı:** [`https://ssrn.com/author=13656028`](https://ssrn.com/author=13656028)  
+>   * 👨‍💻 **Volkan Dağlı:** [`https://ssrn.com/author=13655808`](https://ssrn.com/author=13655808)  
+>   * 🎓 **Dağhan Dağlı:** [`https://ssrn.com/author=13656048`](https://ssrn.com/author=13656048)
 
 Bu rehber, **[SSRN Submissions Portal](https://hq.ssrn.com/submissions/CreateNewSubmission.cfm)** üzerinden **Procedural Fractal Pedagogy (WerreduR - Saturn School Paradox)** makalesini SSRN sistemine yüklerken kullanılan ve onaylanan tüm alanları içerir.
 
@@ -42,16 +46,19 @@ SSRN arama kutusuna yazarların adını veya e-postasını yazarak sırayla ekle
 1. **Zerrin Dağlı** *(First & Corresponding Author)*
    * **Affiliation:** Mersin University & Yusuf Kalkavan Anatolian High School, Mersin, Turkey
    * **ORCID:** `0000-0001-9490-6425`
+   * **SSRN Author Page:** [`https://ssrn.com/author=13656028`](https://ssrn.com/author=13656028)
    * **Rol:** Primary Contact / Author
 
 2. **Volkan Dağlı**
    * **Affiliation:** Anadolu University, Eskişehir, Turkey & ITouch Systems, Mersin, Turkey
    * **ORCID:** `0009-0000-1587-8703`
+   * **SSRN Author Page:** [`https://ssrn.com/author=13655808`](https://ssrn.com/author=13655808)
    * **Email:** `pcworm@pcworm.net` / `2254905+pCwOrM@users.noreply.github.com`
 
 3. **Dağhan Dağlı**
    * **Affiliation:** Toros Science High School, MEV (Toros University), Mersin, Turkey
    * **ORCID:** `0009-0003-2492-8313`
+   * **SSRN Author Page:** [`https://ssrn.com/author=13656048`](https://ssrn.com/author=13656048)
 
 ---
 

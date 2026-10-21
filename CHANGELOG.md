@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.1] - 2026-10-21
+
+### Approved & Released: SSRN Open-Science Working Paper
+- **SSRN Official Publication**: Foundational manuscript *"Procedural Fractal Pedagogy: Resolving the Saturn School Disequilibrium Paradox in Self-Directed AI Education via Zero-Storage Mandelbrot Boundary Reflexes"* officially approved and indexed under SSRN Abstract ID: [`7641538`](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538).
+- **Author Research Profiles**: Linked verified SSRN author pages for Zerrin Dağlı (`author=13656028`), Volkan Dağlı (`author=13655808`), and Dağhan Dağlı (`author=13656048`).
+- **Research Integrity & Transparency**: Disclosed ITouch Systems computational infrastructure, Bekirhan Dağlı partnership, and TÜRKPATENT Priority Application No. TR 2026/016285 under Creative Commons CC BY-NC-ND 4.0 license.
+- **Citation Metadata**: Added SSRN identifiers across `CITATION.cff`, `README.md`, and `SSRN_YUKLEME_REHBERI.md`.
+
+---
+
 ## [2.1.0] - 2026-10-11
 
 ### Summary: Official Q1 Journal Submission (Flagship Empirical Study Under Double-Blind Review)

@@ -9,7 +9,7 @@
 [![Replication Package](https://img.shields.io/badge/Replication%20Package-v2.0%20(7.4%20MB)-emerald.svg)](./releases/Supplementary_Code_and_Data_v2.zip)
 [![Zenodo v4.0 Archive](https://img.shields.io/badge/Zenodo%20v4.0%20Archive-10.5281%2Fzenodo.23128224-blue.svg)](https://doi.org/10.5281/zenodo.23128224)
 [![Concept DOI](https://img.shields.io/badge/Concept%20DOI%20(All%20Versions)-10.5281%2Fzenodo.22999420-indigo.svg)](https://doi.org/10.5281/zenodo.22999420)
-[![SSRN: 7641538](https://img.shields.io/badge/SSRN-7641538-blue.svg)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538)
+[![SSRN: 7641538 (Approved)](https://img.shields.io/badge/SSRN-7641538%20(Approved)-059669.svg)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538)
 
 [![Lean 4 Formal Proofs](https://img.shields.io/badge/Lean%204-7%20Theorems%20(0%20sorry)-7c3aed.svg)](./legacy/lean4/PFP_HorizonProof.lean)
 [![Parity Tests](https://img.shields.io/badge/Parity%20Tests-9%2F9%20Passing-emerald.svg)](./tests/test_learning_gate_parity.py)
@@ -49,9 +49,9 @@
 
 ## 👥 Authors & Affiliations
 
-* **Zerrin Dağlı** *(First & Corresponding Author)* — Mersin University, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425)
-* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Çukurova Teknokent, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) (`@pCwOrM`)
-* **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) (`@Lexovian`)
+* **Zerrin Dağlı** *(First & Corresponding Author)* — Mersin University, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425) • SSRN: [`13656028`](https://ssrn.com/author=13656028)
+* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Çukurova Teknokent, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) • SSRN: [`13655808`](https://ssrn.com/author=13655808) (`@pCwOrM`)
+* **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) • SSRN: [`13656048`](https://ssrn.com/author=13656048) (`@Lexovian`)
 
 ### 🌐 Companion Open-Science Corpus & Cross-Verification
 * **PFP / WerreduR (This Work):** `doi:10.5281/zenodo.23128224 (v4.0)` • Concept DOI: `10.5281/zenodo.22999420` ([GitHub: `jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) • [Mirror: `pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR) • [Live Simulator](https://pcworm.github.io/WerreduR/))
@@ -75,9 +75,9 @@
 ### *Where does a fractal-seeded difficulty controller stand? A simulation study against adaptive testing, staircase rules and a language model*
 
 **Authors:**  
-* **Zerrin Dağlı** *(Corresponding Author)* — Mersin University & Yusuf Kalkavan Anatolian High School, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425)  
-* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703)  
-* **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313)  
+* **Zerrin Dağlı** *(Corresponding Author)* — Mersin University & Yusuf Kalkavan Anatolian High School, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425) • SSRN: [`13656028`](https://ssrn.com/author=13656028)  
+* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) • SSRN: [`13655808`](https://ssrn.com/author=13655808)  
+* **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) • SSRN: [`13656048`](https://ssrn.com/author=13656048)  
 
 **Target Journal:** Flagship Q1 Journal in Learning Technologies & Intelligent Educational Systems (Under Double-Blind Peer Review)  
 **Double-Blind Review Portal:** [OSF Anonymized View-Only Node](https://osf.io/d98ey/overview?view_only=8472836f71144e22afa950bc98feb6f2)  
@@ -174,7 +174,7 @@ This study isolates and benchmarks **`LearningGate`**, an estimation-free adapti
 * **Version 4.0 DOI:** [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) (October 4, 2026)  
 * **Concept DOI:** [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420)  
 * **Patent Application:** TÜRKPATENT National Priority Application No. `TR 2026/016285`  
-* **SSRN Abstract ID:** [`7641538`](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538) (CC BY-NC-ND)  
+* **SSRN Abstract ID:** [`7641538`](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538) (Status: **APPROVED** • CC BY-NC-ND)  
 * **Related Preprints:** [SSRN: 7626279 (Werracle)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7626279) • [arXiv:2609.25498](https://arxiv.org/abs/2609.25498) • [arXiv:2609.30115](https://arxiv.org/abs/2609.30115)  
 
 ### 📄 Abstract

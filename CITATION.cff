@@ -27,6 +27,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.23128224"
     description: "Version 4.0 Archive DOI"
+  - type: url
+    value: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538"
+    description: "SSRN Approved Working Paper (Abstract ID: 7641538)"
 keywords:
   - "adaptive difficulty control"
   - "item response theory"
