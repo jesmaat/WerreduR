@@ -25,14 +25,14 @@
 ## 👥 Authors & Affiliations
 
 * **Zerrin Dağlı** *(First & Corresponding Author)* — Mersin University, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425)
-* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Çukurova Teknokent, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) (`@pCwOrM`)
+* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Cukurova University Science Park, Adana, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) (`@pCwOrM`)
 * **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) (`@Lexovian`)
 
 **Companion Open-Science Corpus:**
 * **PFP / WerreduR (This Work):** `doi:10.5281/zenodo.23034488` • Concept DOI: `10.5281/zenodo.22999420` ([GitHub: `jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR))
 * **WERR v0.5.1 Core Decision Engine:** `arXiv:2609.25498` • `doi:10.5281/zenodo.22939253` ([GitHub: `pCwOrM/werr`](https://github.com/pCwOrM/werr))
 * **Orbital Error Dynamics (OED):** `arXiv:2609.30115` • `doi:10.5281/zenodo.22896856`
-* **Mandelbrot Fractal Neural Synthesis:** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis))
+* **Mandelbrot Fractal Neural Synthesis:** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/fractal-neural-synthesis`](https://github.com/pCwOrM/fractal-neural-synthesis))
 * **Lean 4 Formal Verification & Gauntlet:** `doi:10.5281/zenodo.22983889`
 * **Werracle On-Chain EVM AI Oracle:** `doi:10.5281/zenodo.22974543` ([GitHub: `pCwOrM/werracle`](https://github.com/pCwOrM/werracle))
 

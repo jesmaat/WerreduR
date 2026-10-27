@@ -3,7 +3,7 @@
 **Platform:** Standard / Free Twitter / X Accounts (Strict Max 280-Character Rule)  
 **Total Tweets:** 6 Tweets (Optimal viral academic/tech flow)  
 **Live Zenodo v4.0 Record:** `https://zenodo.org/records/23128224` (DOI: `10.5281/zenodo.23128224`)  
-**GitHub Repo:** `https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis`  
+**GitHub Repo:** `https://github.com/pCwOrM/fractal-neural-synthesis`  
 **Image Assets Directory:** `C:\Users\maat\Desktop\werredur\twitter_assets`  
 **GitHub Pages Showcase File:** `c:\Users\maat\Documents\antigravity\wonderful-raman\docs\werredur.html`
 
@@ -87,7 +87,7 @@ Student struggle isn't erased; it forms a structured error-kernel guiding deep s
 6/6 In the spirit of open science, all code, benchmarks, and data are publicly available:
 
 📦 Zenodo v4.0: https://doi.org/10.5281/zenodo.23128224
-💻 Code & Data: https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis
+💻 Code & Data: https://github.com/pCwOrM/fractal-neural-synthesis
 
 The future of edtech is in elegant geometry, not billions of parameters! 🚀
 ```
@@ -99,15 +99,15 @@ The future of edtech is in elegant geometry, not billions of parameters! 🚀
 GitHub Pages tamamen **ücretsiz**, dahili SSL sertifikalıdır ve statik HTML sayfalarını saniyeler içinde yayına alır.
 
 ### Seçenek 1: Mevcut Ana Repomuz Üzerinden Hemen Yayına Alma (Önerilen)
-`docs/werredur.html` dosyasını az önce ana repomuza (`mandelbrot-fractal-neural-synthesis`) commit ettik.
-1. GitHub'da `https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis` adresine gidin.
+`docs/werredur.html` dosyasını az önce ana repomuza (`fractal-neural-synthesis`) commit ettik.
+1. GitHub'da `https://github.com/pCwOrM/fractal-neural-synthesis` adresine gidin.
 2. **Settings** (Ayarlar) sekmesine tıklayın.
 3. Sol menüden **Pages** bölümünü seçin.
 4. **Build and deployment** altında:
    - **Source:** `Deploy from a branch`
    - **Branch:** `master` (veya `main`) ve klasör olarak **`/docs`** seçip **Save** butonuna tıklayın.
 5. Yaklaşık 30-60 saniye içinde sayfanız yayında olacaktır:
-   👉 **`https://pcworm.github.io/mandelbrot-fractal-neural-synthesis/werredur.html`**
+   👉 **`https://pcworm.github.io/fractal-neural-synthesis/werredur.html`**
 
 ---
 

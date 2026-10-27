@@ -55,7 +55,7 @@
 ## 👥 Authors & Affiliations
 
 * **Zerrin Dağlı** *(First & Corresponding Author)* — Mersin University, Mersin, Turkey • ORCID: [`0000-0001-9490-6425`](https://orcid.org/0000-0001-9490-6425) • SSRN: [`13656028`](https://ssrn.com/author=13656028)
-* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Çukurova Teknokent, Mersin, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) • SSRN: [`13655808`](https://ssrn.com/author=13655808) (`@pCwOrM`)
+* **Volkan Dağlı** — Anadolu University, Eskişehir, Turkey & ITouch Systems, Cukurova University Science Park, Adana, Turkey • ORCID: [`0009-0000-1587-8703`](https://orcid.org/0009-0000-1587-8703) • SSRN: [`13655808`](https://ssrn.com/author=13655808) (`@pCwOrM`)
 * **Dağhan Dağlı** — Toros Science High School, MEV (Toros University), Mersin, Turkey • ORCID: [`0009-0003-2492-8313`](https://orcid.org/0009-0003-2492-8313) • SSRN: [`13656048`](https://ssrn.com/author=13656048) (`@Lexovian`)
 
 ### 🌐 Companion Open-Science Corpus & Cross-Verification
@@ -66,7 +66,7 @@
 * **Güneş Dili Formal Phonetics & Morphology:** `doi:10.5281/zenodo.23273006` ([GitHub: `pCwOrM/gunes-dili`](https://github.com/pCwOrM/gunes-dili))
 * **answerr Reflex AI & Live Workspace:** `https://answerr.me` ([GitHub: `pCwOrM/answerr`](https://github.com/pCwOrM/answerr))
 * **Orbital Error Dynamics (OED):** `arXiv:2609.30115` • `doi:10.5281/zenodo.22896856`
-* **Mandelbrot Fractal Neural Synthesis (MFNS):** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis))
+* **Mandelbrot Fractal Neural Synthesis (MFNS):** `doi:10.5281/zenodo.22774934` ([GitHub: `pCwOrM/fractal-neural-synthesis`](https://github.com/pCwOrM/fractal-neural-synthesis))
 * **Lean 4 Formal Verification & 40-Core Gauntlet:** `arXiv:2609.33066` • `doi:10.5281/zenodo.22983889`
 * **Werracle Sub-Cent Intra-Block EVM AI Oracle:** `arXiv:2609.30719` • `doi:10.5281/zenodo.22942598` ([GitHub: `pCwOrM/werracle`](https://github.com/pCwOrM/werracle))
 * **Schönhage Tensor Carrier Compression (World Record):** [`arXiv:2610.14263`](https://arxiv.org/abs/2610.14263) ([PDF](https://arxiv.org/pdf/2610.14263) • [DOI: `10.48550/arXiv.2610.14263`](https://doi.org/10.48550/arXiv.2610.14263) • `arXiv: submit/8207241`) • `doi:10.5281/zenodo.23268580` ([GitHub: `pCwOrM/integer-mult-bounds`](https://github.com/pCwOrM/integer-mult-bounds)) • [CrocSwap PR #226 (`incorporated`)](https://github.com/CrocSwap/integer-mult-bounds/pull/226) • [Contributors (`@pCwOrM`)](https://github.com/CrocSwap/integer-mult-bounds/blob/50d768818f579d4e165b4c257c6ee25bca300802/CONTRIBUTORS.md) • [Audit (`50d76881`)](https://github.com/CrocSwap/integer-mult-bounds/blob/50d768818f579d4e165b4c257c6ee25bca300802/docs/research/community-reconciliation-next100-review.md)
@@ -119,7 +119,7 @@ This study isolates and benchmarks **`LearningGate`**, an estimation-free adapti
                                            ▼
                     ┌──────────────────────────────────────────────┐
                     │        WERR Multi-Scale Tripod Kernel        │
-                    │  Mandelbrot sub-boundary escape ratios (q)   │
+                    │  Procedural fractal sub-boundary escape ratios (q)   │
                     │        Evaluated at 0.60x, 1.00x, 1.60x      │
                     └──────────────────────┬───────────────────────┘
                                            │
@@ -220,7 +220,7 @@ WerreduR/
 ├── v2/                                          # 🔬 Track 1: Q1 Ampirik Replikasyon ve Veri Paketi
 │   ├── README.md                                # Replikasyon rehberi ve çalıştırma talimatları
 │   ├── pfpw/                                    # C++ çekirdeği, R wrapperları, 6 sentetik koşul
-│   │   ├── src/werr_kernel.cpp                  # C++11 optimize WERR tripod Mandelbrot çekirdeği
+│   │   ├── src/werr_kernel.cpp                  # C++11 optimize WERR tripod fraktal çekirdeği
 │   │   ├── R/                                   # 00_seed_search.R ... 07_seed_sensitivity.R
 │   │   ├── tests/                               # test_parity.R, test_js_parity.js, referans csv'ler
 │   │   └── out/                                 # RDS verileri, CSV tabloları, Figure 1, 2, S1
@@ -238,7 +238,7 @@ WerreduR/
 ├── werr/                                        # 🧠 WERR Ekosisteminde Doğrulanmış Üretim Çekirdeği
 │   ├── learning_gate.py                         # Üretim sınıfı LearningGate kontrolcüsü
 │   ├── engine.py                                # Kognitif refleks motoru
-│   ├── fractal.py                               # Mandelbrot & Tripod çekirdeği
+│   ├── fractal.py                               # Fraktal & Tripod çekirdeği
 │   └── ...
 │
 ├── tests/                                       # 🧪 Otomasyonlu Test Paketi
@@ -286,10 +286,10 @@ WerreduR represents Paper 3 in the unified open-science corpus spanning fractal 
 
 | Makale / Sütun | Başlık / Katkı | En Son Sürüm DOI | Çatı / Konsept DOI | arXiv / Doğrulama Durumu | Birincil Depo |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Paper 1: MFNS** | Mandelbrot Fractal Neural Synthesis | [`10.5281/zenodo.22867037`](https://doi.org/10.5281/zenodo.22867037) | [`10.5281/zenodo.22774934`](https://doi.org/10.5281/zenodo.22774934) | Açık Bilim Önbaskısı (Revizyonda) | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
-| **Paper 2: OED** | Orbital Error Dynamics (OED v3) | [`10.5281/zenodo.22900465`](https://doi.org/10.5281/zenodo.22900465) | [`10.5281/zenodo.22896855`](https://doi.org/10.5281/zenodo.22896855) | [`arXiv:2609.30115`](https://arxiv.org/abs/2609.30115) • [HF Paper](https://huggingface.co/papers/2609.30115) | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
+| **Paper 1: MFNS** | Mandelbrot Fractal Neural Synthesis | [`10.5281/zenodo.22867037`](https://doi.org/10.5281/zenodo.22867037) | [`10.5281/zenodo.22774934`](https://doi.org/10.5281/zenodo.22774934) | Açık Bilim Önbaskısı (Revizyonda) | [`pCwOrM/fractal-neural-synthesis`](https://github.com/pCwOrM/fractal-neural-synthesis) |
+| **Paper 2: OED** | Orbital Error Dynamics (OED v3) | [`10.5281/zenodo.22900465`](https://doi.org/10.5281/zenodo.22900465) | [`10.5281/zenodo.22896855`](https://doi.org/10.5281/zenodo.22896855) | [`arXiv:2609.30115`](https://arxiv.org/abs/2609.30115) • [HF Paper](https://huggingface.co/papers/2609.30115) | [`pCwOrM/fractal-neural-synthesis`](https://github.com/pCwOrM/fractal-neural-synthesis) |
 | **Paper 3: WerreduR** | Procedural Fractal Pedagogy (v4.0) | [`10.5281/zenodo.23128224`](https://doi.org/10.5281/zenodo.23128224) | [`10.5281/zenodo.22999420`](https://doi.org/10.5281/zenodo.22999420) | [SSRN: 7641538](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538) • Hedef: Q1 Learning Technologies (Hakemde) • [Canlı Simülatör](https://pcworm.github.io/WerreduR/) | [`jesmaat/WerreduR`](https://github.com/jesmaat/WerreduR) (Mirror: [`pCwOrM/WerreduR`](https://github.com/pCwOrM/WerreduR)) |
-| **Paper 4: BH Page** | Black Hole Page Curve & Quantum Gravity (v5) | [`10.5281/zenodo.23072120`](https://doi.org/10.5281/zenodo.23072120) | [`10.5281/zenodo.22961999`](https://doi.org/10.5281/zenodo.22961999) | CERN Record 22978460 • Stabilizer Kodları | [`pCwOrM/mandelbrot-fractal-neural-synthesis`](https://github.com/pCwOrM/mandelbrot-fractal-neural-synthesis) |
+| **Paper 4: BH Page** | Black Hole Page Curve & Quantum Gravity (v5) | [`10.5281/zenodo.23072120`](https://doi.org/10.5281/zenodo.23072120) | [`10.5281/zenodo.22961999`](https://doi.org/10.5281/zenodo.22961999) | CERN Record 22978460 • Stabilizer Kodları | [`pCwOrM/fractal-neural-synthesis`](https://github.com/pCwOrM/fractal-neural-synthesis) |
 | **Paper 5: Formal** | Lean 4 40-Core Gauntlet (v2) | [`10.5281/zenodo.22983889`](https://doi.org/10.5281/zenodo.22983889) | [`10.5281/zenodo.22974543`](https://doi.org/10.5281/zenodo.22974543) | [`arXiv:2609.33066`](https://arxiv.org/abs/2609.33066) • [HF Paper](https://huggingface.co/papers/2609.33066) | [`pCwOrM/werr`](https://github.com/pCwOrM/werr) & [`werracle`](https://github.com/pCwOrM/werracle) |
 | **Paper 6: WerrSoma** | Drosophila Connectome (158K Nöron, v1.1) | [`10.5281/zenodo.23072929`](https://doi.org/10.5281/zenodo.23072929) | [`10.5281/zenodo.22996625`](https://doi.org/10.5281/zenodo.22996625) | `arXiv:submit/8161759` [on hold] • [3D Portal](https://werrsoma.answerr.me/) | [`Lexovian/WerrSoma`](https://github.com/Lexovian/WerrSoma) (Mirror: [`pCwOrM/WerrSoma`](https://github.com/pCwOrM/WerrSoma)) |
 | **Paper 7: Werracle** | Sub-Cent Intra-Block EVM AI Oracle (v1) | [`10.5281/zenodo.22942599`](https://doi.org/10.5281/zenodo.22942599) | [`10.5281/zenodo.22942598`](https://doi.org/10.5281/zenodo.22942598) | [`arXiv:2609.30719`](https://arxiv.org/abs/2609.30719) • [HF Paper](https://huggingface.co/papers/2609.30719) | [`pCwOrM/werracle`](https://github.com/pCwOrM/werracle) & [`werralem`](https://github.com/pCwOrM/werralem) |
