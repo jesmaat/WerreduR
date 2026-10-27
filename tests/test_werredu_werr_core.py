@@ -2,7 +2,7 @@
 tests/test_werredu_werr_core.py
 ===============================
 Comprehensive Unit & Invariant Test Suite for WerreduR v1.0
-Verifying WERR v0.5.1 Core Integration, GAP-0331 Modular Algebra,
+Verifying WERR v0.5.2 Core Integration, GAP-0331 Modular Algebra,
 and Procedural Fractal Pedagogy (PFP) Operators.
 """
 
@@ -44,13 +44,13 @@ from werr.pedagogy import (
 
 
 class TestWerrCoreEngine(unittest.TestCase):
-    """Verifies that WERR core engine runs with 0 VRAM and expected v0.5.1 properties."""
+    """Verifies that WERR core engine runs with 0 VRAM and expected v0.5.2 properties."""
 
     def setUp(self):
         self.engine = WerrEngine()
 
     def test_engine_version(self):
-        self.assertEqual(werr.__version__, "0.5.1")
+        self.assertEqual(werr.__version__, "0.5.2")
 
     def test_choice_evaluation(self):
         state = {"topic": "Educational Complexity", "boundary_mode": "Observer Horizon"}

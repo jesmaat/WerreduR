@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.2] - 2026-10-27
+### Changed
+- Synchronized core `werr` decision kernel with official v0.5.2 PyPI release (`werrio`).
+- Verified Procedural Fractal Pedagogy (PFP) `LearningGate` tripod boundary parameters and deterministic invariants under 0 Byte VRAM allocation.
+
 ## [2.1.1] - 2026-10-21
 
 ### Approved & Released: SSRN Open-Science Working Paper

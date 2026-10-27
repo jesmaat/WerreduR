@@ -56,7 +56,7 @@ from werr.pedagogy import (
     MAX_ITER,
 )
 
-__version__ = "0.5.1"
+__version__ = "0.5.2"
 __all__ = [
     "WerrEngine",
     "WevvEngine",
