@@ -35,6 +35,7 @@ from werr.pedagogy import (
     TAMAMeAssessmentComplementarity,
     tripod_harmonic_evaluation,
     mandelbrot_escape_velocity,
+    polynomial_escape_velocity,
     compute_boundary_dispersion,
     X_UPPER,
     X_LOWER,
@@ -147,6 +148,13 @@ class TestPFPPedagogicalOperators(unittest.TestCase):
         self.assertGreaterEqual(res["dark_ratio"], 0.0)
         self.assertLessEqual(res["dark_ratio"], 1.0)
         self.assertLess(res["latency_ms"], 10.0)  # Sub-10ms edge execution
+
+    def test_polynomial_escape_velocity_alias(self):
+        """Verifies literature-compliant alias polynomial_escape_velocity."""
+        self.assertIs(polynomial_escape_velocity, mandelbrot_escape_velocity)
+        step, mag = polynomial_escape_velocity(complex(0.5, 0.5), max_iter=36)
+        self.assertLessEqual(step, 36)
+        self.assertGreater(mag, 2.0)
 
     def test_tamame_complementarity(self):
         b, s = TAMAMeAssessmentComplementarity.evaluate(0.68)

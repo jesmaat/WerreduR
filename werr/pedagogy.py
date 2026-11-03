@@ -8,8 +8,9 @@ via Zero-Storage Mandelbrot Boundary Reflexes (arXiv:2609.25498, TR 2026/016285)
 Companion Open-Science Corpus:
 - WERR v2.0 Decision Map: arXiv:2609.25498 | doi:10.5281/zenodo.22939253
 - Orbital Error Dynamics (OED): arXiv:2609.30115 | doi:10.5281/zenodo.22896856
-- Zenodo Record (v3.0): https://doi.org/10.5281/zenodo.23034488
+- Zenodo Record (v3.0): https://doi.org/10.5281/zenodo.23128224 (v4.0)
 - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.22999420
+- SSRN Approved Paper: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7641538
 - GitHub: https://github.com/jesmaat/WerreduR
 """
 
@@ -61,7 +62,8 @@ def compute_fixed_point_multiplier(c: complex) -> complex:
 
 def mandelbrot_escape_velocity(c: complex, max_iter: int = MAX_ITER) -> Tuple[int, float]:
     """
-    Evaluates quadratic escape recurrence z_{n+1} = z_n^2 + c from z_0 = 0.
+    Evaluates quadratic polynomial escape recurrence z_{n+1} = z_n^2 + c from z_0 = 0.
+    Under complex polynomial dynamics, points with |z_n| > 2 escape to infinity.
     Returns (escape_step, final_magnitude).
     """
     z = 0.0 + 0.0j
@@ -71,6 +73,9 @@ def mandelbrot_escape_velocity(c: complex, max_iter: int = MAX_ITER) -> Tuple[in
         if mag > 2.0:
             return n, mag
     return max_iter, abs(z)
+
+# Literature-compliant alias for quadratic complex polynomial escape dynamics
+polynomial_escape_velocity = mandelbrot_escape_velocity
 
 
 def tripod_harmonic_evaluation(c_base: complex, zoom: float = 1.0, max_iter: int = MAX_ITER) -> Dict[str, float]:

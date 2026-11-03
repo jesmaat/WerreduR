@@ -101,7 +101,7 @@ In accordance with the highest standards of scientific cumulative progression an
   *Script:* `sim/rasch_fair_benchmark.py` • *Artifact:* `data/edu_revision/rasch_students.csv`, `rasch_grid.csv`.
 
 * **Epoch 3: Multi-Tier Mandelbrot Ablation Hierarchy & Static Offset Control (`data/edu_revision/r_ablation_contrasts.csv`)**  
-  *Research Milestone:* Rigorous component ablation isolating the local Mandelbrot escape dynamics ($H_{\text{macro}}$) from static difficulty offsets ($\Delta b_{\text{static}} \approx -0.42\text{ logit}$). Definitively proved the *null hypothesis of the fractal surface*: local escape geometry acts as a static task-easing offset, while the true pedagogical breakthrough resides in the $O(1)$ zero-storage servo targeting maximal Shannon entropy.  
+  *Research Milestone:* Rigorous component ablation isolating the local polynomial escape dynamics ($H_{\text{macro}}$) from static difficulty offsets ($\Delta b_{\text{static}} \approx -0.42\text{ logit}$). Definitively proved the *null hypothesis of the fractal surface*: local boundary polynomial escape geometry acts as a static task-easing offset, while the true pedagogical breakthrough resides in the $O(1)$ zero-storage servo targeting maximal Shannon entropy.  
   *Scripts:* `sim/rasch_ablation_mandelbrot.py`, `sim/rasch_offset_control.py`, `sim/rasch_pfp2d_protocol.py` • *Artifact:* `data/edu_revision/r_ablation_contrasts.csv`, `rasch_offset_students.csv`.
 
 * **Epoch 4: Cross-Platform Hardware Profiling & Machine Verification**  
