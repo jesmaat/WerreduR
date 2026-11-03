@@ -119,7 +119,7 @@ This study isolates and benchmarks **`LearningGate`**, an estimation-free adapti
                                            ▼
                     ┌──────────────────────────────────────────────┐
                     │        WERR Multi-Scale Tripod Kernel        │
-                    │  Procedural fractal sub-boundary escape ratios (q)   │
+                    │  Sub-boundary polynomial escape ratios (q)   │
                     │        Evaluated at 0.60x, 1.00x, 1.60x      │
                     └──────────────────────┬───────────────────────┘
                                            │
@@ -246,10 +246,8 @@ WerreduR/
 │
 ├── releases/                                    # 📦 Dağıtım Paketleri ve İndirmeler
 │   ├── Supplementary_Code_and_Data_v2.zip       # Q1 eksiksiz replikasyon arşivi (7.4 MB)
-│   ├── arxiv_submission_pfp_v4.zip              # Track 2: arXiv v4.0 TeX/PNG paketi
-│   └── Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf # Track 2: Kamera hazır önbaskı PDF
-│
-├── arxiv_pfp_v4/                                # 📄 Track 2: Açık TeX & BibTeX Kaynakları
+│   ├── Procedural_Fractal_Pedagogy_SSRN_Preprint.pdf # Track 2: SSRN onaylı önbaskı PDF (ID: 7641538)
+│   └── Procedural_Fractal_Pedagogy_Seed_Paper_v1.pdf # Track 2: Zenodo açık bilim önbaskı PDF
 │
 └── legacy/                                      # 🏛️ Track 3: Önceki Yayınların Tüm Arşiv Verileri
     ├── lean4/PFP_HorizonProof.lean              # Lean 4 Biçimsel Doğrulama (7 teorem, 0 sorry)
